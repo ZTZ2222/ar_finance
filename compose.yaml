@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pozitiv:
+    image: tilzam/ar_finance:latest
+    container_name: ar_finance_container
+    ports:
+      - "3000:3000"  # Map port 80 on the host to port 80 in the container
+    environment:
+      - DATABASE_URL=postgres://postgres:adminadmin@0.0.0.0:5432/db  # Example environment variable, add your required ones
+    restart: always  # Always restart the container if it stops

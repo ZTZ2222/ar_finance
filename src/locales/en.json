@@ -1,0 +1,18 @@
+{
+  "Meta": {
+    "title": "AR Finance",
+    "description": "Best finance for your business."
+  },
+  "Components": {
+    "Header": {
+      "key": "value"
+    }
+  },
+  "Pages": {
+    "Page404": {
+      "title": "404",
+      "description": "Sorry, the page you were looking doesn't exist.",
+      "link": "Back to homepage"
+    }
+  }
+}

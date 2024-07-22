@@ -1,0 +1,18 @@
+{
+  "Meta": {
+    "title": "AR Finance",
+    "description": "Сиздин бизнесиңиз үчүн мыкты каржылоо."
+  },
+  "Components": {
+    "Header": {
+      "key": "value"
+    }
+  },
+  "Pages": {
+    "Page404": {
+      "title": "404",
+      "description": "Кечиресиз, сиз издеген баракча жок.",
+      "link": "Башкы бетке кайтуу"
+    }
+  }
+}
