@@ -5,7 +5,7 @@ import { getLocale, getMessages, getTranslations } from "next-intl/server"
 import { AuthProvider } from "@/lib/auth/provider/auth"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "sonner"
 import "@/styles/globals.css"
 
 const fontSans = FontSans({
@@ -46,7 +46,7 @@ export default async function LocaleLayout({
         <AuthProvider>
           <NextIntlClientProvider locale={params.locale} messages={messages}>
             {children}
-            <Toaster />
+            <Toaster richColors />
           </NextIntlClientProvider>
         </AuthProvider>
       </body>
