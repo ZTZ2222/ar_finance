@@ -4,8 +4,14 @@
     "description": "Лучшее финансирование для вашего бизнеса."
   },
   "Components": {
-    "Header": {
-      "key": "value"
+    "FormLogin": {
+      "title": "Вход",
+      "description": "Введите ваш email и пароль ниже, чтобы войти в ваш аккаунт",
+      "label-email": "Электронная почта",
+      "label-password": "Пароль",
+      "submit-button": "Войти",
+      "toast-error": "Неправильный email или пароль. Пожалуйста, попробуйте снова.",
+      "toast-success": "Вы успешно вошли в систему. Добро пожаловать обратно!"
     }
   },
   "Pages": {
