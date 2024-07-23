@@ -21,17 +21,18 @@ export const {
       async authorize(credentials) {
         try {
           if (
-            credentials?.email === "admin@mail.com" &&
-            credentials?.password === "admin"
+            credentials?.email !== "admin@mail.com" ||
+            credentials?.password !== "admin"
           ) {
-            return {
-              id: "admin",
-              email: "admin@mail.com",
-              role: "ADMIN",
-            }
+            return null
           }
-          return null
+          return {
+            id: "admin",
+            email: "admin@mail.com",
+            role: "ADMIN",
+          }
         } catch (error) {
+          console.error("Authorize error:", error)
           return null
         }
       },
@@ -39,23 +40,16 @@ export const {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (!token.sub) {
-        return token
+      if (user) {
+        token.role = user.role
       }
-      token.role = user.role
       return token
     },
     async session({ session, token }) {
       if (token) {
-        if (token.sub && session.user) {
-          session.user.id = token.sub
-        }
-
-        if (token.role && session.user) {
-          session.user.role = token.role
-        }
+        session.user.id = token.sub as string
+        session.user.role = token.role
       }
-
       return session
     },
   },
