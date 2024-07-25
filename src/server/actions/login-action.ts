@@ -2,7 +2,7 @@
 
 import { credentialsSchema } from "@/types/auth.schema"
 import { actionClient } from "./safe-action"
-import { signIn } from "@/lib/auth"
+import { signIn } from "@/server/auth"
 import { AuthError } from "next-auth"
 
 export const loginUser = actionClient
