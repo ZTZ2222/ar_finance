@@ -1,16 +1,16 @@
 import { redirect } from "next/navigation"
-import { Session } from "next-auth"
-import { auth } from "@/lib/auth"
+import { getCurrentUser } from "@/lib/session"
+import { SidebarAdmin } from "@/components/layout/sidebar-admin"
 
 export default async function ProtectedLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = (await auth()) as Session
-  if (!session) {
+  const user = await getCurrentUser()
+  if (!user) {
     redirect("/login")
   }
 
-  return <div className="w-full">{children}</div>
+  return <SidebarAdmin>{children}</SidebarAdmin>
 }

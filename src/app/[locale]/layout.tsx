@@ -2,12 +2,12 @@ import { Inter as FontSans } from "next/font/google"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider } from "next-intl"
 import { getLocale, getMessages, getTranslations } from "next-intl/server"
-import { AuthProvider } from "@/context/auth-provider"
+import { Toaster } from "sonner"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
-import { Toaster } from "sonner"
-import "@/styles/globals.css"
+import { AuthProvider } from "@/context/auth-provider"
 import { ThemeProvider } from "@/context/theme-provider"
+import "@/styles/globals.css"
 
 const fontSans = FontSans({
   subsets: ["latin"],
