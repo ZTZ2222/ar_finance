@@ -1,7 +1,13 @@
 import React from "react"
 import FormLogin from "./_components/form-login"
+import { auth } from "@/server/auth"
+import { redirect } from "@/lib/i18n-navigation"
 
-export default function Login() {
+export default async function Login() {
+  const session = await auth()
+  if (session?.user) {
+    redirect("/dashboard")
+  }
   return (
     <div className="grid h-screen w-full place-content-center">
       <div className="h-[542px]">
