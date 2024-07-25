@@ -2,11 +2,12 @@ import { Inter as FontSans } from "next/font/google"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider } from "next-intl"
 import { getLocale, getMessages, getTranslations } from "next-intl/server"
-import { AuthProvider } from "@/lib/auth/provider/auth"
+import { AuthProvider } from "@/context/auth-provider"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { Toaster } from "sonner"
 import "@/styles/globals.css"
+import { ThemeProvider } from "@/context/theme-provider"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export default async function LocaleLayout({
   const messages = await getMessages()
   if (!AllLocales.includes(params.locale)) notFound()
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen scroll-smooth bg-background font-sans antialiased",
@@ -44,10 +45,17 @@ export default async function LocaleLayout({
         )}
       >
         <AuthProvider>
-          <NextIntlClientProvider locale={params.locale} messages={messages}>
-            {children}
-            <Toaster richColors />
-          </NextIntlClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextIntlClientProvider locale={params.locale} messages={messages}>
+              {children}
+              <Toaster richColors />
+            </NextIntlClientProvider>
+          </ThemeProvider>
         </AuthProvider>
       </body>
     </html>

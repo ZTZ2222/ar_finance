@@ -1,4 +1,4 @@
-import { auth as authMiddleware } from "@/lib/auth"
+import { auth as authMiddleware } from "@/server/auth"
 import createMiddleware from "next-intl/middleware"
 import { AllLocales, AppConfig } from "./lib/i18n"
 
