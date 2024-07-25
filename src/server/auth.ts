@@ -1,5 +1,7 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { db } from "@/server"
 
 export const {
   handlers: { GET, POST },
@@ -11,6 +13,7 @@ export const {
   pages: {
     signIn: "/login",
   },
+  // adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
   providers: [
     Credentials({
