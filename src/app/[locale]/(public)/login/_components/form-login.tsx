@@ -17,14 +17,15 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
 import { credentialsSchema, zCredentials } from "@/types/auth.schema"
-import FormError from "./form-error"
-import FormSuccess from "./form-success"
+import FormError from "@/components/forms/form-error"
+import FormSuccess from "@/components/forms/form-success"
 import { useAction } from "next-safe-action/hooks"
-import { loginUser } from "@/actions/login-action"
+import { loginUser } from "@/server/actions/login-action"
 
 export default function FormLogin() {
   const t = useTranslations("Components.FormLogin")
@@ -75,6 +76,7 @@ export default function FormLogin() {
                       {...field}
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -87,6 +89,7 @@ export default function FormLogin() {
                   <FormControl>
                     <Input placeholder="********" type="password" {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />

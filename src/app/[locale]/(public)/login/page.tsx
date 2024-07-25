@@ -1,5 +1,5 @@
 import React from "react"
-import FormLogin from "@/components/forms/form-login"
+import FormLogin from "./_components/form-login"
 
 export default function Login() {
   return (
