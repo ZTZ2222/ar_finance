@@ -12,6 +12,16 @@
       "submit-button": "Login",
       "toast-error": "Invalid email or password. Please try again.",
       "toast-success": "You have successfully logged in. Welcome back!"
+    },
+    "FormUser": {
+      "toast-success": "You have successfully created a new user.",
+      "toast-error": "There was an error creating the user. Please try again."
+    },
+    "ModeToggle": {
+      "sr-label": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     }
   },
   "Pages": {
