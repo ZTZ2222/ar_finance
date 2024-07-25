@@ -1,16 +1,17 @@
 "use client"
+
 import React, { useState } from "react"
-import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar"
-import { SquareTerminal, Users, Settings, ArrowLeft } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
+import { Settings, SquareTerminal, Users } from "lucide-react"
 import { useSession } from "next-auth/react"
+import { cn } from "@/lib/utils"
+import LogoutButton from "@/components/ui/logout-button"
+import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar"
 
 export function SidebarAdmin({ children }: { children: React.ReactNode }) {
   const session = useSession()
-  console.log(session)
 
   const links = [
     {
@@ -34,15 +35,9 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
         <Settings className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-    {
-      label: "Logout",
-      href: "/login",
-      icon: (
-        <ArrowLeft className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
   ]
   const [open, setOpen] = useState(false)
+
   return (
     <div
       className={cn(
@@ -59,15 +54,14 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
+              <LogoutButton />
             </div>
           </div>
           <div>
             <SidebarLink
               link={{
                 label:
-                  session.data?.user?.user?.name ||
-                  session.data?.user?.user?.email ||
-                  "User",
+                  session.data?.user.name || session.data?.user.email || "User",
                 href: "#",
                 icon: (
                   <Image

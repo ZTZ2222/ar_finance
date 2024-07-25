@@ -1,9 +1,9 @@
 "use client"
 
+import React from "react"
+import { useSearchParams } from "next/navigation"
 import { usePathname } from "@/lib/i18n-navigation"
 import { generatePagination } from "@/lib/utils"
-import { useSearchParams } from "next/navigation"
-import React from "react"
 import {
   Pagination,
   PaginationContent,
