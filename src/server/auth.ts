@@ -2,6 +2,9 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "@/server"
+import { getUserByEmail, getUserById } from "@/server/actions/user-action"
+import { comparePassword } from "@/lib/utils"
+import { credentialsSchema } from "@/types/auth.schema"
 
 export const {
   handlers: { GET, POST },
@@ -13,7 +16,7 @@ export const {
   pages: {
     signIn: "/login",
   },
-  // adapter: PrismaAdapter(db),
+  adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
   providers: [
     Credentials({
@@ -23,17 +26,16 @@ export const {
       },
       async authorize(credentials) {
         try {
-          if (
-            credentials?.email !== "admin@mail.com" ||
-            credentials?.password !== "admin"
-          ) {
-            return null
-          }
-          return {
-            id: "admin",
-            email: "admin@mail.com",
-            role: "ADMIN",
-          }
+          const { email, password } =
+            await credentialsSchema.parseAsync(credentials)
+
+          const user = await getUserByEmail(email)
+          if (!user || !user?.password) return null
+          const passwordMatch = await comparePassword(password, user?.password)
+
+          if (!passwordMatch) return null
+
+          return user
         } catch (error) {
           console.error("Authorize error:", error)
           return null
@@ -42,17 +44,38 @@ export const {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role
-      }
+    async jwt({ token }) {
+      if (!token.sub) return token
+
+      const dbUser = await getUserById(token.sub)
+
+      if (!dbUser) return token
+
+      token.name = dbUser.name
+      token.email = dbUser.email
+      token.picture = dbUser.image
+      token.role = dbUser.role
+
       return token
     },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.sub as string
-        session.user.role = token.role
+    async session({ token, session }) {
+      if (session.user) {
+        if (token.sub) {
+          session.user.id = token.sub
+        }
+
+        if (token.email) {
+          session.user.email = token.email
+        }
+
+        if (token.role) {
+          session.user.role = token.role
+        }
+
+        session.user.name = token.name
+        session.user.image = token.picture
       }
+
       return session
     },
   },

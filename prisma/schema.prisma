@@ -26,12 +26,14 @@ model User {
   email         String          @unique
   emailVerified DateTime?
   image         String?
-  role          Role
+  role          Role            @default(USER)
   password      String?
   accounts      Account[]
  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
 }
 
 model Account {
@@ -44,13 +46,15 @@ model Account {
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?
+  id_token          String? @db.Text
   session_state     String?
  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
  
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
-  @@id([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("accounts")
 }

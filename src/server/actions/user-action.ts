@@ -5,22 +5,22 @@ import { revalidatePath } from "next/cache"
 import { db } from "@/server"
 import { actionClient } from "./safe-action"
 import { userCreateSchema } from "@/types/user.schema"
-import bcrypt from "bcrypt"
+import { saltAndHashPassword } from "@/lib/utils"
 
 export const createUser = actionClient
   .schema(userCreateSchema)
   .action(async ({ parsedInput }) => {
     const { email, password, confirmPassword, ...rest } = parsedInput
-    const existingUser = await db.user.findFirst({
-      where: { email },
-    })
+    const normalizedEmail = email.toLowerCase()
+
+    const existingUser = await getUserByEmail(normalizedEmail)
     if (existingUser) return { error: "User already exists!" }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await saltAndHashPassword(password)
     await db.user.create({
       data: {
         ...rest,
-        email,
+        email: normalizedEmail,
         password: hashedPassword,
       },
     })
@@ -32,3 +32,25 @@ export const createUser = actionClient
 
     return { success: "User created!" }
   })
+
+export const getUserByEmail = async (email: string) => {
+  try {
+    const user = await db.user.findUnique({
+      where: { email: email.toLowerCase() },
+    })
+    return user
+  } catch (error) {
+    return null
+  }
+}
+
+export const getUserById = async (id: string) => {
+  try {
+    const user = await db.user.findUnique({
+      where: { id },
+    })
+    return user
+  } catch (error) {
+    return null
+  }
+}
