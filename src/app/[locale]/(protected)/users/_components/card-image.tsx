@@ -21,11 +21,20 @@ type Props = {
 
 export default function CardImage({ field, existingImage }: Props) {
   const [image, setImage] = useState<File | string | undefined>(existingImage)
-  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const newImage = event.target.files[0]
       setImage(newImage)
-      field.onChange("/assets/avatar/man.png")
+      const formData = new FormData()
+      formData.append("file", newImage)
+      const imageUrl = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      })
+        .then(res => res.json())
+        .then(res => res.url)
+
+      field.onChange(imageUrl)
     }
   }
   return (
