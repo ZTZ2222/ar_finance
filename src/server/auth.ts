@@ -1,9 +1,12 @@
+import { PrismaAdapter } from "@auth/prisma-adapter"
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import { PrismaAdapter } from "@auth/prisma-adapter"
-import { db } from "@/server"
-import { getUserByEmail, getUserById } from "@/server/actions/user-action"
 import { comparePassword } from "@/lib/utils"
+import { db } from "@/server"
+import {
+  getUserByEmailDanger,
+  getUserByIdPasswordOmit,
+} from "@/server/actions/user-action"
 import { credentialsSchema } from "@/types/auth.schema"
 
 export const {
@@ -29,7 +32,7 @@ export const {
           const { email, password } =
             await credentialsSchema.parseAsync(credentials)
 
-          const user = await getUserByEmail(email)
+          const user = await getUserByEmailDanger(email)
           if (!user || !user?.password) return null
           const passwordMatch = await comparePassword(password, user?.password)
 
@@ -47,7 +50,7 @@ export const {
     async jwt({ token }) {
       if (!token.sub) return token
 
-      const dbUser = await getUserById(token.sub)
+      const dbUser = await getUserByIdPasswordOmit(token.sub)
 
       if (!dbUser) return token
 

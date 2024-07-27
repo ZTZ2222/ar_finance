@@ -1,11 +1,11 @@
 "use server"
 
-import { redirect } from "@/lib/i18n-navigation"
 import { revalidatePath } from "next/cache"
-import { db } from "@/server"
-import { actionClient } from "./safe-action"
-import { userCreateSchema } from "@/types/user.schema"
+import { redirect } from "@/lib/i18n-navigation"
 import { saltAndHashPassword } from "@/lib/utils"
+import { db } from "@/server"
+import { userCreateSchema } from "@/types/user.schema"
+import { actionClient } from "./safe-action"
 
 export const createUser = actionClient
   .schema(userCreateSchema)
@@ -13,7 +13,7 @@ export const createUser = actionClient
     const { email, password, confirmPassword, ...rest } = parsedInput
     const normalizedEmail = email.toLowerCase()
 
-    const existingUser = await getUserByEmail(normalizedEmail)
+    const existingUser = await getUserByEmailDanger(normalizedEmail)
     if (existingUser) return { error: "User already exists!" }
 
     const hashedPassword = await saltAndHashPassword(password)
@@ -33,10 +33,46 @@ export const createUser = actionClient
     return { success: "User created!" }
   })
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmailPasswordOmit = async (email: string) => {
   try {
     const user = await db.user.findUnique({
-      where: { email: email.toLowerCase() },
+      where: { email: email?.toLowerCase() },
+      omit: {
+        password: true,
+      },
+    })
+
+    if (!user) {
+      return null
+    }
+    return user
+  } catch (error) {
+    return null
+  }
+}
+
+export const getUserByEmailDanger = async (email: string) => {
+  try {
+    const user = await db.user.findUnique({
+      where: { email: email?.toLowerCase() },
+    })
+
+    if (!user) {
+      return null
+    }
+    return user
+  } catch (error) {
+    return null
+  }
+}
+
+export const getUserByIdPasswordOmit = async (id: string) => {
+  try {
+    const user = await db.user.findUnique({
+      where: { id },
+      omit: {
+        password: true,
+      },
     })
     return user
   } catch (error) {
@@ -44,7 +80,7 @@ export const getUserByEmail = async (email: string) => {
   }
 }
 
-export const getUserById = async (id: string) => {
+export const getUserByIdDanger = async (id: string) => {
   try {
     const user = await db.user.findUnique({
       where: { id },

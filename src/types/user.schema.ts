@@ -6,14 +6,14 @@ const passwordMatchRefinement = {
 }
 
 const userBaseSchema = z.object({
-  name: z.string().optional(),
+  name: z.string().optional().nullable(),
   email: z.string().email({ message: "Некорректная почта" }),
   password: z.string().min(1, { message: "Пароль не может быть пустым" }),
   confirmPassword: z
     .string()
     .min(1, { message: "Пароль не может быть пустым" }),
-  emailVerified: z.date().optional(),
-  image: z.string().optional(),
+  emailVerified: z.date().optional().nullable(),
+  image: z.string().optional().nullable(),
   role: z.enum(["USER", "ADMIN", "MANAGER"]),
 })
 
