@@ -1,9 +1,10 @@
 "use client"
-import { cn } from "@/lib/utils"
+
+import React, { createContext, useContext, useState } from "react"
 import Link, { LinkProps } from "next/link"
-import React, { useState, createContext, useContext } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { AlignJustify, X } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface Links {
   label: string
@@ -162,7 +163,7 @@ export const SidebarLink = ({
   className?: string
   props?: LinkProps
 }) => {
-  const { open, animate } = useSidebar()
+  const { open, animate, setOpen } = useSidebar()
   return (
     <Link
       href={link.href}
@@ -170,6 +171,7 @@ export const SidebarLink = ({
         "group/sidebar flex items-center justify-start gap-3 py-2",
         className,
       )}
+      onClick={() => setOpen(false)}
       {...props}
     >
       {link.icon}
