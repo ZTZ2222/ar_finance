@@ -1,6 +1,7 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
 import bcrypt from "bcryptjs"
+import { type ClassValue, clsx } from "clsx"
+import path from "path"
+import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -54,4 +55,11 @@ export const comparePassword = async (
 ) => {
   const isMatch = await bcrypt.compare(password, hashedPassword)
   return isMatch
+}
+
+export const generateFilename = (originalName: string): string => {
+  const timestamp = Date.now()
+  const randomString = Math.random().toString(36).substring(2, 15)
+  const extension = path.extname(originalName)
+  return `${timestamp}-${randomString}${extension}`
 }
