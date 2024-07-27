@@ -45,7 +45,7 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
         "h-screen", // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
-      <Sidebar open={open} setOpen={setOpen} animate={false}>
+      <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-1 flex-col overflow-y-auto">
             {/* {open ? <Logo /> : <LogoIcon />} */}
