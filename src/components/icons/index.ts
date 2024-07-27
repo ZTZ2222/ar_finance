@@ -1,1 +1,11 @@
-export { default as ChromeIcon } from "./chrome-icon";
+export { default as ChromeIcon } from "./chrome-icon"
+export { default as WhatsApp } from "./whatsapp"
+export { default as BurgerMenu } from "./burger-menu"
+export { default as Lines } from "./lines"
+export { default as Calculator } from "./calculator"
+export { default as BgLogo } from "./bg-logo"
+export { default as WhatsAppWhite } from "./whatsapp-white"
+export { default as Instagram } from "./instagram"
+export { default as Facebook } from "./facebook"
+export { default as Telegram } from "./telegram"
+export { default as TikTok } from "./tiktok"
