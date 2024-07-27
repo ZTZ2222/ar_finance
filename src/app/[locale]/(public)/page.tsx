@@ -1,10 +1,9 @@
-import Link from "next/link"
+import Hero from "@/components/sections/hero"
 
 export default function Home() {
   return (
-    <main className="container">
-      <h1 className="my-10 text-center text-3xl font-bold">Home Page</h1>
-      <Link href="/login">Login</Link>
+    <main>
+      <Hero />
     </main>
   )
 }
