@@ -63,6 +63,7 @@ const config = {
         },
         "rose-750": "#B40732",
         "gray-350": "#E0E0E0",
+        "gray-650": "#5C5C5C",
       },
       borderRadius: {
         lg: "calc(var(--radius) + 2px)",
