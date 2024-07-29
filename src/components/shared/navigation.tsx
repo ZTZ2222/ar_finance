@@ -67,7 +67,7 @@ export default function Navigation() {
             <Calculator />
           </Button>
         </SheetFooter>
-        <BgLogo className="mt-5 size-[224px] w-full self-center opacity-20" />
+        <BgLogo className="mt-5 size-[224px] w-full self-center" />
       </SheetContent>
     </Sheet>
   )
