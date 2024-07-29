@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Lines } from "@/components/icons"
 import Navigation from "@/components/shared/navigation"
 
-export default function Hero() {
+export default async function Hero() {
   return (
     <div
       className="container relative flex h-screen flex-col"

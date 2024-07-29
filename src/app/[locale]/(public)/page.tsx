@@ -1,4 +1,5 @@
 import AboutUs from "@/components/sections/about-us"
+import CTA from "@/components/sections/cta"
 import Hero from "@/components/sections/hero"
 import WhyUs from "@/components/sections/why-us"
 
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <WhyUs />
+      <CTA />
     </main>
   )
 }
