@@ -17,7 +17,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        core: "bg-rose-750 text-white hover:bg-rose-750/80 text-base font-semibold",
+        core: "bg-rose-750 text-white hover:bg-rose-750/80 text-base font-semibold leading-5",
         support:
           "bg-white/80 font-semibold border border-rose-750/60 text-black",
       },

@@ -1,4 +1,5 @@
 import AboutUs from "@/components/sections/about-us"
+import CalculatorSection from "@/components/sections/calculator-section"
 import CTA from "@/components/sections/cta"
 import Hero from "@/components/sections/hero"
 import OurServices from "@/components/sections/our-services"
@@ -14,6 +15,7 @@ export default function Home() {
       <CTA />
       <OurServices />
       <Plans />
+      <CalculatorSection />
     </main>
   )
 }
