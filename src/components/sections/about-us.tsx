@@ -9,31 +9,31 @@ export default async function AboutUs() {
   const images = [
     {
       id: "1",
-      src: "/about/image1.jpg",
+      src: "/assets/about/image1.jpg",
       height: 234,
       width: 159,
     },
     {
       id: "2",
-      src: "/about/image2.jpg",
+      src: "/assets/about/image2.jpg",
       height: 155,
       width: 156,
     },
     {
       id: "3",
-      src: "/about/image3.jpg",
+      src: "/assets/about/image3.jpg",
       height: 124,
       width: 189,
     },
     {
       id: "4",
-      src: "/about/image4.jpg",
+      src: "/assets/about/image4.jpg",
       height: 232,
       width: 158,
     },
     {
       id: "5",
-      src: "/about/image5.jpg",
+      src: "/assets/about/image5.jpg",
       height: 126,
       width: 186,
     },
