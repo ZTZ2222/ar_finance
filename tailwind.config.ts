@@ -65,6 +65,9 @@ const config = {
         "gray-350": "#E0E0E0",
         "gray-650": "#5C5C5C",
       },
+      boxShadow: {
+        card: "0px 1px 4px 0px rgba(12, 12, 13, 0.1)",
+      },
       borderRadius: {
         lg: "calc(var(--radius) + 2px)",
         md: "var(--radius) ",

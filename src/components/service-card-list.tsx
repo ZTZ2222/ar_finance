@@ -210,7 +210,7 @@ export default async function ServiceCardList({ className }: Props) {
       {services.map(service => (
         <div
           key={service.id}
-          className="space-y-5 rounded-[30px] bg-white px-6 py-10 shadow-[0px_1px_4px_0px_#0C0C0D1A]"
+          className="space-y-5 rounded-[30px] bg-white px-6 py-10 shadow-card"
         >
           {/* Icon */}
           <div className="relative size-9">
@@ -260,6 +260,7 @@ export default async function ServiceCardList({ className }: Props) {
                   alt={service.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 

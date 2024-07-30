@@ -34,7 +34,7 @@ export default async function WhyUs() {
         {advantages.map(item => (
           <div
             key={item.id}
-            className="space-y-7 rounded-[30px] bg-white p-[30px] text-center shadow-[0px_1px_4px_0px_#0C0C0D1A]"
+            className="space-y-7 rounded-[30px] bg-white p-[30px] text-center shadow-card"
           >
             <h4 className="text-lg font-bold leading-5 text-black">
               {item.title}
