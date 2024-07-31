@@ -41,7 +41,7 @@ export default async function OurTeam() {
       </div>
       <div className="flex flex-col gap-16">
         {team.map(person => (
-          <div className="flex flex-col items-center gap-5">
+          <div key={person.id} className="flex flex-col items-center gap-5">
             {/* Team person image */}
             <div className="relative size-40 overflow-hidden rounded-full">
               <Image

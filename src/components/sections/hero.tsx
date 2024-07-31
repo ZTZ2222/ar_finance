@@ -46,7 +46,7 @@ export default async function Hero() {
             бухгалтерский учет
           </p>
         </div>
-        <Button variant="core" size="mobile">
+        <Button variant="core" size="mobile" className="xl:max-w-[194px]">
           Оставить заявку
         </Button>
       </section>

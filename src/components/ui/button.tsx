@@ -26,7 +26,7 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
-        mobile: "w-full py-[18px] xl:px-[30px] rounded-lg xl:w-fit",
+        mobile: "w-full py-[18px] rounded-lg",
         menu: "p-4",
       },
     },

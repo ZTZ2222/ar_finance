@@ -35,7 +35,7 @@ export default function LocaleSwitcher({
         <Button
           variant="support"
           size="mobile"
-          className={cn("gap-2", className)}
+          className={cn("w-fit gap-2 px-[30px]", className)}
         >
           <span>{locale.toLocaleUpperCase()}</span>
           <ArrowDownRight className="size-5" />
