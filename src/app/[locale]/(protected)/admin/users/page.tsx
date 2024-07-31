@@ -1,7 +1,7 @@
 import React, { Suspense } from "react"
 import Link from "next/link"
 import { PlusCircle } from "lucide-react"
-import SkeletonUserTable from "@/app/[locale]/(protected)/users/_components/skeleton-user-table"
+import SkeletonUserTable from "@/app/[locale]/(protected)/admin/users/_components/skeleton-user-table"
 import { Button } from "@/components/ui/button"
 import Search from "@/components/ui/search"
 import PaginationComponent from "@/components/layout/pagination-component"
