@@ -62,13 +62,16 @@ export default function Calculator() {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="rounded-[30px] bg-white shadow-card">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="xl:col-span-2 xl:w-full"
+      >
+        <Card className="rounded-[30px] bg-white shadow-card xl:flex xl:w-full xl:gap-20 xl:px-[40px] xl:py-[50px]">
           <CardHeader className="sr-only">
             <CardTitle>Калькулятор</CardTitle>
             <CardDescription>Калькулятор</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-[30px] px-4 pb-10 pt-[50px]">
+          <CardContent className="space-y-[30px] px-4 pb-10 pt-[50px] xl:w-full xl:p-0">
             {/* Форма собственности */}
             <FormField
               control={form.control}
@@ -159,12 +162,13 @@ export default function Calculator() {
               )}
             />
           </CardContent>
-          <CardFooter className="flex-col gap-[50px] p-2.5 pb-[50px] pt-0">
+          <CardFooter className="flex-col gap-[50px] p-2.5 pb-[50px] pt-0 xl:shrink-0 xl:p-0">
+            {/* Кнопки */}
             <FormField
               control={form.control}
               name="numberOfMonths"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="xl:w-full">
                   <FormControl>
                     <ButtonGroup onValueChange={field.onChange}>
                       <FormControl>
@@ -194,7 +198,7 @@ export default function Calculator() {
               )}
             />
             {totalCost && month ? (
-              <div className="space-y-[50px]">
+              <div className="flex flex-col gap-[50px] xl:h-full xl:max-w-[373px] xl:justify-between">
                 <div className="flex flex-col items-center gap-5 text-center">
                   <h5 className="text-lg font-medium leading-[27px] text-gray-650">
                     Стоимость бухгалтерского обслуживания за{" "}
@@ -213,7 +217,7 @@ export default function Calculator() {
                 </Button>
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-5 text-center">
+              <div className="flex flex-col items-center gap-5 text-center xl:mt-auto xl:max-w-[373px]">
                 <p className="text-sm text-black">
                   Выберите варианты, подходящие под Ваш бизнес, и мы рассчитаем
                   стоимость

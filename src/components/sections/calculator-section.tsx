@@ -5,7 +5,7 @@ import Subheading from "@/components/shared/subheading"
 
 export default function CalculatorSection() {
   return (
-    <section className="container mb-[100px] space-y-[30px]">
+    <section className="container mb-[100px] grid gap-[30px] xl:grid-cols-3 xl:gap-[60px]">
       <div className="space-y-[26px]">
         <Heading>Калькулятор</Heading>
         <Subheading>Рассчитайте стоимость наших услуг</Subheading>
