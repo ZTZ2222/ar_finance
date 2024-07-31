@@ -3,13 +3,14 @@
 import Image from "next/image"
 import { usePathname } from "@/lib/i18n-navigation"
 import { cn } from "@/lib/utils"
+import Navigation from "@/components/layout/navigation"
 
 export default function Header() {
   const pathname = usePathname()
   return (
     <header
       className={cn(
-        "container flex items-center justify-between py-4",
+        "container my-[30px] flex items-center justify-between",
         pathname === "/" && "hidden",
       )}
     >
@@ -21,6 +22,7 @@ export default function Header() {
           className="object-cover"
         />
       </div>
+      <Navigation />
     </header>
   )
 }
