@@ -1,6 +1,6 @@
-import PlanCardList from "@/components/plan-card-list"
 import Heading from "@/components/shared/heading"
 import Paragraph from "@/components/shared/paragraph"
+import PlanCardList from "@/components/shared/plan-card-list"
 import Subheading from "@/components/shared/subheading"
 
 export default async function Plans() {

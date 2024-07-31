@@ -1,6 +1,6 @@
 import React from "react"
-import CardsRotation from "@/components/cards-rotation"
 import { BgLogo } from "@/components/icons"
+import CardsRotation from "@/components/shared/cards-rotation"
 import Heading from "@/components/shared/heading"
 import Paragraph from "@/components/shared/paragraph"
 import Subheading from "@/components/shared/subheading"

@@ -1,6 +1,6 @@
-import ServiceCardList from "@/components/service-card-list"
 import Heading from "@/components/shared/heading"
 import Paragraph from "@/components/shared/paragraph"
+import ServiceCardList from "@/components/shared/service-card-list"
 import Subheading from "@/components/shared/subheading"
 
 export default function OurServices() {
