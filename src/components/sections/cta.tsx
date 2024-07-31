@@ -32,7 +32,7 @@ export default async function CTA() {
   return (
     <div className="container relative mb-[100px]">
       <div
-        className="relative space-y-[46px] overflow-hidden rounded-[30px] py-[60px]"
+        className="relative space-y-[46px] overflow-hidden rounded-[30px] py-[60px] xl:px-[70px] xl:py-[75px]"
         style={{
           backgroundImage: `url("/assets/cta-bg.jpeg")`,
           backgroundSize: "cover",
@@ -40,11 +40,11 @@ export default async function CTA() {
           backgroundPosition: "center",
         }}
       >
-        <div className="relative z-10 mx-4 space-y-[30px]">
-          <h3 className="text-lg font-black leading-5 text-white">
+        <div className="relative z-10 mx-4 max-w-[690px] space-y-[30px]">
+          <h3 className="text-lg font-black leading-5 text-white xl:text-4xl">
             Спецпредложение для стартаперов
           </h3>
-          <p className="font-semibold leading-5 text-gray-350">
+          <p className="font-semibold leading-5 text-gray-350 xl:text-lg">
             Для новых клиентов - стартапов мы предлагаем бесплатную консультацию
             и бесплатный аудит ваших текущих бухгалтерских процессов.
             <br />
@@ -53,19 +53,23 @@ export default async function CTA() {
             вашего бизнеса.
           </p>
         </div>
-        <div className="relative z-10 mx-4 space-y-2.5">
-          <Button variant="core" size="mobile">
+        <div className="relative z-10 mx-4 space-y-2.5 xl:space-x-2.5">
+          <Button variant="core" size="mobile" className="xl:max-w-[320px]">
             Получить предложение
           </Button>
 
           {/* Dialog Button */}
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="support" size="mobile">
+              <Button
+                variant="support"
+                size="mobile"
+                className="xl:max-w-[300px]"
+              >
                 Подробнее
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white px-0">
+            <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white px-0 xl:max-w-[686px]">
               <ScrollArea className="h-[630px] w-full px-6">
                 <div className="space-y-5">
                   {/* Icon */}
