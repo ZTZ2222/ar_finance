@@ -2,6 +2,7 @@ import AboutUs from "@/components/sections/about-us"
 import Blog from "@/components/sections/blog"
 import CalculatorSection from "@/components/sections/calculator-section"
 import CTA from "@/components/sections/cta"
+import FAQ from "@/components/sections/faq"
 import Hero from "@/components/sections/hero"
 import OurPartners from "@/components/sections/our-partners"
 import OurServices from "@/components/sections/our-services"
@@ -22,6 +23,7 @@ export default function Home() {
       <Blog />
       <OurTeam />
       <OurPartners />
+      <FAQ />
     </main>
   )
 }
