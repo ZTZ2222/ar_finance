@@ -7,5 +7,14 @@ type Props = {
 }
 
 export default function Paragraph({ className, children }: Props) {
-  return <p className={cn("text-gray-650 leading-6", className)}>{children}</p>
+  return (
+    <p
+      className={cn(
+        "leading-6 text-gray-650 xl:text-lg xl:leading-[27px]",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  )
 }
