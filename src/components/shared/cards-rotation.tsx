@@ -39,7 +39,7 @@ export default function CardsRotation({ images, className }: Props) {
       initial="initial"
       whileInView="animate"
       viewport={{ once: true, amount: 0.5 }}
-      className={cn("h-[600px] overflow-hidden", className)}
+      className={cn("h-[600px] w-full shrink-0 xl:w-[620px]", className)}
     >
       {images.map((image, index) => (
         <motion.div

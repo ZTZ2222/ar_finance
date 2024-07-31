@@ -40,9 +40,9 @@ export default async function AboutUs() {
   ]
 
   return (
-    <section id="about" className="mb-[100px]">
+    <section id="about" className="container relative mb-[100px] xl:flex">
       <CardsRotation images={images} />
-      <div className="container relative space-y-[26px]">
+      <div className="space-y-[26px] xl:mt-[140px]">
         <Heading>О нас</Heading>
         <Subheading>Мы - AR Finance</Subheading>
         <Paragraph>
@@ -53,8 +53,8 @@ export default async function AboutUs() {
           Наша цель - помочь Вам сфокусироваться на росте Вашего бизнеса,
           обеспечивая надежное и эффективное финансовое сопровождение
         </Paragraph>
-        <BgLogo className="absolute -bottom-5 left-0 h-[378px] w-[390px]" />
       </div>
+      <BgLogo className="absolute -bottom-5 -z-10 h-auto w-[calc(100vw-32px)] max-w-[1328px] xl:top-5" />
     </section>
   )
 }
