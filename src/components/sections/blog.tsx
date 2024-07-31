@@ -54,7 +54,7 @@ export default async function Blog() {
           опытом, чтобы помочь вашему бизнесу расти и процветать.
         </Paragraph>
       </div>
-      <ScrollArea className="pb-5 pl-4">
+      <ScrollArea className="pb-5 pl-4 xl:container">
         <div className="flex w-max space-x-5">
           {posts.map(post => (
             <BlogCard key={post.id} size="sm" {...post} />
