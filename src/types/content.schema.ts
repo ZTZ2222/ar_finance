@@ -29,6 +29,21 @@ export const planSchema = z.object({
     .min(1, { message: "Обязательное поле" }),
 })
 
+export const serviceSchema = z.object({
+  id: z.string(),
+  icon: z.string(),
+  title: z.string().min(1, { message: "Обязательное поле" }),
+  description: z.string().min(1, { message: "Обязательное поле" }),
+  price: z.number(),
+  bullets: z.array(
+    z.object({
+      id: z.string(),
+      point: z.string().min(1, { message: "Обязательное поле" }),
+    }),
+  ),
+})
+
 export type zCardImage = z.infer<typeof cardImageSchema>
 export type zCardAdvantage = z.infer<typeof cardAdvantageSchema>
 export type zPlan = z.infer<typeof planSchema>
+export type zService = z.infer<typeof serviceSchema>
