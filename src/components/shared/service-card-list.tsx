@@ -1,16 +1,6 @@
 import React from "react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import ServiceCard from "@/components/shared/service-card"
 
 type Props = {
   className?: string
@@ -206,99 +196,9 @@ export default async function ServiceCardList({ className }: Props) {
     },
   ]
   return (
-    <div className={cn("space-y-5", className)}>
-      {services.map(service => (
-        <div
-          key={service.id}
-          className="space-y-5 rounded-[30px] bg-white px-6 py-10 shadow-card"
-        >
-          {/* Icon */}
-          <div className="relative size-9">
-            <Image
-              src={service.icon}
-              alt={service.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-
-          {/* Title */}
-          <h4 className="text-lg font-semibold leading-5 text-[#1E1E1E]">
-            {service.title}
-          </h4>
-
-          {/* Description and bullets */}
-          <div className="leading-6 text-[#757575]">
-            <p>{service.description}</p>
-            {service.bullets.length > 0 && (
-              <ul className="line-clamp-4 list-inside list-disc">
-                {service.bullets.map(bullet => (
-                  <li key={bullet.id}>{bullet.point}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Price */}
-          <p className="text-lg font-bold leading-5 text-[#1E1E1E]">
-            {service.price.toLocaleString("ru-RU")} сом
-          </p>
-
-          {/* Dialog Button */}
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="support" size="mobile">
-                Подробнее
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white">
-              {/* Icon */}
-              <div className="relative size-9">
-                <Image
-                  src={service.icon}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-
-              {/* Title */}
-              <h4 className="text-lg font-semibold leading-5 text-[#1E1E1E]">
-                {service.title}
-              </h4>
-
-              {/* Description and bullets */}
-              <div className="leading-6 text-[#757575]">
-                <p>{service.description}</p>
-                {service.bullets.length > 0 && (
-                  <ul className="line-clamp-4 list-inside list-disc">
-                    {service.bullets.map(bullet => (
-                      <li key={bullet.id}>{bullet.point}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              {/* Price */}
-              <p className="text-lg font-bold leading-5 text-[#1E1E1E]">
-                {service.price.toLocaleString("ru-RU")} сом
-              </p>
-
-              {/* Close Button */}
-              <DialogClose asChild>
-                <Button variant="support" size="mobile">
-                  Закрыть
-                </Button>
-              </DialogClose>
-              <DialogHeader className="sr-only">
-                <DialogTitle>{service.title}</DialogTitle>
-                <DialogDescription>{service.description}</DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </div>
+    <div className={cn("grid gap-5 xl:grid-cols-3", className)}>
+      {services.map((service, index) => (
+        <ServiceCard key={index} {...service} index={index} />
       ))}
     </div>
   )
