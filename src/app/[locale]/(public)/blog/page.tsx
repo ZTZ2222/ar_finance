@@ -1,6 +1,11 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
 import Paragraph from "@/components/shared/paragraph"
@@ -44,8 +49,20 @@ export default async function Blog() {
     },
   ]
   return (
-    <section id="blog" className="mb-[100px] space-y-[50px]">
-      <div className="container space-y-[26px]">
+    <div className="container mb-[150px] space-y-[50px]">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Главная</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Блог</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <div className="space-y-[26px]">
         <Heading>Блог</Heading>
         <Subheading>Последние статьи</Subheading>
         <Paragraph>
@@ -54,19 +71,11 @@ export default async function Blog() {
           опытом, чтобы помочь вашему бизнесу расти и процветать.
         </Paragraph>
       </div>
-      <ScrollArea className="pb-5 pl-4">
-        <div className="flex w-max space-x-5">
-          {posts.map(post => (
-            <BlogCard key={post.id} size="sm" {...post} />
-          ))}
-        </div>
-        <ScrollBar orientation="horizontal" />
-      </ScrollArea>
-      <div className="container">
-        <Button variant="core" size="mobile" asChild>
-          <Link href="/blog">Смотреть все статьи</Link>
-        </Button>
+      <div className="space-y-10">
+        {posts.map(post => (
+          <BlogCard key={post.id} {...post} />
+        ))}
       </div>
-    </section>
+    </div>
   )
 }

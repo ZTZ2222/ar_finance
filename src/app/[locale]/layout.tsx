@@ -40,7 +40,7 @@ export default async function LocaleLayout({
     <html lang={params.locale} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen scroll-smooth bg-background font-sans antialiased",
+          "min-h-screen scroll-smooth bg-[#F9FAFB] font-sans antialiased",
           fontSans.variable,
         )}
       >

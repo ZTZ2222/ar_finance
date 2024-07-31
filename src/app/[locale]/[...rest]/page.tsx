@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server"
 
 // import { Footer } from "@/components/footer"
 // import { Header } from "@/components/header"
-// import { ScrollToTop } from "@/components/scroll-to-top"
 // import { Title } from "@/components/title"
 
 export default async function Error404() {
@@ -21,7 +20,6 @@ export default async function Error404() {
           </div>
         </div>
       </main>
-      {/* <ScrollToTop /> */}
       {/* <Footer /> */}
     </div>
   )

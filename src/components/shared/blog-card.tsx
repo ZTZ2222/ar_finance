@@ -20,7 +20,8 @@ export default function BlogCard({
   className,
 }: BlogCardProps) {
   return (
-    <div
+    <Link
+      href={`/blog/${slug}`}
       className={cn(
         "shrink-0 space-y-8",
         size === "sm" ? "max-w-[300px]" : "max-w-[358px]",
@@ -55,15 +56,10 @@ export default function BlogCard({
         </div>
         <p className="line-clamp-3 text-gray-650">{short_description}</p>
 
-        <Link
-          href={`/blog/${slug}`}
-          className="font-semibold leading-5 text-gray-650"
-        >
-          <Badge variant="outline" className="font-semibold leading-5">
-            Читать далее
-          </Badge>
-        </Link>
+        <div className="text-end font-semibold leading-5 text-gray-650">
+          Читать далее
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
