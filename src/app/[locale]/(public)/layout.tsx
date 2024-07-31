@@ -10,7 +10,7 @@ export default async function PublicLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#F9FAFB]">
       <Header />
       <main className="grow">{children}</main>
       <BackToTopButton />
