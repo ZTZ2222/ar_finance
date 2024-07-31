@@ -30,16 +30,18 @@ export default async function WhyUs() {
   return (
     <section className="container mb-[100px] space-y-[30px]">
       <Heading>Почему мы?</Heading>
-      <div className="grid gap-5">
+      <div className="grid gap-5 xl:grid-cols-4">
         {advantages.map(item => (
           <div
             key={item.id}
-            className="space-y-7 rounded-[30px] border border-gray-350 bg-white p-[30px] text-center shadow-card"
+            className="space-y-7 rounded-[30px] border border-gray-350 bg-white p-[30px] text-center shadow-card xl:space-y-4 xl:px-[22px]"
           >
-            <h4 className="text-lg font-bold leading-5 text-black">
+            <h4 className="text-lg font-bold leading-5 text-black xl:leading-[22px]">
               {item.title}
             </h4>
-            <p className="leading-6 text-gray-650">{item.description}</p>
+            <p className="leading-6 text-gray-650 xl:leading-5">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>
