@@ -41,7 +41,7 @@ export default function LocaleSwitcher({
           <ArrowDownRight className="size-5" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[calc(100vw-2rem)]">
+      <DropdownMenuContent className="w-[calc(100vw-2rem)] xl:w-[128px]">
         <DropdownMenuRadioGroup
           value={locale}
           onValueChange={handleChange}
