@@ -55,11 +55,15 @@ export default function Navigation() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="support" size="menu" className="border-none">
+        <Button
+          variant="support"
+          size="menu"
+          // className="border-gray-350" border-none
+        >
           <BurgerMenu />
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-full p-4 lg:hidden">
+      <SheetContent className="w-full px-4 py-[30px] lg:hidden">
         <SheetHeader className="sr-only">
           <SheetTitle>Меню навигации</SheetTitle>
           <SheetDescription>Открыть меню навигации</SheetDescription>

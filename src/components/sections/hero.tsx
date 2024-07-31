@@ -18,7 +18,7 @@ export default async function Hero() {
     >
       <header
         className={cn(
-          "relative z-10 flex items-center justify-between py-4",
+          "relative z-10 flex items-center justify-between py-[30px]",
           "",
         )}
       >

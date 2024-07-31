@@ -3,10 +3,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { Clock, Mail, MapPin, PhoneCall } from "lucide-react"
 import {
-  Facebook,
-  Instagram,
-  Telegram,
-  TikTok,
+  FacebookWhite,
+  InstagramWhite,
+  TelegramWhite,
+  TikTokWhite,
   WhatsAppWhite,
 } from "@/components/icons"
 
@@ -35,19 +35,19 @@ export default function Footer() {
       href: "#",
     },
     {
-      icon: <Instagram />,
+      icon: <InstagramWhite />,
       href: "#",
     },
     {
-      icon: <Facebook />,
+      icon: <FacebookWhite />,
       href: "#",
     },
     {
-      icon: <Telegram />,
+      icon: <TelegramWhite />,
       href: "#",
     },
     {
-      icon: <TikTok />,
+      icon: <TikTokWhite />,
       href: "#",
     },
   ]
