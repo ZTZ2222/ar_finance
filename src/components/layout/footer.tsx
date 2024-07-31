@@ -62,7 +62,7 @@ export default function Footer() {
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
-      <div className="flex flex-col gap-4 text-lg text-[#E0E0E0]">
+      <div id="contacts" className="flex flex-col gap-4 text-lg text-[#E0E0E0]">
         <h3 className="font-bold text-white">Наши контакты</h3>
         {contacts.map((contact, index) => (
           <div key={index} className="flex gap-2.5">

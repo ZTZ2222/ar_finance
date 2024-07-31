@@ -25,7 +25,7 @@ export default async function OurTeam() {
     },
   ]
   return (
-    <section className="container mb-[100px] space-y-[30px]">
+    <section id="our-team" className="container mb-[100px] space-y-[30px]">
       <div className="space-y-[26px]">
         <Heading>Наша команда</Heading>
         <Subheading>Ознакомьтесь с нашими специалистами</Subheading>

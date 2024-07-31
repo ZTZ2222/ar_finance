@@ -43,7 +43,7 @@ export default async function Blog() {
     },
   ]
   return (
-    <section className="mb-[100px] space-y-[50px]">
+    <section id="blog" className="mb-[100px] space-y-[50px]">
       <div className="container space-y-[26px]">
         <Heading>Блог</Heading>
         <Subheading>Последние статьи</Subheading>

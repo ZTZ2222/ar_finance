@@ -3,7 +3,7 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Lines } from "@/components/icons"
-import Navigation from "@/components/shared/navigation"
+import Navigation from "@/components/layout/navigation"
 
 export default async function Hero() {
   return (

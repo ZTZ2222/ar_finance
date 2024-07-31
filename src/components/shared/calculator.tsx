@@ -1,10 +1,11 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import { type FieldValues, useForm } from "react-hook-form"
 import { z } from "zod"
+import { Button } from "@/components/ui/button"
 import { ButtonGroup, ButtonGroupItem } from "@/components/ui/button-group"
 import {
   Card,
@@ -31,10 +32,10 @@ import {
 } from "@/components/ui/select"
 
 const formSchema = z.object({
-  ownershipType: z.string(),
-  fieldOfActivity: z.string(),
-  taxSystem: z.string(),
-  numberOfEmployees: z.number(),
+  ownershipType: z.string().min(1),
+  fieldOfActivity: z.string().min(1),
+  taxSystem: z.string().min(1),
+  numberOfEmployees: z.coerce.number().min(1),
   numberOfMonths: z.coerce.number(),
 })
 
@@ -42,16 +43,22 @@ export default function Calculator() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      ownershipType: "IP",
-      fieldOfActivity: "business",
-      taxSystem: "ORN",
-      numberOfEmployees: 5,
-      numberOfMonths: 1,
+      ownershipType: "",
+      fieldOfActivity: "",
+      taxSystem: "",
+      numberOfEmployees: "",
+      numberOfMonths: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast(JSON.stringify(values, null, 2))
+  const [totalCost, setTotalCost] = useState<number | null>(null)
+  const month = parseInt(form.watch("numberOfMonths"))
+
+  function onSubmit(values: FieldValues) {
+    const { success, data } = formSchema.safeParse(values)
+    if (success) {
+      setTotalCost(2900 * data.numberOfEmployees * data.numberOfMonths)
+    }
   }
   return (
     <Form {...form}>
@@ -69,10 +76,7 @@ export default function Calculator() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Форма собственности</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                  <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Выберите вариант" />
@@ -94,10 +98,7 @@ export default function Calculator() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Сфера деятельности</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                  <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Выберите вариант" />
@@ -121,10 +122,7 @@ export default function Calculator() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Система налогообложения</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                  <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Выберите вариант" />
@@ -151,7 +149,11 @@ export default function Calculator() {
                 <FormItem>
                   <FormLabel>Количество сотрудников</FormLabel>
                   <FormControl>
-                    <Input placeholder="Напишите количество" {...field} />
+                    <Input
+                      placeholder="Напишите количество"
+                      type="number"
+                      {...field}
+                    />
                   </FormControl>
                 </FormItem>
               )}
@@ -164,39 +166,69 @@ export default function Calculator() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <ButtonGroup
-                      onValueChange={field.onChange}
-                      defaultValue={field.value.toString()}
-                    >
+                    <ButtonGroup onValueChange={field.onChange}>
                       <FormControl>
-                        <ButtonGroupItem value="1" label="1 месяц" />
+                        <ButtonGroupItem
+                          type="submit"
+                          value="1"
+                          label="1 месяц"
+                        />
                       </FormControl>
                       <FormControl>
-                        <ButtonGroupItem value="3" label="3 месяца" />
+                        <ButtonGroupItem
+                          type="submit"
+                          value="3"
+                          label="3 месяца"
+                        />
                       </FormControl>
                       <FormControl>
-                        <ButtonGroupItem value="12" label="1 год" />
+                        <ButtonGroupItem
+                          type="submit"
+                          value="12"
+                          label="1 год"
+                        />
                       </FormControl>
                     </ButtonGroup>
                   </FormControl>
                 </FormItem>
               )}
             />
-            <div className="flex flex-col items-center gap-5 text-center">
-              <p className="text-sm text-black">
-                Выберите варианты, подходящие под Ваш бизнес, и мы рассчитаем
-                стоимость
-              </p>
-              <div className="relative size-[200px]">
-                <Image
-                  src="/assets/calc-illustration.png"
-                  alt="Illustration"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+            {totalCost && month ? (
+              <div className="space-y-[50px]">
+                <div className="flex flex-col items-center gap-5 text-center">
+                  <h5 className="text-lg font-medium leading-[27px] text-gray-650">
+                    Стоимость бухгалтерского обслуживания за{" "}
+                    <span className="text-rose-750">{month} месяц(а)</span>
+                  </h5>
+                  <span className="text-4xl font-black text-[#101828]">
+                    {totalCost.toLocaleString("ru-RU")} сом
+                  </span>
+                  <span className="text-sm text-gray-650">
+                    {(totalCost / month).toLocaleString("ru-RU")} сом в месяц
+                    без скидки
+                  </span>
+                </div>
+                <Button type="button" variant="core" size="mobile">
+                  Получить предложение
+                </Button>
               </div>
-            </div>
+            ) : (
+              <div className="flex flex-col items-center gap-5 text-center">
+                <p className="text-sm text-black">
+                  Выберите варианты, подходящие под Ваш бизнес, и мы рассчитаем
+                  стоимость
+                </p>
+                <div className="relative size-[200px]">
+                  <Image
+                    src="/assets/calc-illustration.png"
+                    alt="Illustration"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            )}
           </CardFooter>
         </Card>
       </form>

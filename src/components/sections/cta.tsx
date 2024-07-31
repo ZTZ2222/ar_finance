@@ -65,8 +65,8 @@ export default async function CTA() {
                 Подробнее
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white">
-              <ScrollArea className="h-[630px] w-full">
+            <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white px-0">
+              <ScrollArea className="h-[630px] w-full px-6">
                 <div className="space-y-5">
                   {/* Icon */}
                   <div className="relative size-[75px]">
@@ -85,7 +85,7 @@ export default async function CTA() {
                   </h4>
 
                   {/* Description */}
-                  <p className="text-gray-650 leading-6">
+                  <p className="leading-6 text-gray-650">
                     {modalContent.description}
                   </p>
 

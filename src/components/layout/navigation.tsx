@@ -2,6 +2,15 @@
 
 import { Button } from "@/components/ui/button"
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import {
   Sheet,
   SheetClose,
   SheetContent,
@@ -11,7 +20,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { BgLogo, BurgerMenu, Calculator } from "@/components/icons"
+import {
+  BgLogo,
+  BurgerMenu,
+  Calculator as CalculatorIcon,
+} from "@/components/icons"
+import Calculator from "@/components/shared/calculator"
 import LocaleSwitcher from "@/components/shared/locale-switcher"
 import ScrollLink from "@/components/shared/scroll-link"
 
@@ -19,23 +33,23 @@ export default function Navigation() {
   const links = [
     {
       name: "Услуги",
-      href: "about",
+      href: "our-services",
     },
     {
       name: "Тарифы",
-      href: "#",
+      href: "plans",
     },
     {
       name: "Блог",
-      href: "",
+      href: "blog",
     },
     {
       name: "Команда",
-      href: "",
+      href: "our-team",
     },
     {
       name: "Контакты",
-      href: "#",
+      href: "contacts",
     },
   ]
   return (
@@ -62,10 +76,26 @@ export default function Navigation() {
         </nav>
         <SheetFooter className="w-full items-center gap-5">
           <LocaleSwitcher />
-          <Button variant="core" size="mobile" className="gap-2.5">
-            Калькулятор услуг
-            <Calculator />
-          </Button>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="core" size="mobile" className="gap-2.5">
+                Калькулятор услуг
+                <CalculatorIcon />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="rounded-[30px] p-0">
+              <ScrollArea className="h-screen">
+                <div className="h-[870px]">
+                  <Calculator />
+                </div>
+              </ScrollArea>
+              <DialogHeader className="sr-only">
+                <DialogTitle>Калькулятор</DialogTitle>
+                <DialogDescription>Калькулятор</DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </SheetFooter>
         <BgLogo className="mt-5 size-[224px] w-full self-center" />
       </SheetContent>
