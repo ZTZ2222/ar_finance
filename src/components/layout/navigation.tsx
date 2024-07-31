@@ -54,6 +54,7 @@ export default function Navigation() {
   ]
   return (
     <>
+      {/* Mobile */}
       <Sheet>
         <SheetTrigger asChild className="xl:hidden">
           <Button
@@ -105,8 +106,10 @@ export default function Navigation() {
           <BgLogo className="mt-5 size-[224px] w-full self-center" />
         </SheetContent>
       </Sheet>
+
+      {/* Desktop */}
       <div className="hidden xl:flex">
-        <nav className="flex items-center overflow-hidden rounded-lg bg-white/80">
+        <nav className="flex shrink-0 items-center overflow-hidden rounded-lg bg-white/80">
           {links.map(link => (
             <ScrollLink
               key={link.name}
@@ -119,7 +122,11 @@ export default function Navigation() {
         </nav>
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="core" size="mobile" className="ml-[50px] gap-2.5">
+            <Button
+              variant="core"
+              size="mobile"
+              className="ml-[50px] w-[240px] shrink-0 gap-2.5"
+            >
               Калькулятор услуг
               <CalculatorIcon />
             </Button>
