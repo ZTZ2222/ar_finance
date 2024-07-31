@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname, useRouter } from "@/lib/i18n-navigation"
 import { cn } from "@/lib/utils"
 
 type ScrollLinkProps = {
@@ -14,11 +15,17 @@ export default function ScrollLink({
   children,
   className,
 }: ScrollLinkProps) {
+  const pathname = usePathname()
+  const router = useRouter()
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
-    const element = document.getElementById(href)
+    if (pathname !== "/") {
+      router.push(`/#${href}`)
+    }
 
+    const element = document.getElementById(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
