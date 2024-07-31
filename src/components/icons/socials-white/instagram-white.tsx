@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Instagram(props: React.SVGProps<SVGSVGElement>) {
+export default function InstagramWhite(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="48"

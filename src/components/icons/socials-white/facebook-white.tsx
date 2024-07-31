@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Facebook(props: React.SVGProps<SVGSVGElement>) {
+export default function FacebookWhite(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="48"

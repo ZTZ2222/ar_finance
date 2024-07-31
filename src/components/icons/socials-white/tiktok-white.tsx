@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function TikTok(props: React.SVGProps<SVGSVGElement>) {
+export default function TikTokWhite(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="48"

@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Telegram(props: React.SVGProps<SVGSVGElement>) {
+export default function TelegramWhite(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="48"
