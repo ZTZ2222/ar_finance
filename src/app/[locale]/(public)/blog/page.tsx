@@ -71,7 +71,7 @@ export default async function Blog() {
           опытом, чтобы помочь вашему бизнесу расти и процветать.
         </Paragraph>
       </div>
-      <div className="space-y-10">
+      <div className="flex flex-col gap-20">
         {posts.map(post => (
           <BlogCard key={post.id} {...post} />
         ))}
