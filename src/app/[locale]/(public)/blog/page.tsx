@@ -47,9 +47,42 @@ export default async function Blog() {
       slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
       createdAt: new Date(),
     },
+    {
+      id: "4",
+      title:
+        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
+      short_description:
+        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
+      content: "Содержание статьи",
+      primaryImage: "/assets/blog/blog_image_1.jpg",
+      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
+      createdAt: new Date(),
+    },
+    {
+      id: "5",
+      title:
+        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
+      short_description:
+        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
+      content: "Содержание статьи",
+      primaryImage: "/assets/blog/blog_image_2.jpg",
+      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
+      createdAt: new Date(),
+    },
+    {
+      id: "6",
+      title:
+        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
+      short_description:
+        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
+      content: "Содержание статьи",
+      primaryImage: "/assets/blog/blog_image_3.jpg",
+      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
+      createdAt: new Date(),
+    },
   ]
   return (
-    <div className="container mb-[150px] space-y-[50px]">
+    <div className="container mb-[150px] space-y-[50px] lg:space-y-[60px]">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -71,7 +104,7 @@ export default async function Blog() {
           опытом, чтобы помочь вашему бизнесу расти и процветать.
         </Paragraph>
       </div>
-      <div className="flex flex-col gap-20">
+      <div className="grid gap-20 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-y-[60px]">
         {posts.map(post => (
           <BlogCard key={post.id} {...post} />
         ))}

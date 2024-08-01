@@ -87,15 +87,15 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
 
   return (
     <div className="container mb-[150px] space-y-[100px]">
-      <div className="space-y-10">
-        <Breadcrumb>
+      <div className="flex flex-col items-center gap-10 lg:gap-[60px]">
+        <Breadcrumb className="self-start">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/blog">Блог</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="max-w-[270px] truncate">
+              <BreadcrumbPage className="max-w-[75vw] truncate md:max-w-[55vw]">
                 {post.title}
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -103,7 +103,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         </Breadcrumb>
 
         {/* Title and date */}
-        <div className="space-y-[30px] text-center">
+        <div className="space-y-[30px] text-center lg:max-w-[800px]">
           <span className="text-sm font-medium leading-[18.2px] text-rose-750">
             {post.createdAt.toLocaleDateString("ru-RU", {
               year: "numeric",
@@ -115,7 +115,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Image */}
-        <div className="relative h-[218px] overflow-hidden rounded-lg">
+        <div className="relative h-[218px] w-full overflow-hidden rounded-lg md:h-[300px] lg:h-[400px] xl:h-[500px]">
           <Image
             src={post.primaryImage}
             alt={post.title}
@@ -145,7 +145,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
       </div>
       <div className="space-y-[30px]">
         <Heading>Другие статьи</Heading>
-        <div className="flex flex-col gap-10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {other_posts
             .filter(blog => blog.id !== post.id)
             .map(blog => (
