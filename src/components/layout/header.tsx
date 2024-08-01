@@ -11,11 +11,11 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "container my-[30px] flex items-center justify-between",
+        "container my-[30px] flex items-center justify-between lg:mb-10 lg:mt-5",
         pathname === "/" && "hidden",
       )}
     >
-      <Link href="/" className="relative size-14">
+      <Link href="/" className="relative size-14 lg:size-[120px]">
         <Image
           src="/assets/logo/ar_finance_rounded_224px.png"
           alt="AR Finance Logo"

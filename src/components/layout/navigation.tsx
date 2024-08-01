@@ -56,11 +56,11 @@ export default function Navigation() {
     <>
       {/* Mobile */}
       <Sheet>
-        <SheetTrigger asChild className="xl:hidden">
+        <SheetTrigger asChild className="lg:hidden">
           <Button
             variant="support"
             size="menu"
-            // className="border-gray-350" border-none
+            // className="border-none"
           >
             <BurgerMenu />
           </Button>
@@ -108,13 +108,13 @@ export default function Navigation() {
       </Sheet>
 
       {/* Desktop */}
-      <div className="hidden xl:flex">
+      <div className="hidden lg:flex">
         <nav className="flex shrink-0 items-center overflow-hidden rounded-lg bg-white/80">
           {links.map(link => (
             <ScrollLink
               key={link.name}
               href={link.href}
-              className="px-[30px] py-[22px] transition-colors hover:bg-black/80 hover:text-white"
+              className="px-[20px] py-[14px] transition-colors hover:bg-black/80 hover:text-white lg:py-[22px] xl:px-[30px]"
             >
               {link.name}
             </ScrollLink>
@@ -125,13 +125,13 @@ export default function Navigation() {
             <Button
               variant="core"
               size="mobile"
-              className="ml-[50px] w-[240px] shrink-0 gap-2.5"
+              className="ml-5 w-[240px] shrink-0 gap-2.5 text-sm xl:ml-[50px] xl:text-base"
             >
               Калькулятор услуг
               <CalculatorIcon />
             </Button>
           </DialogTrigger>
-          <DialogContent className="rounded-[30px] border-none bg-transparent p-0">
+          <DialogContent className="rounded-[30px] border-none bg-transparent p-0 lg:max-w-[853px]">
             <Calculator />
             <DialogHeader className="sr-only">
               <DialogTitle>Калькулятор</DialogTitle>
@@ -139,7 +139,7 @@ export default function Navigation() {
             </DialogHeader>
           </DialogContent>
         </Dialog>
-        <LocaleSwitcher className="ml-5" />
+        <LocaleSwitcher className="ml-2.5 xl:ml-5" />
       </div>
     </>
   )
