@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import useMediaQuery from "@custom-react-hooks/use-media-query"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import type { zCardImage } from "@/types/content.schema"
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export default function CardsRotation({ images, className }: Props) {
+  const isTablet = useMediaQuery("(min-width: 640px) and (max-width: 1280px)")
   const variantsList = [
     {
       initial: { x: -80, y: 110 },
@@ -39,7 +41,11 @@ export default function CardsRotation({ images, className }: Props) {
       initial="initial"
       whileInView="animate"
       viewport={{ once: true, amount: 0.5 }}
-      className={cn("h-[600px] w-full shrink-0 xl:w-[620px]", className)}
+      className={cn(
+        "h-[600px] w-full shrink-0 xl:w-[620px]",
+        isTablet && "translate-x-1/4",
+        className,
+      )}
     >
       {images.map((image, index) => (
         <motion.div

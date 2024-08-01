@@ -34,7 +34,10 @@ export default function ScrollLink({
     <Link
       href={`#${href}`}
       onClick={handleClick}
-      className={cn("w-fit leading-5 text-black", className)}
+      className={cn(
+        "w-fit text-sm leading-5 text-black xl:text-base",
+        className,
+      )}
     >
       {children}
     </Link>

@@ -37,11 +37,11 @@ export default function LocaleSwitcher({
           size="mobile"
           className={cn("w-fit gap-2 px-[30px]", className)}
         >
-          <span>{locale.toLocaleUpperCase()}</span>
+          <span className="">{locale.toLocaleUpperCase()}</span>
           <ArrowDownRight className="size-5" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[calc(100vw-2rem)] xl:w-[128px]">
+      <DropdownMenuContent className="w-[calc(100vw-2rem)] lg:w-[128px]">
         <DropdownMenuRadioGroup
           value={locale}
           onValueChange={handleChange}
