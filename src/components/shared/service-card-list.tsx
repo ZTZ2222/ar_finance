@@ -196,7 +196,7 @@ export default async function ServiceCardList({ className }: Props) {
     },
   ]
   return (
-    <div className={cn("grid gap-5 xl:grid-cols-3", className)}>
+    <div className={cn("grid gap-5 md:grid-cols-2 xl:grid-cols-3", className)}>
       {services.map((service, index) => (
         <ServiceCard key={index} {...service} index={index} />
       ))}

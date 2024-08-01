@@ -39,8 +39,10 @@ export default function ServiceCard({
       )}
       initial={isDesktop ? { y: 300 } : {}}
       whileInView={isDesktop ? { y: 0 } : {}}
-      transition={isDesktop ? { duration: 0.7, delay: index * 0.15 } : {}}
-      viewport={{ once: true, margin: "100px" }} // once: true,
+      transition={
+        isDesktop ? { duration: 0.5, delay: index * 0.1, ease: "easeOut" } : {}
+      }
+      viewport={{ once: true, margin: "100px" }}
     >
       {/* Icon */}
       <div className="relative size-9">
@@ -82,7 +84,7 @@ export default function ServiceCard({
             Подробнее
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white xl:max-w-[685px]">
+        <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white md:max-w-[585px] lg:max-w-[685px]">
           {/* Icon */}
           <div className="relative size-9">
             <Image
