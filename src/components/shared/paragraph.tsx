@@ -10,7 +10,7 @@ export default function Paragraph({ className, children }: Props) {
   return (
     <p
       className={cn(
-        "leading-6 text-gray-650 xl:text-lg xl:leading-[27px]",
+        "leading-6 text-gray-650 lg:text-lg lg:leading-[27px]",
         className,
       )}
     >

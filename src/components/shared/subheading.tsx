@@ -10,7 +10,7 @@ export default function Subheading({ className, children }: Props) {
   return (
     <h3
       className={cn(
-        "text-xl font-black leading-[22px] text-black xl:text-4xl",
+        "text-xl font-black leading-[22px] text-black lg:text-4xl",
         className,
       )}
     >
