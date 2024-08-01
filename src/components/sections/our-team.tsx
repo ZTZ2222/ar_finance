@@ -23,9 +23,31 @@ export default async function OurTeam() {
       position: "Главный бухгалтер",
       image: "/assets/avatar/manager.jpg",
     },
+
+    {
+      id: "5",
+      fullName: "Анна Королева",
+      position: "Генеральный директор",
+      image: "/assets/avatar/manager.jpg",
+    },
+    {
+      id: "6",
+      fullName: "Александр Сергеев",
+      position: "Главный бухгалтер",
+      image: "/assets/avatar/manager.jpg",
+    },
+    {
+      id: "4",
+      fullName: "Дмитрий Сергеев",
+      position: "Директор",
+      image: "/assets/avatar/alex.jpg",
+    },
   ]
   return (
-    <section id="our-team" className="container mb-[100px] space-y-[30px]">
+    <section
+      id="our-team"
+      className="container mb-[100px] grid gap-[30px] md:mb-[120px] lg:grid-cols-3 lg:gap-[50px]"
+    >
       <div className="space-y-[26px]">
         <Heading>Наша команда</Heading>
         <Subheading>Ознакомьтесь с нашими специалистами</Subheading>
@@ -39,7 +61,7 @@ export default async function OurTeam() {
           решения.
         </Paragraph>
       </div>
-      <div className="flex flex-col gap-16">
+      <div className="grid gap-16 lg:col-span-2 lg:grid-cols-3 lg:gap-8">
         {team.map(person => (
           <div key={person.id} className="flex flex-col items-center gap-5">
             {/* Team person image */}

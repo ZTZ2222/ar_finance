@@ -5,7 +5,10 @@ import Subheading from "@/components/shared/subheading"
 
 export default function OurServices() {
   return (
-    <section id="our-services" className="container mb-[100px] space-y-[30px]">
+    <section
+      id="our-services"
+      className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]"
+    >
       <div className="space-y-[26px]">
         <Heading>Наши услуги</Heading>
         <Subheading>Получите персонализированное решение</Subheading>

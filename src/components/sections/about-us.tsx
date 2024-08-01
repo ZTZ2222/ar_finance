@@ -42,7 +42,7 @@ export default async function AboutUs() {
   return (
     <section
       id="about"
-      className="container relative mb-[100px] overflow-hidden xl:flex xl:overflow-visible"
+      className="container relative mb-[100px] overflow-hidden md:mb-[120px] xl:flex xl:overflow-visible"
     >
       <CardsRotation images={images} />
       <div className="space-y-[26px] xl:mt-[140px]">

@@ -24,8 +24,8 @@ export default async function FAQ() {
     },
   ]
   return (
-    <section className="container mb-[120px] space-y-[30px]">
-      <div className="space-y-[26px]">
+    <section className="container mb-[120px] space-y-[30px] md:mb-[170px] lg:flex lg:space-x-[50px]">
+      <div className="space-y-[26px] lg:max-w-[650px]">
         <Heading>Часто задаваемые вопросы</Heading>
         <Subheading>Ищете ответы? Мы здесь, чтобы помочь!</Subheading>
         <Paragraph>
@@ -47,7 +47,7 @@ export default async function FAQ() {
             <AccordionTrigger className="p-[30px] pb-5 text-start text-lg leading-5 text-black">
               {item.question}
             </AccordionTrigger>
-            <AccordionContent className="mx-[30px] mb-[30px] w-[262px] text-base text-gray-650">
+            <AccordionContent className="mx-[30px] mb-[30px] w-[262px] text-base text-gray-650 lg:w-[368.73px] xl:w-[486px]">
               {item.answer}
             </AccordionContent>
           </AccordionItem>

@@ -33,7 +33,7 @@ export default async function OurPartners() {
     },
   ]
   return (
-    <section className="mb-[100px] space-y-[40px]">
+    <section className="mb-[100px] space-y-[40px] md:mb-[120px] md:space-y-[50px]">
       <div className="container space-y-[26px]">
         <Heading>Наши партнеры</Heading>
         <Subheading>Вместе мы сильнее</Subheading>
@@ -43,8 +43,8 @@ export default async function OurPartners() {
           предлагать клиентам лучшие решения и инновационные услуги.
         </Paragraph>
       </div>
-      <ScrollArea className="pb-5 pl-4">
-        <div className="flex w-max space-x-[30px]">
+      <ScrollArea className="pb-5 pl-4 lg:container">
+        <div className="flex w-max justify-center gap-[30px] lg:w-full lg:gap-[60px]">
           {partners.map(partner => (
             <div key={partner.id} className="relative size-[60px]">
               <Image

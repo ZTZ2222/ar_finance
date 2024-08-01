@@ -44,25 +44,42 @@ export default async function Blog() {
     },
   ]
   return (
-    <section id="blog" className="mb-[100px] space-y-[50px]">
-      <div className="container space-y-[26px]">
-        <Heading>Блог</Heading>
-        <Subheading>Последние статьи</Subheading>
-        <Paragraph>
-          Здесь вы найдете последние новости, полезные советы и экспертные
-          мнения по вопросам бухгалтерии и финансов. Мы делимся знаниями и
-          опытом, чтобы помочь вашему бизнесу расти и процветать.
-        </Paragraph>
+    <section id="blog" className="mb-[100px] space-y-[50px] md:mb-[120px]">
+      <div className="container lg:flex lg:justify-between">
+        <div className="space-y-[26px] lg:w-[75%]">
+          <Heading>Блог</Heading>
+          <Subheading>Последние статьи</Subheading>
+          <Paragraph>
+            Здесь вы найдете последние новости, полезные советы и экспертные
+            мнения по вопросам бухгалтерии и финансов. Мы делимся знаниями и
+            опытом, чтобы помочь вашему бизнесу расти и процветать.
+          </Paragraph>
+        </div>
+        <Button
+          variant="core"
+          size="mobile"
+          className="mt-auto hidden h-fit w-fit px-[30px] lg:inline-flex"
+          asChild
+        >
+          <Link href="/blog">Смотреть все статьи</Link>
+        </Button>
       </div>
-      <ScrollArea className="pb-5 pl-4 xl:container">
-        <div className="flex w-max space-x-5">
-          {posts.map(post => (
-            <BlogCard key={post.id} size="sm" {...post} />
+      <ScrollArea className="pb-5 lg:container">
+        <div className="flex w-max lg:space-x-5">
+          {posts.map((post, index) => (
+            <BlogCard
+              key={post.id}
+              size="sm"
+              {...post}
+              className={
+                index === posts.length - 1 ? "mx-5 lg:mx-0" : "ml-5 lg:ml-0"
+              }
+            />
           ))}
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <div className="container">
+      <div className="container lg:hidden">
         <Button variant="core" size="mobile" asChild>
           <Link href="/blog">Смотреть все статьи</Link>
         </Button>

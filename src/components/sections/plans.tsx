@@ -5,7 +5,10 @@ import Subheading from "@/components/shared/subheading"
 
 export default async function Plans() {
   return (
-    <section id="plans" className="container mb-[100px] space-y-[30px]">
+    <section
+      id="plans"
+      className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]"
+    >
       <div className="space-y-[26px]">
         <Heading>Тарифы</Heading>
         <Subheading>Прозрачные и доступные цены для вашего бизнеса</Subheading>
