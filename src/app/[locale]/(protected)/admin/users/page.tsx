@@ -36,7 +36,7 @@ export default async function Users({ searchParams }: Props) {
         <div className="flex justify-end">
           <Search placeholder="Search user..." />
           <Button className="gap-2" asChild>
-            <Link href="/users/create">
+            <Link href="/admin/users/create">
               <PlusCircle className="size-5" />
               <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
                 New User

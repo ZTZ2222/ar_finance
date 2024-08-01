@@ -25,8 +25,8 @@ export const createUser = actionClient
       },
     })
 
-    revalidatePath("/users")
-    redirect("/users")
+    revalidatePath("/admin/users")
+    redirect("/admin/users")
 
     // TODO: send verification email
 

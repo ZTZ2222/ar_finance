@@ -1,9 +1,9 @@
 "use server"
 
+import { AuthError } from "next-auth"
+import { signIn } from "@/server/auth"
 import { credentialsSchema } from "@/types/auth.schema"
 import { actionClient } from "./safe-action"
-import { signIn } from "@/server/auth"
-import { AuthError } from "next-auth"
 
 export const loginUser = actionClient
   .schema(credentialsSchema)
@@ -12,7 +12,7 @@ export const loginUser = actionClient
       await signIn("credentials", {
         email,
         password,
-        redirectTo: "/dashboard",
+        redirectTo: "/admin/dashboard",
       })
       return { success: "User logged in" }
     } catch (error) {

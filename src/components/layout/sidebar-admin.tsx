@@ -16,21 +16,21 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
   const links = [
     {
       label: "Dashboard",
-      href: "/dashboard",
+      href: "/admin/dashboard",
       icon: (
         <SquareTerminal className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Users",
-      href: "/users",
+      href: "/admin/users",
       icon: (
         <Users className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Settings",
-      href: "/settings",
+      href: "/admin/settings",
       icon: (
         <Settings className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -84,7 +84,7 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
 export const Logo = () => {
   return (
     <Link
-      href="/dashboard"
+      href="/admin/dashboard"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black/80"
     >
       <div className="h-6 w-7 flex-shrink-0 rounded-bl-sm rounded-br-lg rounded-tl-lg rounded-tr-sm bg-black/80 dark:bg-white" />
@@ -101,7 +101,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link
-      href="/dashboard"
+      href="/admin/dashboard"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black/80"
     >
       <div className="h-6 w-7 flex-shrink-0 rounded-bl-sm rounded-br-lg rounded-tl-lg rounded-tr-sm bg-black/80 dark:bg-white" />

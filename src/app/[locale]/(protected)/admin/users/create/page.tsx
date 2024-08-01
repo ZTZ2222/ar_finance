@@ -57,7 +57,7 @@ export default function CreateUser() {
           </h1>
           <div className="hidden items-center gap-2 md:ml-auto md:flex">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/users">Discard</Link>
+              <Link href="/admin/users">Discard</Link>
             </Button>
             <Button type="submit" size="sm" disabled={isExecuting}>
               Create User
