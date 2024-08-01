@@ -6,7 +6,7 @@ import { Toaster } from "sonner"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/context/auth-provider"
-import { ThemeProvider } from "@/context/theme-provider"
+// import { ThemeProvider } from "@/context/theme-provider"
 import "@/styles/globals.css"
 
 const fontSans = FontSans({
@@ -45,17 +45,17 @@ export default async function LocaleLayout({
         )}
       >
         <AuthProvider>
-          <ThemeProvider
+          {/* <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
-            <NextIntlClientProvider locale={params.locale} messages={messages}>
-              {children}
-              <Toaster richColors />
-            </NextIntlClientProvider>
-          </ThemeProvider>
+          > */}
+          <NextIntlClientProvider locale={params.locale} messages={messages}>
+            {children}
+            <Toaster richColors />
+          </NextIntlClientProvider>
+          {/* </ThemeProvider> */}
         </AuthProvider>
       </body>
     </html>

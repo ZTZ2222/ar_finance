@@ -8,7 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { ModeToggle } from "@/components/layout/mode-toggle"
+
+// import { ModeToggle } from "@/components/layout/mode-toggle"
 
 export default function HeaderAdmin() {
   return (
@@ -32,9 +33,9 @@ export default function HeaderAdmin() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="relative flex items-center">
+      {/* <div className="relative flex items-center">
         <ModeToggle />
-      </div>
+      </div> */}
     </header>
   )
 }
