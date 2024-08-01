@@ -23,10 +23,8 @@ export default function BlogCard({
     <Link
       href={`/blog/${slug}`}
       className={cn(
-        "shrink-0 space-y-8",
-        size === "sm"
-          ? "max-w-[300px] xl:max-w-[402px]"
-          : "max-w-[358px] xl:max-w-[402px]",
+        "shrink-0 space-y-8 lg:max-w-[317px] xl:max-w-[402px]",
+        size === "sm" ? "max-w-[300px]" : "",
         className,
       )}
     >

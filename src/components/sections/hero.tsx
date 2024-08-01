@@ -24,7 +24,7 @@ export default async function Hero() {
           "container",
         )}
       >
-        <div className="relative size-14 xl:size-[120px]">
+        <div className="relative size-14 lg:size-[120px]">
           <Image
             src="/assets/logo/ar_finance_224px.png"
             alt="AR Finance Logo"
@@ -35,25 +35,25 @@ export default async function Hero() {
         </div>
         <Navigation />
       </header>
-      <section className="container relative z-10 mb-[50px] mt-auto flex h-[60vh] flex-col justify-between self-center xl:justify-normal xl:gap-[50px]">
-        <div className="relative max-w-[694px] space-y-9">
-          <h1 className="text-3xl font-black text-white xl:text-6xl">
+      <section className="container relative z-10 mb-[50px] mt-auto flex h-[60vh] flex-col justify-between self-center md:justify-normal md:gap-[50px]">
+        <div className="relative max-w-[358px] space-y-9 md:max-w-[500px] xl:max-w-[694px]">
+          <h1 className="text-3xl font-black text-white md:text-4xl xl:text-6xl">
             Мы делаем бухгалтерию простой
           </h1>
-          <Lines className="absolute -right-2 top-1/4 z-20 -translate-y-2 xl:h-[47.5px] xl:w-[311px] xl:translate-y-8" />
-          <p className="leading-6 text-gray-350 xl:text-xl xl:font-medium xl:leading-[30px]">
+          <Lines className="absolute -right-2 top-1/4 z-20 -translate-y-2 md:left-0 md:top-1/3 xl:left-[60%] xl:h-[47.5px] xl:w-[311px] xl:translate-y-2" />
+          <p className="leading-6 text-gray-350 md:text-lg xl:text-xl xl:font-medium xl:leading-[30px]">
             Оставьте заявку, чтобы узнать, как наши решения могут упростить Ваш
             бухгалтерский учет
           </p>
         </div>
-        <Button variant="core" size="mobile" className="xl:max-w-[194px]">
+        <Button variant="core" size="mobile" className="md:max-w-[194px]">
           Оставить заявку
         </Button>
       </section>
       <div className="absolute inset-0 bg-black opacity-60" />
       <ScrollLink
         href="about"
-        className="absolute bottom-16 left-1/2 z-30 hidden translate-x-[-50%] animate-bounce cursor-pointer xl:block"
+        className="absolute bottom-16 left-1/2 z-30 hidden translate-x-[-50%] animate-bounce cursor-pointer lg:block"
       >
         <CircleArrowDown className="size-[42px] stroke-1 text-white" />
       </ScrollLink>

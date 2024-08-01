@@ -5,6 +5,7 @@ import Image from "next/image"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { type FieldValues, useForm } from "react-hook-form"
 import { z } from "zod"
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup, ButtonGroupItem } from "@/components/ui/button-group"
 import {
@@ -39,7 +40,7 @@ const formSchema = z.object({
   numberOfMonths: z.coerce.number(),
 })
 
-export default function Calculator() {
+export default function Calculator({ className }: { className?: string }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -62,16 +63,18 @@ export default function Calculator() {
   }
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="xl:col-span-2 xl:w-full"
-      >
-        <Card className="rounded-[30px] bg-white shadow-card xl:flex xl:w-full xl:gap-20 xl:px-[40px] xl:py-[50px]">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <Card
+          className={cn(
+            "rounded-[30px] bg-white shadow-card lg:flex lg:w-full lg:justify-evenly lg:gap-20 lg:px-[40px] lg:py-[50px]",
+            className,
+          )}
+        >
           <CardHeader className="sr-only">
             <CardTitle>Калькулятор</CardTitle>
             <CardDescription>Калькулятор</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-[30px] px-4 pb-10 pt-[50px] xl:w-full xl:p-0">
+          <CardContent className="shrink-0 space-y-[30px] px-4 pb-10 pt-[50px] lg:w-[320px] lg:p-0">
             {/* Форма собственности */}
             <FormField
               control={form.control}
@@ -162,13 +165,13 @@ export default function Calculator() {
               )}
             />
           </CardContent>
-          <CardFooter className="flex-col gap-[50px] p-2.5 pb-[50px] pt-0 xl:shrink-0 xl:p-0">
+          <CardFooter className="flex-col gap-[50px] p-2.5 pb-[50px] pt-0 lg:shrink-0 lg:p-0">
             {/* Кнопки */}
             <FormField
               control={form.control}
               name="numberOfMonths"
               render={({ field }) => (
-                <FormItem className="xl:w-full">
+                <FormItem className="lg:w-full">
                   <FormControl>
                     <ButtonGroup onValueChange={field.onChange}>
                       <FormControl>
@@ -198,7 +201,7 @@ export default function Calculator() {
               )}
             />
             {totalCost && month ? (
-              <div className="flex flex-col gap-[50px] xl:h-full xl:max-w-[373px] xl:justify-between">
+              <div className="flex flex-col gap-[50px] lg:h-full lg:max-w-[373px] lg:justify-between">
                 <div className="flex flex-col items-center gap-5 text-center">
                   <h5 className="text-lg font-medium leading-[27px] text-gray-650">
                     Стоимость бухгалтерского обслуживания за{" "}
@@ -217,7 +220,7 @@ export default function Calculator() {
                 </Button>
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-5 text-center xl:mt-auto xl:max-w-[373px]">
+              <div className="flex flex-col items-center gap-5 text-center lg:mt-auto lg:max-w-[373px]">
                 <p className="text-sm text-black">
                   Выберите варианты, подходящие под Ваш бизнес, и мы рассчитаем
                   стоимость
