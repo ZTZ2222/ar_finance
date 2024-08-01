@@ -74,7 +74,7 @@ export default function PlanCard({
 
             {/* Plan card title */}
             <span className="text-lg font-bold text-rose-750 xl:text-xl xl:leading-[22px]">
-              Тариф "{title}"
+              Тариф &quot;{title}&quot;
             </span>
           </CardTitle>
 
