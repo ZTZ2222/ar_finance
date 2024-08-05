@@ -1,46 +1,33 @@
 import React from "react"
-import Heading from "@/components/shared/heading"
+import { getLocale } from "next-intl/server"
+import SectionName from "@/components/shared/section-name"
+import getSectionById from "@/server/data-access-layer/content"
+import type { zCard, zSection } from "@/types/content.schema"
 
 export default async function WhyUs() {
-  const advantages = [
-    {
-      id: "1",
-      title: "Профессионализм",
-      description:
-        "Опытные бухгалтеры и налоговые консультанты с многолетним стажем",
-    },
-    {
-      id: "2",
-      title: "Надежность",
-      description:
-        "Мы гарантируем точность и своевременность выполнения всех работ",
-    },
-    {
-      id: "3",
-      title: "Индивидуальный подход",
-      description:
-        "Учитываем особенности вашего бизнеса и предлагаем наилучшие решения",
-    },
-    {
-      id: "4",
-      title: "Конфиденциальность",
-      description: "Обеспечиваем полную защиту вашей финансовой информации",
-    },
-  ]
+  const locale = await getLocale()
+  const sectionData = await getSectionById("why-us")
+
+  const sectionName =
+    sectionData &&
+    (sectionData[`sectionName_${locale}` as keyof zSection] as string)
+
+  const advantages = sectionData?.cards
+
   return (
     <section className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]">
-      <Heading>Почему мы?</Heading>
+      <SectionName>{sectionName}</SectionName>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {advantages.map(item => (
+        {advantages?.map(item => (
           <div
             key={item.id}
             className="space-y-7 rounded-[30px] border border-gray-350 bg-white p-[30px] text-center shadow-card xl:space-y-4 xl:px-[22px]"
           >
             <h4 className="text-lg font-bold leading-5 text-black xl:leading-[22px]">
-              {item.title}
+              {item[`title_${locale}` as keyof zCard]}
             </h4>
             <p className="leading-6 text-gray-650 xl:leading-5">
-              {item.description}
+              {item[`description_${locale}` as keyof zCard]}
             </p>
           </div>
         ))}

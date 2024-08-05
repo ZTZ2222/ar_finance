@@ -7,12 +7,34 @@ import { cn } from "@/lib/utils"
 import type { zCardImage } from "@/types/content.schema"
 
 type Props = {
-  images: zCardImage[]
+  images: (string | null)[] | undefined
   className?: string
 }
 
 export default function CardsRotation({ images, className }: Props) {
   const isTablet = useMediaQuery("(min-width: 640px) and (max-width: 1280px)")
+  const imageSizes = [
+    {
+      height: 234,
+      width: 159,
+    },
+    {
+      height: 155,
+      width: 156,
+    },
+    {
+      height: 124,
+      width: 189,
+    },
+    {
+      height: 232,
+      width: 158,
+    },
+    {
+      height: 126,
+      width: 186,
+    },
+  ]
   const variantsList = [
     {
       initial: { x: -80, y: 110 },
@@ -47,17 +69,20 @@ export default function CardsRotation({ images, className }: Props) {
         className,
       )}
     >
-      {images.map((image, index) => (
+      {images?.map((image, index) => (
         <motion.div
-          key={image.id}
+          key={index}
           variants={variantsList[index]}
           transition={{ type: "spring", duration: 2.25 }}
           className={`relative overflow-hidden rounded-lg`}
-          style={{ height: image.height, width: image.width }}
+          style={{
+            height: imageSizes[index].height,
+            width: imageSizes[index].width,
+          }}
         >
           <Image
-            src={image.src}
-            alt={`Image ID: ${image.id}`}
+            src={image || ""}
+            alt={`Image index: ${index}`}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
