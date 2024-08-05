@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react"
 import Link, { LinkProps } from "next/link"
+import useMediaQuery from "@custom-react-hooks/use-media-query"
 import { AnimatePresence, motion } from "framer-motion"
 import { AlignJustify, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -88,11 +89,17 @@ export const DesktopSidebar = ({
     <>
       <motion.div
         className={cn(
-          "hidden h-full w-[300px] flex-shrink-0 bg-background px-4 py-4 md:flex md:flex-col",
+          "hidden h-full w-[300px] flex-shrink-0 bg-background px-4 py-4 lg:flex lg:flex-col",
           className,
         )}
         animate={{
           width: animate ? (open ? "300px" : "60px") : "300px",
+          transition: {
+            duration: 0.5,
+            ease: "easeInOut",
+            type: "spring",
+            delay: 0.1,
+          },
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -114,7 +121,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "flex h-10 w-full flex-row items-center justify-between bg-muted px-4 py-4 md:hidden",
+          "flex h-10 w-full flex-row items-center justify-between bg-muted px-4 py-4 lg:hidden",
         )}
         {...props}
       >
@@ -163,6 +170,7 @@ export const SidebarLink = ({
   className?: string
   props?: LinkProps
 }) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)")
   const { open, animate, setOpen } = useSidebar()
   return (
     <Link
@@ -171,7 +179,7 @@ export const SidebarLink = ({
         "group/sidebar flex items-center justify-start gap-3 py-2",
         className,
       )}
-      onClick={() => setOpen(false)}
+      onClick={() => !isDesktop && setOpen(false)}
       {...props}
     >
       {link.icon}
@@ -180,6 +188,7 @@ export const SidebarLink = ({
         animate={{
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
           opacity: animate ? (open ? 1 : 0) : 1,
+          transition: { duration: 0.3, delay: 0.1 },
         }}
         className="!m-0 inline-block whitespace-pre !p-0 text-sm text-neutral-700 transition duration-150 group-hover/sidebar:translate-x-1 dark:text-neutral-200"
       >
