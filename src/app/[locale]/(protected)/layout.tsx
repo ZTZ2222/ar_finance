@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation"
 import { getCurrentUser } from "@/lib/session"
+import HeaderAdmin from "@/components/layout/header-admin"
 import { SidebarAdmin } from "@/components/layout/sidebar-admin"
 
 export default async function ProtectedLayout({
@@ -12,5 +13,12 @@ export default async function ProtectedLayout({
     redirect("/login")
   }
 
-  return <SidebarAdmin>{children}</SidebarAdmin>
+  return (
+    <SidebarAdmin>
+      <div className="flex h-screen w-full flex-col bg-muted">
+        <HeaderAdmin />
+        <main className="container overflow-auto">{children}</main>
+      </div>
+    </SidebarAdmin>
+  )
 }
