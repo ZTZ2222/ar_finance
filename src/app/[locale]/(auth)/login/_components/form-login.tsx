@@ -2,7 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTranslations } from "next-intl"
+import { useAction } from "next-safe-action/hooks"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -20,12 +22,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { toast } from "sonner"
-import { credentialsSchema, zCredentials } from "@/types/auth.schema"
 import FormError from "@/components/forms/form-error"
 import FormSuccess from "@/components/forms/form-success"
-import { useAction } from "next-safe-action/hooks"
 import { loginUser } from "@/server/actions/login-action"
+import { credentialsSchema, zCredentials } from "@/types/auth.schema"
 
 export default function FormLogin() {
   const t = useTranslations("Components.FormLogin")
