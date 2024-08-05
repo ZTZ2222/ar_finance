@@ -49,7 +49,10 @@
       "blog": "Blog"
     },
     "Button": {
-      "logout": "Logout"
+      "logout": "Logout",
+      "learn-more": "Learn more",
+      "close": "Close",
+      "choose-plan": "Choose plan"
     },
     "FormSection": {
       "heading-label": "Heading",
@@ -75,6 +78,9 @@
       "card-extra-label": "Card {number} - Additional field",
       "card-description-placeholder": "Enter card description",
       "card-extra-placeholder": "Enter additional field"
+    },
+    "PlanCard": {
+      "card-title": "Plan"
     }
   },
   "Pages": {

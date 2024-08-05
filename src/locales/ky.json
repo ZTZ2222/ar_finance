@@ -49,7 +49,10 @@
       "blog": "Блог"
     },
     "Button": {
-      "logout": "Чыгуу"
+      "logout": "Чыгуу",
+      "learn-more": "Көбүрөөк билүү",
+      "close": "Жабуу",
+      "choose-plan": "Тарифти тандаңыз"
     },
     "FormSection": {
       "heading-label": "Заголовок",
@@ -75,6 +78,9 @@
       "card-extra-label": "Карточка {number} - Кошумча талаа",
       "card-description-placeholder": "Карточканын сүрөттөмөсүн киргизиңиз",
       "card-extra-placeholder": "Кошумча талаасын киргизиңиз"
+    },
+    "PlanCard": {
+      "card-title": "Тариф"
     }
   },
   "Pages": {

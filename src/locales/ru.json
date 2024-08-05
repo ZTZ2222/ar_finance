@@ -49,7 +49,10 @@
       "blog": "Блог"
     },
     "Button": {
-      "logout": "Выход"
+      "logout": "Выход",
+      "learn-more": "Подробнее",
+      "close": "Закрыть",
+      "choose-plan": "Выбрать тариф"
     },
     "FormSection": {
       "heading-label": "Заголовок",
@@ -75,6 +78,9 @@
       "card-extra-label": "Карточка {number} – Доп. поле",
       "card-description-placeholder": "Введите описание карточки",
       "card-extra-placeholder": "Введите дополнительное поле"
+    },
+    "PlanCard": {
+      "card-title": "Тариф"
     }
   },
   "Pages": {
