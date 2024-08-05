@@ -1,5 +1,9 @@
+"use client"
+
 import React from "react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
+import { usePathname } from "@/lib/i18n-navigation"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,25 +16,46 @@ import {
 // import { ModeToggle } from "@/components/layout/mode-toggle"
 
 export default function HeaderAdmin() {
+  const t = useTranslations("Components.Breadcrumb")
+  const pathname = usePathname()
+  const pathSegments = pathname.split("/").filter(segment => segment)
+
+  // Remove the first segment if it is "admin" to handle only the relative paths after /admin
+  if (pathSegments[0] === "admin") {
+    pathSegments.shift()
+  }
+
+  const getBreadcrumbLink = (segment: string, index: number) => {
+    const href = "/admin/" + pathSegments.slice(0, index + 1).join("/")
+    return (
+      <BreadcrumbItem key={href}>
+        <BreadcrumbLink asChild>
+          <Link href={href}>{t(segment)}</Link>
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+    )
+  }
   return (
-    <header className="flex items-center justify-between px-10 py-4">
+    <header className="container flex items-center justify-between py-4">
       <Breadcrumb className="hidden md:flex">
         <BreadcrumbList>
-          <BreadcrumbItem>
+          <BreadcrumbItem key="dashboard">
             <BreadcrumbLink asChild>
-              <Link href="/admin/dashboard">Dashboard</Link>
+              <Link href="/admin">{t("dashboard")}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/admin/users">Users</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Create User</BreadcrumbPage>
-          </BreadcrumbItem>
+          {pathSegments.map((segment, index) => (
+            <React.Fragment key={index}>
+              <BreadcrumbSeparator />
+              {index === pathSegments.length - 1 ? (
+                <BreadcrumbItem key={segment}>
+                  <BreadcrumbPage>{t(segment)}</BreadcrumbPage>
+                </BreadcrumbItem>
+              ) : (
+                getBreadcrumbLink(segment, index)
+              )}
+            </React.Fragment>
+          ))}
         </BreadcrumbList>
       </Breadcrumb>
       {/* <div className="relative flex items-center">
