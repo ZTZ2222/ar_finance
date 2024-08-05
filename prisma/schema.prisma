@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["omitApi"]
 }
 
@@ -19,7 +19,6 @@ enum Role {
   MANAGER
   ADMIN
 }
-
 
 model User {
   id            String          @id @default(cuid())
@@ -58,4 +57,50 @@ model Account {
   @@unique([provider, providerAccountId])
   @@index([userId])
   @@map("accounts")
+}
+
+model Section {
+  id           String                @id
+  sectionName_ru  String?
+  sectionName_en  String?
+  sectionName_ky  String?
+  heading_ru          String?
+  heading_en          String?
+  heading_ky          String?
+  subheading_ru    String?
+  subheading_en    String?
+  subheading_ky    String?
+  primaryButton_ru  String?
+  primaryButton_en  String?
+  primaryButton_ky  String?
+  secondaryButton_ru String?
+  secondaryButton_en String?
+  secondaryButton_ky String?
+  cards        Card[]
+
+  @@index([id])
+  @@map("sections")
+}
+
+model Card {
+  id        String  @id @default(cuid())
+  sectionId String
+  title_ru      String?
+  title_en      String?
+  title_ky      String?
+  description_ru      String?
+  description_en      String?
+  description_ky      String?
+  extra_ru      String?
+  extra_en      String?
+  extra_ky      String?
+  bullets_ru      String[]
+  bullets_en      String[]
+  bullets_ky      String[]
+  image   String?
+
+  section Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, id])
+  @@map("cards")
 }
