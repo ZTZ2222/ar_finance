@@ -6,15 +6,15 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function Paragraph({ className, children }: Props) {
+export default function SectionName({ className, children }: Props) {
   return (
-    <p
+    <h2
       className={cn(
-        "leading-6 text-gray-650 lg:text-lg lg:leading-[27px]",
+        "text-lg font-black leading-5 text-rose-750 lg:text-xl lg:leading-[22px]",
         className,
       )}
     >
       {children}
-    </p>
+    </h2>
   )
 }

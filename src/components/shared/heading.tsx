@@ -8,13 +8,13 @@ type Props = {
 
 export default function Heading({ className, children }: Props) {
   return (
-    <h2
+    <h3
       className={cn(
-        "text-lg font-black leading-5 text-rose-750 lg:text-xl lg:leading-[22px]",
+        "text-xl font-black leading-[22px] text-black lg:text-4xl",
         className,
       )}
     >
       {children}
-    </h2>
+    </h3>
   )
 }
