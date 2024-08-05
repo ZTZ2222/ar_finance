@@ -104,7 +104,9 @@
         "Section": {
           "card-heading": "Section Content",
           "card-subheading": "Enter new text and click save to overwrite."
-        }
+        },
+        "heading": "Welcome to the Content Management System",
+        "subheading": "Please select a section to start editing."
       },
       "Blog": {},
       "Settings": {
