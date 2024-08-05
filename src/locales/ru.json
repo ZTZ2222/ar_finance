@@ -22,6 +22,59 @@
       "light": "Светлая",
       "dark": "Темная",
       "system": "Система"
+    },
+    "Breadcrumb": {
+      "dashboard": "Панель управления",
+      "users": "Пользователи",
+      "settings": "Настройки",
+      "cms": "Контент",
+      "blog": "Блог",
+      "hero": "Лицевая секция",
+      "about-us": "О нас",
+      "why-us": "Почему мы",
+      "cta": "Призыв к действию",
+      "our-services": "Наши услуги",
+      "plans": "Тарифы",
+      "calculator": "Калькулятор",
+      "our-team": "Наша команда",
+      "our-partners": "Наша партнеры",
+      "faq": "Часто задаваемые вопросы"
+    },
+    "SidebarAdmin": {
+      "company-name": "AR Finance",
+      "dashboard": "Панель управления",
+      "users": "Пользователи",
+      "settings": "Настройки",
+      "cms": "Контент",
+      "blog": "Блог"
+    },
+    "Button": {
+      "logout": "Выход"
+    },
+    "FormSection": {
+      "heading-label": "Заголовок",
+      "heading-placeholder": "Введите текст заголовка",
+      "current-value": "Текущее значение",
+      "subheading-label": "Подзаголовок",
+      "subheading-placeholder": "Введите текст подзаголовка",
+      "primary-button-label": "Основная кнопка",
+      "primary-button-placeholder": "Введите текст основной кнопки",
+      "form-save": "Сохранить",
+      "secondary-button-label": "Дополнительная кнопка",
+      "secondary-button-placeholder": "Введите текст дополнительной кнопки",
+      "update-success": "Раздел успешно обновлен",
+      "update-error": "Обновление раздела не удалось. \nПожалуйста, попробуйте еще раз.",
+      "section-name-label": "Название раздела",
+      "section-name-placeholder": "Введите название раздела",
+      "card-title": "Карточка {number} — Заголовок",
+      "card-title-placeholder": "Введите заголовок карты",
+      "card-description-label": "Карточка {number} — Описание",
+      "card-bullets-label": "Список элементов",
+      "card-bullets-placeholder": "Введите элемент списка",
+      "card-bullets-add-bullet": "Добавить элемент списка",
+      "card-extra-label": "Карточка {number} – Доп. поле",
+      "card-description-placeholder": "Введите описание карточки",
+      "card-extra-placeholder": "Введите дополнительное поле"
     }
   },
   "Pages": {
@@ -29,6 +82,35 @@
       "title": "404",
       "description": "Извините, страница, которую вы искали, не существует.",
       "link": "Вернуться на главную"
+    },
+    "Admin": {
+      "Dashboard": {},
+      "Users": {},
+      "CMS": {
+        "Navigation": {
+          "hero": "Лицевая секция",
+          "about-us": "О нас",
+          "why-us": "Почему мы",
+          "cta": "Призыв к действию",
+          "our-services": "Наши услуги",
+          "plans": "Тарифы",
+          "calculator": "Калькулятор",
+          "blog": "Блог",
+          "our-team": "Наша команда",
+          "our-partners": "Наша партнеры",
+          "faq": "Часто задаваемые вопросы"
+        },
+        "title": "Система управления контентом",
+        "Section": {
+          "card-heading": "Контент секции",
+          "card-subheading": "Введите новый текст и нажмите сохранить, для того чтобы перезаписать."
+        }
+      },
+      "Blog": {},
+      "Settings": {
+        "title": "Настройки",
+        "description": "Настройки панели управления"
+      }
     }
   }
 }

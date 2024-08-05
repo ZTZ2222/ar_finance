@@ -22,6 +22,59 @@
       "light": "Light",
       "dark": "Dark",
       "system": "System"
+    },
+    "Breadcrumb": {
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "settings": "Settings",
+      "cms": "Content",
+      "blog": "Blog",
+      "hero": "Hero",
+      "about-us": "About us",
+      "why-us": "Why us",
+      "cta": "Call to action",
+      "our-services": "Our services",
+      "plans": "Plans",
+      "calculator": "Calculator",
+      "our-team": "Our team",
+      "our-partners": "Our partners",
+      "faq": "FAQ"
+    },
+    "SidebarAdmin": {
+      "company-name": "AR Finance",
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "settings": "Settings",
+      "cms": "Content",
+      "blog": "Blog"
+    },
+    "Button": {
+      "logout": "Logout"
+    },
+    "FormSection": {
+      "heading-label": "Heading",
+      "heading-placeholder": "Enter heading text",
+      "current-value": "Current value",
+      "subheading-label": "Subheading",
+      "subheading-placeholder": "Enter subheading text",
+      "primary-button-label": "Primary button",
+      "primary-button-placeholder": "Enter primary button text",
+      "form-save": "Save",
+      "secondary-button-label": "Secondary button",
+      "secondary-button-placeholder": "Enter secondary button text",
+      "update-success": "Section successfully updated",
+      "update-error": "Section update failed. Please try again.",
+      "section-name-label": "Section name",
+      "section-name-placeholder": "Enter section name",
+      "card-title": "Card {number} - Title",
+      "card-title-placeholder": "Enter card title",
+      "card-description-label": "Card {number} - Description",
+      "card-bullets-label": "List items",
+      "card-bullets-placeholder": "Enter list item",
+      "card-bullets-add-bullet": "Add list item",
+      "card-extra-label": "Card {number} - Additional field",
+      "card-description-placeholder": "Enter card description",
+      "card-extra-placeholder": "Enter additional field"
     }
   },
   "Pages": {
@@ -29,6 +82,35 @@
       "title": "404",
       "description": "Sorry, the page you were looking doesn't exist.",
       "link": "Back to homepage"
+    },
+    "Admin": {
+      "Dashboard": {},
+      "Users": {},
+      "CMS": {
+        "Navigation": {
+          "hero": "Hero Section",
+          "about-us": "About Us",
+          "why-us": "Why Us",
+          "cta": "Call to Action",
+          "our-services": "Our Services",
+          "plans": "Plans",
+          "calculator": "Calculator",
+          "blog": "Blog",
+          "our-team": "Our Team",
+          "our-partners": "Our Partners",
+          "faq": "Frequently Asked Questions"
+        },
+        "title": "Content Management System",
+        "Section": {
+          "card-heading": "Section Content",
+          "card-subheading": "Enter new text and click save to overwrite."
+        }
+      },
+      "Blog": {},
+      "Settings": {
+        "title": "Settings",
+        "description": "Admin panel settings"
+      }
     }
   }
 }

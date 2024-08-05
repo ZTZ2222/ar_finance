@@ -22,6 +22,59 @@
       "light": "Жарык",
       "dark": "Караңгы",
       "system": "Система"
+    },
+    "Breadcrumb": {
+      "dashboard": "Админ панель",
+      "users": "Колдонуучулар",
+      "settings": "Жөндөөлөр",
+      "cms": "Мазмун",
+      "blog": "Блог",
+      "hero": "Лицевая секция",
+      "about-us": "О нас",
+      "why-us": "Почему мы",
+      "cta": "Призыв к действию",
+      "our-services": "Наши услуги",
+      "plans": "Тарифы",
+      "calculator": "Калькулятор",
+      "our-team": "Наша команда",
+      "our-partners": "Наша партнеры",
+      "faq": "Часто задаваемые вопросы"
+    },
+    "SidebarAdmin": {
+      "company-name": "AR Finance",
+      "dashboard": "Башкаруу панели",
+      "users": "Колдонуучулар",
+      "settings": "Орнотуулар",
+      "cms": "Контент",
+      "blog": "Блог"
+    },
+    "Button": {
+      "logout": "Чыгуу"
+    },
+    "FormSection": {
+      "heading-label": "Заголовок",
+      "heading-placeholder": "Аталышынын текстин киргизиңиз",
+      "current-value": "Учурдагы маани",
+      "subheading-label": "Почта аталышы",
+      "subheading-placeholder": "Бөлүмчө текстин киргизиңиз",
+      "primary-button-label": "Негизги баскыч",
+      "primary-button-placeholder": "Негизги баскычтын текстин киргизиңиз",
+      "form-save": "Сактоо",
+      "secondary-button-label": "Экинчи баскыч",
+      "secondary-button-placeholder": "Экинчи баскычтын текстин киргизиңиз",
+      "update-success": "Бөлүм ийгиликтүү жаңыртылды",
+      "update-error": "Бөлүм жаңыртылган жок. \nСураныч, кайра аракет кылыңыз.",
+      "section-name-label": "Бөлүмдүн аты",
+      "section-name-placeholder": "Бөлүмдүн атын киргизиңиз",
+      "card-title": "Карточка {number} - Башы",
+      "card-title-placeholder": "Картанын аталышын киргизиңиз",
+      "card-description-label": "Карточка {number} - Сүрөттөмө",
+      "card-bullets-label": "Тизме элементтери",
+      "card-bullets-placeholder": "Тизме элементин киргизиңиз",
+      "card-bullets-add-bullet": "Тизме элементин кошуу",
+      "card-extra-label": "Карточка {number} - Кошумча талаа",
+      "card-description-placeholder": "Карточканын сүрөттөмөсүн киргизиңиз",
+      "card-extra-placeholder": "Кошумча талаасын киргизиңиз"
     }
   },
   "Pages": {
@@ -29,6 +82,35 @@
       "title": "404",
       "description": "Кечиресиз, сиз издеген баракча жок.",
       "link": "Башкы бетке кайтуу"
+    },
+    "Admin": {
+      "Dashboard": {},
+      "Users": {},
+      "CMS": {
+        "Navigation": {
+          "hero": "Алдыңкы секция",
+          "about-us": "Биз жөнүндө",
+          "why-us": "Эмне үчүн биз",
+          "cta": "Иш-аракетке чакыруу",
+          "our-services": "Биздин кызматтар",
+          "plans": "Пландар",
+          "calculator": "Калькулятор",
+          "blog": "Блог",
+          "our-team": "Биздин команда",
+          "our-partners": "Биздин өнөктөштөр",
+          "faq": "Көп берилүүчү суроолор"
+        },
+        "title": "Контент башкаруу системасы",
+        "Section": {
+          "card-heading": "Секциянын контенти",
+          "card-subheading": "Жаңы текст киргизип, сактоо үчүн баскычты басыңыз."
+        }
+      },
+      "Blog": {},
+      "Settings": {
+        "title": "Орнотуулар",
+        "description": "Башкаруу панелинин орнотуулары"
+      }
     }
   }
 }
