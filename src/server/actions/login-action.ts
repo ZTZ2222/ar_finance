@@ -12,7 +12,7 @@ export const loginUser = actionClient
       await signIn("credentials", {
         email,
         password,
-        redirectTo: "/admin/dashboard",
+        redirectTo: "/admin",
       })
       return { success: "User logged in" }
     } catch (error) {
