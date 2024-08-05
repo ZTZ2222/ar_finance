@@ -1,31 +1,18 @@
 import React from "react"
 import Image from "next/image"
 import { CircleArrowDown } from "lucide-react"
-import { getLocale } from "next-intl/server"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Lines } from "@/components/icons"
 import Navigation from "@/components/layout/navigation"
 import ScrollLink from "@/components/shared/scroll-link"
-import getSectionById from "@/server/data-access-layer/content"
-import type { zSection } from "@/types/content.schema"
+import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function Hero() {
-  const locale = await getLocale()
-  const sectionData = await getSectionById("hero")
-
-  const heading =
-    sectionData &&
-    (sectionData[`heading_${locale}` as keyof zSection] as string)
-  const subheading =
-    sectionData &&
-    (sectionData[`subheading_${locale}` as keyof zSection] as string)
-  const primaryButton =
-    sectionData &&
-    (sectionData[`primaryButton_${locale}` as keyof zSection] as string)
+  const sectionData = await getNormalizedSectionById("hero")
 
   // Split heading text into words
-  const words = heading?.split(" ")
+  const words = sectionData?.heading?.split(" ")
   const lastWord = words?.pop() // Extract the last word
   const restOfWords = words?.join(" ") // Join the remaining words
 
@@ -66,11 +53,11 @@ export default async function Hero() {
             </span>
           </h1>
           <p className="leading-6 text-gray-350 md:text-lg xl:text-xl xl:font-medium xl:leading-[30px]">
-            {subheading}
+            {sectionData?.subheading}
           </p>
         </div>
         <Button variant="core" size="mobile" className="w-fit px-[30px]">
-          {primaryButton}
+          {sectionData?.primaryButton}
         </Button>
       </section>
       <div className="absolute inset-0 bg-black opacity-60" />

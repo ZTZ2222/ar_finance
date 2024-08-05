@@ -4,7 +4,6 @@ import Image from "next/image"
 import useMediaQuery from "@custom-react-hooks/use-media-query"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import type { zCardImage } from "@/types/content.schema"
 
 type Props = {
   images: (string | null)[] | undefined

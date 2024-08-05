@@ -1,25 +1,27 @@
 import Heading from "@/components/shared/heading"
-import Paragraph from "@/components/shared/paragraph"
-import PlanCardList from "@/components/shared/plan-card-list"
+import PlanCard from "@/components/shared/plan-card"
+import SectionName from "@/components/shared/section-name"
 import Subheading from "@/components/shared/subheading"
+import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function Plans() {
+  const sectionData = await getNormalizedSectionById("plans")
+
   return (
     <section
       id="plans"
       className="container mb-[100px] space-y-[30px] md:mb-[120px] md:space-y-[50px]"
     >
       <div className="space-y-[26px]">
-        <Heading>Тарифы</Heading>
-        <Subheading>Прозрачные и доступные цены для вашего бизнеса</Subheading>
-        <Paragraph>
-          Мы предлагаем различные тарифные планы, чтобы вы могли выбрать тот,
-          который наилучшим образом соответствует вашим потребностям и бюджету.
-          Наши тарифы включают все необходимые услуги для ведения бухгалтерского
-          учета, налогового консультирования и финансового планирования.
-        </Paragraph>
+        <SectionName>{sectionData?.sectionName}</SectionName>
+        <Heading>{sectionData?.heading}</Heading>
+        <Subheading>{sectionData?.subheading}</Subheading>
       </div>
-      <PlanCardList />
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {sectionData?.cards.map((card, index) => (
+          <PlanCard key={card.id} index={index} card={card} />
+        ))}
+      </div>
     </section>
   )
 }

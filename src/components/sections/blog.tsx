@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
-import Paragraph from "@/components/shared/paragraph"
+import SectionName from "@/components/shared/section-name"
 import Subheading from "@/components/shared/subheading"
+import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 import type { zPostRead } from "@/types/post.schema"
 
 export default async function Blog() {
+  const sectionData = await getNormalizedSectionById("blog")
+
   const posts: zPostRead[] = [
     {
       id: "1",
@@ -47,13 +50,9 @@ export default async function Blog() {
     <section id="blog" className="mb-[100px] space-y-[50px] md:mb-[120px]">
       <div className="container lg:flex lg:justify-between">
         <div className="space-y-[26px] lg:w-[75%]">
-          <Heading>Блог</Heading>
-          <Subheading>Последние статьи</Subheading>
-          <Paragraph>
-            Здесь вы найдете последние новости, полезные советы и экспертные
-            мнения по вопросам бухгалтерии и финансов. Мы делимся знаниями и
-            опытом, чтобы помочь вашему бизнесу расти и процветать.
-          </Paragraph>
+          <SectionName>{sectionData?.sectionName}</SectionName>
+          <Heading>{sectionData?.heading}</Heading>
+          <Subheading>{sectionData?.subheading}</Subheading>
         </div>
         <Button
           variant="core"
@@ -61,7 +60,7 @@ export default async function Blog() {
           className="mt-auto hidden h-fit w-fit px-[30px] lg:inline-flex"
           asChild
         >
-          <Link href="/blog">Смотреть все статьи</Link>
+          <Link href="/blog">{sectionData?.primaryButton}</Link>
         </Button>
       </div>
       <ScrollArea className="pb-5 lg:container">
@@ -81,7 +80,7 @@ export default async function Blog() {
       </ScrollArea>
       <div className="container lg:hidden">
         <Button variant="core" size="mobile" asChild>
-          <Link href="/blog">Смотреть все статьи</Link>
+          <Link href="/blog">{sectionData?.primaryButton}</Link>
         </Button>
       </div>
     </section>

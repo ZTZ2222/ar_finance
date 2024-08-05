@@ -1,8 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import useMediaQuery from "@custom-react-hooks/use-media-query"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,42 +14,29 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { CheckCircle } from "@/components/icons"
-import type { zPlan } from "@/types/content.schema"
+import type { NormalizedCard } from "@/types/content.schema"
 
-type CardProps = React.ComponentProps<typeof Card> &
-  zPlan & {
-    index: number
-  }
+type CardProps = React.ComponentProps<typeof Card> & {
+  card: NormalizedCard
+  index: number
+}
 
 export default function PlanCard({
-  id,
-  icon,
-  title,
-  description,
-  price,
-  benefits,
+  card,
   index,
   className,
   ...props
 }: CardProps) {
-  const isDesktop = useMediaQuery("(min-width: 1024px)")
+  const t = useTranslations()
   return (
     <motion.div
-      initial={isDesktop ? { opacity: 0, y: 0 } : {}}
-      whileInView={
-        isDesktop
-          ? {
-              opacity: 1,
-              transition: { duration: 0.7, delay: index * 0.7 },
-            }
-          : {}
-      }
-      whileHover={
-        isDesktop
-          ? { y: -20, transition: { duration: 0.3, type: "spring" } }
-          : {}
-      }
-      viewport={isDesktop ? { once: true } : {}}
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{
+        opacity: 1,
+        transition: { duration: 0.7, delay: index * 0.7 },
+      }}
+      whileHover={{ y: -20, transition: { duration: 0.3, type: "spring" } }}
+      viewport={{ once: true }}
       className="grid"
     >
       <Card
@@ -64,8 +51,8 @@ export default function PlanCard({
             {/* Plan card icon */}
             <div className="relative size-10">
               <Image
-                src={icon}
-                alt={title}
+                src={card.image as string}
+                alt={card.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -74,27 +61,27 @@ export default function PlanCard({
 
             {/* Plan card title */}
             <span className="text-lg font-bold text-rose-750 xl:text-xl xl:leading-[22px]">
-              Тариф &quot;{title}&quot;
+              {t("Components.PlanCard.card-title")} &quot;{card.title}&quot;
             </span>
           </CardTitle>
 
           {/* Plan card price */}
           <div className="text-2xl font-black leading-[26.4px] xl:text-4xl">
-            от {price.toLocaleString("ru-RU")} сом
+            {card.extra}
           </div>
 
           {/* Plan card description */}
           <CardDescription className="text-center font-normal text-gray-650 lg:line-clamp-2 xl:text-base">
-            {description}
+            {card.description}
           </CardDescription>
         </CardHeader>
         <CardContent className="px-8 py-5">
           <div className="flex flex-col gap-4">
-            {benefits.map(benefit => (
-              <div key={benefit.id} className="flex items-center gap-3">
+            {card.bullets.map((benefit, index) => (
+              <div key={index} className="flex items-center gap-3">
                 <CheckCircle className="shrink-0" />
                 <span className="line-clamp-2 leading-6 text-gray-650">
-                  {benefit.point}
+                  {benefit}
                 </span>
               </div>
             ))}
@@ -102,7 +89,7 @@ export default function PlanCard({
         </CardContent>
         <CardFooter className="mt-auto flex max-h-[120px] justify-center bg-[#F9FAFB] p-8">
           <Button variant="core" size="mobile">
-            Выбрать тариф
+            {t("Components.Button.choose-plan")}
           </Button>
         </CardFooter>
       </Card>

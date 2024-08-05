@@ -11,24 +11,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function CTA() {
-  const modalContent = {
-    id: "1",
-    icon: "/assets/service-icons/startup.png",
-    title: "Дорогие стартаперы!",
-    description: `Запуск и развитие стартапа – это захватывающее, но одновременно и сложное приключение. Мы понимаем, что вам нужно сосредоточиться на инновациях, привлечении клиентов и развитии вашего бизнеса. Однако финансовые и бухгалтерские вопросы также требуют вашего внимания. Именно здесь мы можем помочь вам!
-    Почему именно мы? 
-    Мы – бухгалтерская фирма, специализирующаяся на поддержке стартапов. Наш опыт работы с молодыми компаниями позволяет нам предлагать эффективные и гибкие решения, которые соответствуют вашим уникальным потребностям. Мы знаем, как важна для вас каждая копейка и каждая минута, поэтому предлагаем вам полный спектр бухгалтерских услуг по доступным ценам.
-
-    Преимущества работы с нами:
-    Индивидуальный подход: Мы предлагаем персонализированные решения, адаптированные под ваш бизнес.
-    Прозрачные цены: Мы понимаем, что стартапы работают с ограниченными бюджетами, поэтому наши тарифы прозрачны и доступны.
-    Технологии и инновации: Мы используем современные технологии для автоматизации бухгалтерского учета, что позволяет сократить время на рутинные операции и минимизировать ошибки.
-    Опыт и надежность: Наши специалисты обладают многолетним опытом работы с стартапами и знают все нюансы бухгалтерского и налогового учета.
-    Специальное предложение
-    Для новых клиентов-стартапов мы предлагаем бесплатную консультацию и бесплатный аудит ваших текущих бухгалтерских процессов. Мы оценим вашу ситуацию и предложим наиболее эффективные решения для вашего бизнеса.`,
-  }
+  const sectionData = await getNormalizedSectionById("cta")
+  const card = sectionData?.cards[0]
   return (
     <div className="container relative mb-[100px] md:mb-[120px]">
       <div
@@ -42,20 +29,15 @@ export default async function CTA() {
       >
         <div className="relative z-10 mx-4 max-w-[690px] space-y-[30px]">
           <h3 className="text-lg font-black leading-5 text-white lg:text-4xl">
-            Спецпредложение для стартаперов
+            {sectionData?.heading}
           </h3>
           <p className="font-semibold leading-5 text-gray-350 lg:text-lg">
-            Для новых клиентов - стартапов мы предлагаем бесплатную консультацию
-            и бесплатный аудит ваших текущих бухгалтерских процессов.
-            <br />
-            <br />
-            Мы оценим вашу ситуацию и предложим наиболее эффективные решения для
-            вашего бизнеса.
+            {sectionData?.subheading}
           </p>
         </div>
         <div className="relative z-10 mx-4 space-y-2.5 lg:space-x-2.5">
           <Button variant="core" size="mobile" className="lg:max-w-[320px]">
-            Получить предложение
+            {sectionData?.primaryButton}
           </Button>
 
           {/* Dialog Button */}
@@ -66,7 +48,7 @@ export default async function CTA() {
                 size="mobile"
                 className="lg:max-w-[300px]"
               >
-                Подробнее
+                {sectionData?.secondaryButton}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-[358px] gap-5 rounded-[30px] bg-white px-0 lg:max-w-[686px]">
@@ -75,8 +57,8 @@ export default async function CTA() {
                   {/* Icon */}
                   <div className="relative size-[75px]">
                     <Image
-                      src={modalContent.icon}
-                      alt={modalContent.title}
+                      src={card?.image as string}
+                      alt={card?.title || ""}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -85,17 +67,15 @@ export default async function CTA() {
 
                   {/* Title */}
                   <h4 className="text-lg font-semibold leading-5 text-[#1E1E1E]">
-                    {modalContent.title}
+                    {card?.title}
                   </h4>
 
                   {/* Description */}
-                  <p className="leading-6 text-gray-650">
-                    {modalContent.description}
-                  </p>
+                  <p className="leading-6 text-gray-650">{card?.description}</p>
 
                   {/* Price */}
                   <p className="text-lg font-bold leading-5 text-[#1E1E1E]">
-                    10 000 сом
+                    {card?.extra}
                   </p>
 
                   {/* Close Button */}
@@ -107,10 +87,8 @@ export default async function CTA() {
                 </div>
               </ScrollArea>
               <DialogHeader className="sr-only">
-                <DialogTitle>{modalContent.title}</DialogTitle>
-                <DialogDescription>
-                  {modalContent.description}
-                </DialogDescription>
+                <DialogTitle>{card?.title}</DialogTitle>
+                <DialogDescription>{card?.description}</DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>
