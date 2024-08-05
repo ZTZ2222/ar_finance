@@ -255,7 +255,28 @@ async function seedSections() {
       secondaryButton_ru: "Подробнее",
       secondaryButton_en: "Learn more",
       secondaryButton_ky: "Көбүрөөк билүү",
-      cards: [],
+      cards: [
+        {
+          id: "cta-card-1",
+          sectionId: "cta",
+          title_ru: "Дорогие стартаперы!",
+          title_en: "Dear startupers!",
+          title_ky: "Урматтуу стартаптар!",
+          description_ru:
+            "Запуск и развитие стартапа – это захватывающее, но одновременно и сложное приключение. Мы понимаем, что вам нужно сосредоточиться на инновациях, привлечении клиентов и развитии вашего бизнеса. Однако финансовые и бухгалтерские вопросы также требуют вашего внимания. Именно здесь мы можем помочь вам! Почему именно мы? Мы – бухгалтерская фирма, специализирующаяся на поддержке стартапов. Наш опыт работы с молодыми компаниями позволяет нам предлагать эффективные и гибкие решения, которые соответствуют вашим уникальным потребностям. Мы знаем, как важна для вас каждая копейка и каждая минута, поэтому предлагаем вам полный спектр бухгалтерских услуг по доступным ценам. Преимущества работы с нами: Индивидуальный подход: Мы предлагаем персонализированные решения, адаптированные под ваш бизнес. Прозрачные цены: Мы понимаем, что стартапы работают с ограниченными бюджетами, поэтому наши тарифы прозрачны и доступны. Технологии и инновации: Мы используем современные технологии для автоматизации бухгалтерского учета, что позволяет сократить время на рутинные операции и минимизировать ошибки. Опыт и надежность: Наши специалисты обладают многолетним опытом работы с стартапами и знают все нюансы бухгалтерского и налогового учета. Специальное предложение Для новых клиентов-стартапов мы предлагаем бесплатную консультацию и бесплатный аудит ваших текущих бухгалтерских процессов. Мы оценим вашу ситуацию и предложим наиболее эффективные решения для вашего бизнеса.",
+          description_en:
+            "Launching and growing a startup is an exciting but also challenging adventure. We understand that you need to focus on innovation, attracting customers and growing your business. However, financial and accounting issues also require your attention. This is where we can help you! Why us? We are an accounting firm specializing in supporting startups. Our experience working with start-up companies allows us to offer efficient and flexible solutions that fit your unique needs. We know how important every penny and every minute is to you, so we offer you a full range of accounting services at affordable prices. Advantages of working with us: Individual approach: We offer personalized solutions tailored to your business. Transparent Pricing: We understand that startups operate on tight budgets, which is why our rates are transparent and affordable. Technologies and innovations: We use modern technologies to automate accounting, which allows us to reduce time for routine operations and minimize errors. Experience and reliability: Our specialists have many years of experience working with startups and know all the nuances of accounting and tax accounting. Special offer For new startup clients, we offer a free consultation and a free audit of your current accounting processes. We will assess your situation and offer the most effective solutions for your business.",
+          description_ky:
+            "Стартапты ишке киргизүү жана өнүктүрүү - бул кызыктуу, бирок ошол эле учурда татаал укмуштуу окуя. Сиз инновацияларга, кардарларды тартууга жана бизнесиңизди өнүктүрүүгө басым жасашыңыз керек экенин түшүнөбүз. Бирок, каржы жана бухгалтердик маселелер да сиздин көңүлүңүздү талап кылат. Бул жерде биз сизге жардам бере алабыз! Эмне үчүн биз? Биз стартаптарды колдоо боюнча адистешкен бухгалтердик фирмабыз. Биздин стартап компаниялар менен иштөө тажрыйбабыз сиздин уникалдуу муктаждыктарыңызга туура келген эффективдүү жана ийкемдүү чечимдерди сунуштоого мүмкүндүк берет. Ар бир тыйын жана ар бир мүнөт сиз үчүн канчалык маанилүү экенин билебиз, ошондуктан биз сизге жеткиликтүү баада бухгалтердик кызматтардын толук спектрин сунуштайбыз. Биз менен иштөөнүн артыкчылыктары: Жеке мамиле: Биз сиздин бизнесиңизге ылайыкташтырылган жекече чечимдерди сунуштайбыз. Ачык баа: Биз стартаптар катуу бюджетте иштээрин түшүнөбүз, ошондуктан биздин тарифтер ачык жана жеткиликтүү. Технологиялар жана инновациялар: Биз бухгалтердик эсепти автоматташтыруу үчүн заманбап технологияларды колдонобуз, бул бизге күнүмдүк операциялар үчүн убакытты кыскартууга жана каталарды минималдаштырууга мүмкүндүк берет. Тажрыйба жана ишенимдүүлүк: Биздин адистер стартаптар менен иштөө боюнча көп жылдык тажрыйбага ээ жана бухгалтердик эсептин жана салыктык эсептин бардык нюанстарын билишет. Атайын сунуш Жаңы стартап кардарлар үчүн биз акысыз консультацияларды жана учурдагы бухгалтердик процесстердин акысыз аудитин сунуштайбыз. Биз сиздин абалыңызды баалап, бизнесиңиз үчүн эң эффективдүү чечимдерди сунуштайбыз.",
+          extra_ru: "10 000 сом",
+          extra_en: "10 000 som",
+          extra_ky: "10 000 сом",
+          bullets_ru: [],
+          bullets_en: [],
+          bullets_ky: [],
+          image: "/assets/service-icons/startup.png",
+        },
+      ],
     },
     {
       id: "our-services",
@@ -323,7 +344,7 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: null,
+          image: "/assets/service-icons/file.png",
         },
         {
           id: "our-services-card-2",
@@ -370,7 +391,7 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: null,
+          image: "/assets/service-icons/scale.png",
         },
         {
           id: "our-services-card-3",
@@ -417,7 +438,7 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: null,
+          image: "/assets/service-icons/accounting.png",
         },
         {
           id: "our-services-card-4",
@@ -464,7 +485,47 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: null,
+          image: "/assets/service-icons/taxes.png",
+        },
+        {
+          id: "our-services-card-5",
+          sectionId: "our-services",
+          title_ru: "Восстановление бухгалтерского учета",
+          title_en: "Accounting restoration",
+          title_ky: "Бухгалтердик эсепти калыбына келтирүү",
+          description_ru:
+            "Если у вас возникли проблемы с бухгалтерским учетом, мы поможем вам их решить. Восстановим учет за любой период, исправим ошибки и приведем документацию в порядок.",
+          description_en:
+            "If you encounter problems with accounting, we can help you. We will restore your accounting for any period, fix errors and bring your documentation in order.",
+          description_ky:
+            "Бухгалтердик эсеп менен көйгөйлөрүңүз болсо, аларды чечүүгө жардам беребиз. Биз бухгалтердик эсепти каалаган мезгилде калыбына келтиребиз, каталарды оңдоп, документтерди иретке келтиребиз.",
+          extra_ru: "10 000 сом",
+          extra_en: "10 000 som",
+          extra_ky: "10 000 сом",
+          bullets_ru: [],
+          bullets_en: [],
+          bullets_ky: [],
+          image: "/assets/service-icons/graph.png",
+        },
+        {
+          id: "our-services-card-6",
+          sectionId: "our-services",
+          title_ru: "Восстановление бухгалтерского учета",
+          title_en: "Accounting restoration",
+          title_ky: "Бухгалтердик эсепти калыбына келтирүү",
+          description_ru:
+            "Если у вас возникли проблемы с бухгалтерским учетом, мы поможем вам их решить. Восстановим учет за любой период, исправим ошибки и приведем документацию в порядок.",
+          description_en:
+            "If you encounter problems with accounting, we can help you. We will restore your accounting for any period, fix errors and bring your documentation in order.",
+          description_ky:
+            "Бухгалтердик эсеп менен көйгөйлөрүңүз болсо, аларды чечүүгө жардам беребиз. Биз бухгалтердик эсепти каалаган мезгилде калыбына келтиребиз, каталарды оңдоп, документтерди иретке келтиребиз.",
+          extra_ru: "10 000 сом",
+          extra_en: "10 000 som",
+          extra_ky: "10 000 сом",
+          bullets_ru: [],
+          bullets_en: [],
+          bullets_ky: [],
+          image: "/assets/service-icons/report.png",
         },
       ],
     },
