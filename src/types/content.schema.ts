@@ -41,50 +41,20 @@ export const sectionSchema = z.object({
 export type zCard = z.infer<typeof cardSchema>
 export type zSection = z.infer<typeof sectionSchema>
 
-export const cardImageSchema = z.object({
-  id: z.string(),
-  src: z.string(),
-  height: z.number(),
-  width: z.number(),
-})
+export type NormalizedCard = {
+  id: string
+  title: string
+  description: string
+  extra: string
+  bullets: string[]
+  image: string
+}
 
-export const cardAdvantageSchema = z.object({
-  id: z.string().optional().nullable(),
-  title: z.string().min(1, { message: "Обязательное поле" }),
-  description: z.string().min(1, { message: "Обязательное поле" }),
-})
-
-export const planSchema = z.object({
-  id: z.string(),
-  icon: z.string(),
-  title: z.string().min(1, { message: "Обязательное поле" }),
-  description: z.string().min(1, { message: "Обязательное поле" }),
-  price: z.number(),
-  benefits: z
-    .array(
-      z.object({
-        id: z.string(),
-        point: z.string().min(1, { message: "Обязательное поле" }),
-      }),
-    )
-    .min(1, { message: "Обязательное поле" }),
-})
-
-export const serviceSchema = z.object({
-  id: z.string(),
-  icon: z.string(),
-  title: z.string().min(1, { message: "Обязательное поле" }),
-  description: z.string().min(1, { message: "Обязательное поле" }),
-  price: z.number(),
-  bullets: z.array(
-    z.object({
-      id: z.string(),
-      point: z.string().min(1, { message: "Обязательное поле" }),
-    }),
-  ),
-})
-
-export type zCardImage = z.infer<typeof cardImageSchema>
-export type zCardAdvantage = z.infer<typeof cardAdvantageSchema>
-export type zPlan = z.infer<typeof planSchema>
-export type zService = z.infer<typeof serviceSchema>
+export type NormalizedSection = {
+  sectionName: string | null
+  heading: string | null
+  subheading: string | null
+  primaryButton: string | null
+  secondaryButton: string | null
+  cards: NormalizedCard[]
+}
