@@ -24,7 +24,7 @@ export const updateSection = actionClient
         })
       }
 
-      revalidatePath("/admin/cms")
+      revalidatePath("/")
 
       return { success: "Section updated!" }
     } catch (error) {
