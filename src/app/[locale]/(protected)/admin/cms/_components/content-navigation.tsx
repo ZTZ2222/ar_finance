@@ -50,6 +50,14 @@ const sections = [
     title: "faq",
     href: "/admin/cms/faq",
   },
+  {
+    title: "contacts-socials",
+    href: "/admin/cms/contacts-socials",
+  },
+  {
+    title: "meta",
+    href: "/admin/cms/meta",
+  },
 ]
 
 export default function ContentNavigation() {

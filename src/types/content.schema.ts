@@ -58,3 +58,49 @@ export type NormalizedSection = {
   secondaryButton: string | null
   cards: NormalizedCard[]
 }
+
+export const socialSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  link: z.string(),
+  icon: z.string(),
+})
+
+export const contactSchema = z.object({
+  id: z.string(),
+  name_ru: z.string().nullable(),
+  name_en: z.string().nullable(),
+  name_ky: z.string().nullable(),
+  link: z.string(),
+  icon: z.string(),
+})
+
+export const articleSchema = z.object({
+  id: z.string(),
+  title_ru: z.string().nullable(),
+  title_en: z.string().nullable(),
+  title_ky: z.string().nullable(),
+  content_ru: z.string().nullable(),
+  content_en: z.string().nullable(),
+  content_ky: z.string().nullable(),
+  image: z.string(),
+  slug: z.string(),
+  linkName: z.string(),
+  linkHref: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  socials: z.array(socialSchema),
+})
+
+export const articleSocialSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  link: z.string(),
+  icon: z.string(),
+  articleId: z.string(),
+})
+
+export type zSocial = z.infer<typeof socialSchema>
+export type zContact = z.infer<typeof contactSchema>
+export type zArticle = z.infer<typeof articleSchema>
+export type zArticleSocial = z.infer<typeof articleSocialSchema>

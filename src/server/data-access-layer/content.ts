@@ -3,7 +3,9 @@ import { db } from "@/server"
 import type {
   NormalizedCard,
   NormalizedSection,
+  zContact,
   zSection,
+  zSocial,
 } from "@/types/content.schema"
 
 export async function getSectionById(id: string): Promise<zSection | null> {
@@ -67,5 +69,31 @@ export async function getNormalizedSectionById(
     primaryButton,
     secondaryButton,
     cards: normalizedCards,
+  }
+}
+
+export async function getContacts(): Promise<zContact[] | null> {
+  try {
+    const contacts = await db.contact.findMany({
+      orderBy: { id: "asc" },
+    })
+    if (!contacts) return null
+    return contacts
+  } catch (error) {
+    console.log(error)
+    return null
+  }
+}
+
+export async function getSocials(): Promise<zSocial[] | null> {
+  try {
+    const socials = await db.social.findMany({
+      orderBy: { id: "asc" },
+    })
+    if (!socials) return null
+    return socials
+  } catch (error) {
+    console.log(error)
+    return null
   }
 }

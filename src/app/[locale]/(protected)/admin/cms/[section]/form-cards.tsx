@@ -1,9 +1,8 @@
 "use client"
 
-import { PlusCircle, Trash, Trash2 } from "lucide-react"
+import { PlusCircle, Trash2 } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useFormContext } from "react-hook-form"
-import { number } from "zod"
 import { cn } from "@/lib/utils"
 import {
   FormControl,

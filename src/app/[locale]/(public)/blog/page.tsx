@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
-import Paragraph from "@/components/shared/paragraph"
+import SectionName from "@/components/shared/section-name"
 import Subheading from "@/components/shared/subheading"
 import type { zPostRead } from "@/types/post.schema"
 
@@ -96,13 +96,13 @@ export default async function Blog() {
       </Breadcrumb>
 
       <div className="space-y-[26px]">
-        <Heading>Блог</Heading>
-        <Subheading>Последние статьи</Subheading>
-        <Paragraph>
+        <SectionName>Блог</SectionName>
+        <Heading>Последние статьи</Heading>
+        <Subheading>
           Здесь вы найдете последние новости, полезные советы и экспертные
           мнения по вопросам бухгалтерии и финансов. Мы делимся знаниями и
           опытом, чтобы помочь вашему бизнесу расти и процветать.
-        </Paragraph>
+        </Subheading>
       </div>
       <div className="grid gap-20 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-y-[60px]">
         {posts.map(post => (

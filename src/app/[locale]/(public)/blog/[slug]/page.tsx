@@ -19,7 +19,7 @@ import {
 } from "@/components/icons"
 import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
-import Subheading from "@/components/shared/subheading"
+import SectionName from "@/components/shared/section-name"
 import type { zPostRead } from "@/types/post.schema"
 
 export async function generateMetadata({
@@ -111,7 +111,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
               day: "numeric",
             })}
           </span>
-          <Subheading>{post.title}</Subheading>
+          <Heading>{post.title}</Heading>
         </div>
 
         {/* Image */}
@@ -144,7 +144,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className="space-y-[30px]">
-        <Heading>Другие статьи</Heading>
+        <SectionName>Другие статьи</SectionName>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {other_posts
             .filter(blog => blog.id !== post.id)

@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client"
-import type { zSection } from "@/types/content.schema"
+import type { zContact, zSection, zSocial } from "@/types/content.schema"
 
 const prisma = new PrismaClient()
 
@@ -1047,9 +1047,103 @@ async function seedAdminUser() {
   console.log("Admin user has been seeded.")
 }
 
+async function seedSocialsAndContacts() {
+  const contacts: zContact[] = [
+    {
+      id: "phone",
+      name_ru: "+996 500 30 10 80",
+      name_en: "+996 500 30 10 80",
+      name_ky: "+996 500 30 10 80",
+      link: "+996500301080",
+      icon: "/assets/contacts/phone.png",
+    },
+    {
+      id: "work-hours",
+      name_ru: "пн - пт с 9:00 до 18:00",
+      name_en: "Mon - Fri from 9:00 to 18:00",
+      name_ky: "Дүйшөмбү - Жума 9:00дөн 18:00гө чейин",
+      link: "",
+      icon: "/assets/contacts/clock.png",
+    },
+    {
+      id: "location",
+      name_ru: "г.Бишкек, ул. Абдрахманова 1",
+      name_en: "Bishkek, st. Abdrakhmanova 1",
+      name_ky: "Бишкек ш., Абдрахманов көч. 1",
+      link: "https://2gis.kg/bishkek",
+      icon: "/assets/contacts/marker.png",
+    },
+    {
+      id: "email",
+      name_ru: "arfinance@gmail.com",
+      name_en: "arfinance@gmail.com",
+      name_ky: "arfinance@gmail.com",
+      link: "arfinance@gmail.com",
+      icon: "/assets/contacts/mail.png",
+    },
+  ]
+  const socials: zSocial[] = [
+    {
+      id: "1",
+      name: "whatsapp",
+      link: "https://api.whatsapp.com/send?phone=996555000555",
+      icon: "/assets/socials/whatsapp-white.png",
+    },
+    {
+      id: "2",
+      name: "instagram",
+      link: "https://www.instagram.com/",
+      icon: "/assets/socials/instagram-white.png",
+    },
+    {
+      id: "3",
+      name: "facebook",
+      link: "https://www.facebook.com/",
+      icon: "/assets/socials/facebook-white.png",
+    },
+    {
+      id: "4",
+      name: "telegram",
+      link: "https://t.me/",
+      icon: "/assets/socials/telegram-white.png",
+    },
+    {
+      id: "5",
+      name: "tiktok",
+      link: "https://www.tiktok.com/",
+      icon: "/assets/socials/tiktok-white.png",
+    },
+  ]
+
+  // Contacts
+  for (const contact of contacts) {
+    await prisma.contact.upsert({
+      where: { id: contact.id },
+      update: {
+        // No operation update
+      },
+      create: contact,
+    })
+  }
+
+  // Socials
+  for (const social of socials) {
+    await prisma.social.upsert({
+      where: { id: social.id },
+      update: {
+        // No operation update
+      },
+      create: social,
+    })
+  }
+
+  console.log("Socials and contacts have been seeded.")
+}
+
 async function main() {
   await seedSections()
   await seedAdminUser()
+  await seedSocialsAndContacts()
 }
 
 main()

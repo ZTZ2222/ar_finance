@@ -1,56 +1,12 @@
-import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Clock, Mail, MapPin, PhoneCall } from "lucide-react"
-import {
-  FacebookWhite,
-  InstagramWhite,
-  TelegramWhite,
-  TikTokWhite,
-  WhatsAppWhite,
-} from "@/components/icons"
+import { getLocale } from "next-intl/server"
+import { getContacts, getSocials } from "@/server/data-access-layer/content"
 
-export default function Footer() {
-  const contacts = [
-    {
-      icon: <PhoneCall />,
-      text: "+996 500 30 10 80",
-    },
-    {
-      icon: <Clock />,
-      text: "пн - пт с 9:00 до 18:00",
-    },
-    {
-      icon: <MapPin />,
-      text: "г.Бишкек, ул. Абдрахманова 1",
-    },
-    {
-      icon: <Mail />,
-      text: "arfinance@gmail.com",
-    },
-  ]
-  const socials = [
-    {
-      icon: <WhatsAppWhite />,
-      href: "#",
-    },
-    {
-      icon: <InstagramWhite />,
-      href: "#",
-    },
-    {
-      icon: <FacebookWhite />,
-      href: "#",
-    },
-    {
-      icon: <TelegramWhite />,
-      href: "#",
-    },
-    {
-      icon: <TikTokWhite />,
-      href: "#",
-    },
-  ]
+export default async function Footer() {
+  const locale = await getLocale()
+  const contacts = await getContacts()
+  const socials = await getSocials()
   return (
     <footer className="rounded-t-[30px] bg-gradient-to-r from-rose-750 to-[#860525]">
       <div className="container my-[50px] flex flex-col gap-[70px] xl:my-[60px] xl:flex-row xl:gap-[80px]">
@@ -68,19 +24,35 @@ export default function Footer() {
           className="flex flex-col gap-4 text-lg text-[#E0E0E0]"
         >
           <h3 className="font-bold text-white">Наши контакты</h3>
-          {contacts.map((contact, index) => (
+          {contacts?.map((contact, index) => (
             <div key={index} className="flex gap-2.5">
-              {contact.icon}
-              <p>{contact.text}</p>
+              <div className="relative size-6">
+                <Image
+                  src={contact.icon}
+                  alt={contact.name_ru as string}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <p>{contact[`name_${locale}` as keyof typeof contact]}</p>
             </div>
           ))}
         </div>
         <div className="flex flex-col gap-4 text-lg text-white">
           <h3 className="font-bold">Мы в соцсетях</h3>
           <div className="flex gap-2">
-            {socials.map((social, index) => (
-              <Link key={index} href={social.href}>
-                {social.icon}
+            {socials?.map((social, index) => (
+              <Link key={index} href={social.link}>
+                <div className="relative size-12">
+                  <Image
+                    src={social.icon}
+                    alt={social.name as string}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </Link>
             ))}
           </div>

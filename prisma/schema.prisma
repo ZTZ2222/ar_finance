@@ -104,3 +104,56 @@ model Card {
   @@unique([sectionId, id])
   @@map("cards")
 }
+
+model Social {
+  id        String  @id @default(cuid())
+  name      String
+  link      String
+  icon      String
+
+  @@map("socials")
+}
+
+model Contact {
+  id        String  @id @default(cuid())
+  name_ru      String?
+  name_en      String?
+  name_ky      String?
+  link      String
+  icon      String
+
+  @@map("contacts")
+}
+
+model Article {
+  id        String  @id @default(cuid())
+  title_ru      String?
+  title_en      String?
+  title_ky      String?
+  content_ru      String?
+  content_en      String?
+  content_ky      String?
+  image      String
+  slug      String
+  linkName  String
+  linkHref  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  socials  ArticleSocial[]
+
+  @@index([slug])
+  @@map("articles")
+}
+
+model ArticleSocial {
+  id        String  @id @default(cuid())
+  name      String
+  link      String
+  icon      String
+  articleId String
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@map("article_socials")
+}

@@ -1,14 +1,12 @@
 "use client"
 
 import React from "react"
-import Image from "next/image"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useLocale, useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { AppConfig } from "@/lib/i18n"
-import FormCards from "@/app/[locale]/(protected)/admin/cms/[section]/form-cards"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -18,16 +16,12 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { updateSection } from "@/server/actions/content-action"
-import {
-  sectionSchema,
-  type zCard,
-  type zSection,
-} from "@/types/content.schema"
+import { sectionSchema, type zSection } from "@/types/content.schema"
+import FormCards from "./form-cards"
 
 type Props = {
   sectionData: zSection

@@ -38,7 +38,9 @@
       "calculator": "Calculator",
       "our-team": "Our team",
       "our-partners": "Our partners",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "contacts-socials": "Contacts & Socials",
+      "meta": "Metadata"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -104,7 +106,9 @@
           "blog": "Blog",
           "our-team": "Our Team",
           "our-partners": "Our Partners",
-          "faq": "Frequently Asked Questions"
+          "faq": "Frequently Asked Questions",
+          "contacts-socials": "Contacts & Socials",
+          "meta": "Metadata"
         },
         "title": "Content Management System",
         "Section": {
@@ -112,7 +116,15 @@
           "card-subheading": "Enter new text and click save to overwrite."
         },
         "heading": "Welcome to the Content Management System",
-        "subheading": "Please select a section to start editing."
+        "subheading": "Please select a section to start editing.",
+        "ContactsAndSocials": {
+          "heading": "Contact",
+          "subheading": "Edit the site contact and socials links"
+        },
+        "Meta": {
+          "heading": "Metadata",
+          "subheading": "Edit the site metadata"
+        }
       },
       "Blog": {},
       "Settings": {
