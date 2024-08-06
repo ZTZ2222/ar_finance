@@ -6,7 +6,7 @@ import { db } from "@/server"
 import {
   getUserByEmailDanger,
   getUserByIdPasswordOmit,
-} from "@/server/actions/user-action"
+} from "@/server/data-access-layer/user"
 import { credentialsSchema } from "@/types/auth.schema"
 
 export const {
