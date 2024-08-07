@@ -43,7 +43,7 @@ export default async function Footer() {
           <h3 className="font-bold">Мы в соцсетях</h3>
           <div className="flex gap-2">
             {socials?.map((social, index) => (
-              <Link key={index} href={social.link}>
+              <Link key={index} href={social.link} target="_blank">
                 <div className="relative size-12">
                   <Image
                     src={social.icon}

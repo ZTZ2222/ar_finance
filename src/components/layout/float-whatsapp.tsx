@@ -1,12 +1,15 @@
 import React from "react"
 import Link from "next/link"
 import { WhatsApp } from "@/components/icons"
+import { getSocials } from "@/server/data-access-layer/content"
 
-export default function FloatWhatsApp() {
+export default async function FloatWhatsApp() {
+  const socials = await getSocials()
+  const whatsapp = socials?.find(social => social.name === "whatsapp")
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <Link
-        href="#"
+        href={whatsapp?.link || ""}
         target="_blank"
         rel="noopener noreferrer"
         className="justify-centerp-4 relative inline-flex items-center transition-transform hover:scale-105"
