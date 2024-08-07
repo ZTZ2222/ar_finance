@@ -41,7 +41,9 @@
       "faq": "FAQ",
       "contacts-socials": "Contacts & Socials",
       "meta": "Metadata",
-      "go-index-page": "Go to home page"
+      "go-index-page": "Go to home page",
+      "security": "Security",
+      "advanced": "Advanced"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -113,7 +115,7 @@
           "contacts-socials": "Contacts & Socials",
           "meta": "Metadata"
         },
-        "title": "Content Management System",
+        "title": "Content management system",
         "Section": {
           "card-heading": "Section Content",
           "card-subheading": "Enter new text and click save to overwrite."
@@ -131,8 +133,12 @@
       },
       "Blog": {},
       "Settings": {
-        "title": "Settings",
-        "description": "Admin panel settings"
+        "title": "System settings",
+        "Navigation": {
+          "general": "General settings",
+          "security": "Security settings",
+          "advanced": "Advanced settings"
+        }
       }
     }
   },
