@@ -21,7 +21,7 @@ enum Role {
 }
 
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
   email         String          @unique
   emailVerified DateTime?
@@ -37,12 +37,13 @@ model User {
 }
 
 model Account {
+  id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?
-  access_token      String?
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
@@ -55,12 +56,12 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@unique([provider, providerAccountId])
-  @@index([userId])
   @@map("accounts")
 }
 
 model Section {
-  id           String                @id
+  uid            Int          @id @default(autoincrement())
+  slug    String
   sectionName_ru  String?
   sectionName_en  String?
   sectionName_ky  String?
@@ -78,13 +79,13 @@ model Section {
   secondaryButton_ky String?
   cards        Card[]
 
-  @@index([id])
+  @@unique([slug])
   @@map("sections")
 }
 
 model Card {
-  id        String  @id @default(cuid())
-  sectionId String
+  uid            Int          @id @default(autoincrement())
+  sectionId Int
   title_ru      String?
   title_en      String?
   title_ky      String?
@@ -98,15 +99,16 @@ model Card {
   bullets_en      String[]
   bullets_ky      String[]
   image   String?
+  createdAt DateTime @default(now()) @map("created_at")
 
-  section Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  section Section @relation(fields: [sectionId], references: [uid], onDelete: Cascade)
 
-  @@unique([sectionId, id])
+  @@unique([sectionId, uid])
   @@map("cards")
 }
 
 model Social {
-  id        String  @id @default(cuid())
+  uid            Int          @id @default(autoincrement())
   name      String
   link      String
   icon      String
@@ -115,7 +117,7 @@ model Social {
 }
 
 model Contact {
-  id        String  @id @default(cuid())
+  uid            Int          @id @default(autoincrement())
   name_ru      String?
   name_en      String?
   name_ky      String?
@@ -126,7 +128,7 @@ model Contact {
 }
 
 model Article {
-  id        String  @id @default(cuid())
+  uid            Int          @id @default(autoincrement())
   title_ru      String?
   title_en      String?
   title_ky      String?
@@ -147,13 +149,13 @@ model Article {
 }
 
 model ArticleSocial {
-  id        String  @id @default(cuid())
+  uid            Int          @id @default(autoincrement())
   name      String
   link      String
   icon      String
-  articleId String
+  articleId Int
 
-  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  article Article @relation(fields: [articleId], references: [uid], onDelete: Cascade)
 
   @@map("article_socials")
 }

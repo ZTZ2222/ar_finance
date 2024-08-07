@@ -6,7 +6,8 @@ const prisma = new PrismaClient()
 async function seedSections() {
   const sections: zSection[] = [
     {
-      id: "hero",
+      uid: 1,
+      slug: "hero",
       sectionName_ru: null,
       sectionName_en: null,
       sectionName_ky: null,
@@ -28,7 +29,8 @@ async function seedSections() {
       cards: [],
     },
     {
-      id: "about-us",
+      uid: 2,
+      slug: "about-us",
       sectionName_ru: "О нас",
       sectionName_en: "About us",
       sectionName_ky: "Биз жөнүндө",
@@ -49,8 +51,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "about-us-card-1",
-          sectionId: "about-us",
+          sectionId: 2,
           title_ru: null,
           title_en: null,
           title_ky: null,
@@ -66,8 +67,7 @@ async function seedSections() {
           image: "/assets/about/image1.jpg",
         },
         {
-          id: "about-us-card-2",
-          sectionId: "about-us",
+          sectionId: 2,
           title_ru: null,
           title_en: null,
           title_ky: null,
@@ -83,8 +83,7 @@ async function seedSections() {
           image: "/assets/about/image2.jpg",
         },
         {
-          id: "about-us-card-3",
-          sectionId: "about-us",
+          sectionId: 2,
           title_ru: null,
           title_en: null,
           title_ky: null,
@@ -100,8 +99,7 @@ async function seedSections() {
           image: "/assets/about/image3.jpg",
         },
         {
-          id: "about-us-card-4",
-          sectionId: "about-us",
+          sectionId: 2,
           title_ru: null,
           title_en: null,
           title_ky: null,
@@ -117,8 +115,7 @@ async function seedSections() {
           image: "/assets/about/image4.jpg",
         },
         {
-          id: "about-us-card-5",
-          sectionId: "about-us",
+          sectionId: 2,
           title_ru: null,
           title_en: null,
           title_ky: null,
@@ -136,7 +133,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "why-us",
+      uid: 3,
+      slug: "why-us",
       sectionName_ru: "Почему мы?",
       sectionName_en: "Why choose us?",
       sectionName_ky: "Эмне үчүн биз?",
@@ -154,8 +152,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "why-us-card-1",
-          sectionId: "why-us",
+          sectionId: 3,
           title_ru: "Профессионализм",
           title_en: "Professionalism",
           title_ky: "Профессионализм",
@@ -174,8 +171,7 @@ async function seedSections() {
           image: null,
         },
         {
-          id: "why-us-card-2",
-          sectionId: "why-us",
+          sectionId: 3,
           title_ru: "Надежность",
           title_en: "Reliability",
           title_ky: "Надежность",
@@ -194,8 +190,7 @@ async function seedSections() {
           image: null,
         },
         {
-          id: "why-us-card-3",
-          sectionId: "why-us",
+          sectionId: 3,
           title_ru: "Индивидуальный подход",
           title_en: "Individual approach",
           title_ky: "Индивидуальный подход",
@@ -214,8 +209,7 @@ async function seedSections() {
           image: null,
         },
         {
-          id: "why-us-card-4",
-          sectionId: "why-us",
+          sectionId: 3,
           title_ru: "Конфиденциальность",
           title_en: "Confidentiality",
           title_ky: "Конфиденциальность",
@@ -236,7 +230,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "cta",
+      uid: 4,
+      slug: "cta",
       sectionName_ru: null,
       sectionName_en: null,
       sectionName_ky: null,
@@ -257,8 +252,7 @@ async function seedSections() {
       secondaryButton_ky: "Көбүрөөк билүү",
       cards: [
         {
-          id: "cta-card-1",
-          sectionId: "cta",
+          sectionId: 4,
           title_ru: "Дорогие стартаперы!",
           title_en: "Dear startupers!",
           title_ky: "Урматтуу стартаптар!",
@@ -279,7 +273,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "our-services",
+      uid: 5,
+      slug: "our-services",
       sectionName_ru: "Наши услуги",
       sectionName_en: "Our services",
       sectionName_ky: "Биздин кызматтар",
@@ -300,8 +295,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "our-services-card-1",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Бухгалтерский учет",
           title_en: "Accounting",
           title_ky: "Бухгалтерский учет",
@@ -347,8 +341,7 @@ async function seedSections() {
           image: "/assets/service-icons/file.png",
         },
         {
-          id: "our-services-card-2",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Бухгалтерский учет",
           title_en: "Accounting",
           title_ky: "Бухгалтерский учет",
@@ -394,8 +387,7 @@ async function seedSections() {
           image: "/assets/service-icons/scale.png",
         },
         {
-          id: "our-services-card-3",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Бухгалтерский учет",
           title_en: "Accounting",
           title_ky: "Бухгалтерский учет",
@@ -441,8 +433,7 @@ async function seedSections() {
           image: "/assets/service-icons/accounting.png",
         },
         {
-          id: "our-services-card-4",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Бухгалтерский учет",
           title_en: "Accounting",
           title_ky: "Бухгалтерский учет",
@@ -488,8 +479,7 @@ async function seedSections() {
           image: "/assets/service-icons/taxes.png",
         },
         {
-          id: "our-services-card-5",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Восстановление бухгалтерского учета",
           title_en: "Accounting restoration",
           title_ky: "Бухгалтердик эсепти калыбына келтирүү",
@@ -508,8 +498,7 @@ async function seedSections() {
           image: "/assets/service-icons/graph.png",
         },
         {
-          id: "our-services-card-6",
-          sectionId: "our-services",
+          sectionId: 5,
           title_ru: "Восстановление бухгалтерского учета",
           title_en: "Accounting restoration",
           title_ky: "Бухгалтердик эсепти калыбына келтирүү",
@@ -530,7 +519,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "plans",
+      uid: 6,
+      slug: "plans",
       sectionName_ru: "Тарифы",
       sectionName_en: "Plans",
       sectionName_ky: "Тарифтер",
@@ -551,8 +541,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "plans-card-1",
-          sectionId: "plans",
+          sectionId: 6,
           title_ru: "Базовый",
           title_en: "Basic",
           title_ky: "Базовый",
@@ -584,8 +573,7 @@ async function seedSections() {
           image: "/assets/plan-icons/zap.png",
         },
         {
-          id: "plans-card-2",
-          sectionId: "plans",
+          sectionId: 6,
           title_ru: "Стандарт",
           title_en: "Standard",
           title_ky: "Стандарт",
@@ -616,8 +604,7 @@ async function seedSections() {
           image: "/assets/plan-icons/cluster.png",
         },
         {
-          id: "plans-card-3",
-          sectionId: "plans",
+          sectionId: 6,
           title_ru: "Премиум",
           title_en: "Premium",
           title_ky: "Премиум",
@@ -653,7 +640,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "calculator",
+      uid: 7,
+      slug: "calculator",
       sectionName_ru: "Калькулятор",
       sectionName_en: "Calculator",
       sectionName_ky: "Калькулятор",
@@ -675,7 +663,8 @@ async function seedSections() {
       cards: [],
     },
     {
-      id: "blog",
+      uid: 8,
+      slug: "blog",
       sectionName_ru: "Блог",
       sectionName_en: "Blog",
       sectionName_ky: "Блог",
@@ -697,7 +686,8 @@ async function seedSections() {
       cards: [],
     },
     {
-      id: "our-team",
+      uid: 9,
+      slug: "our-team",
       sectionName_ru: "Наша команда",
       sectionName_en: "Our team",
       sectionName_ky: "Биздин топ",
@@ -718,8 +708,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "our-team-card-1",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Дмитрий Сергеев",
           title_en: "Dmitry Sergeev",
           title_ky: "Дмитрий Сергеев",
@@ -735,8 +724,7 @@ async function seedSections() {
           image: "/assets/avatar/alex.jpg",
         },
         {
-          id: "our-team-card-2",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Анна Королева",
           title_en: "Anna Koroleva",
           title_ky: "Анна Королева",
@@ -752,8 +740,7 @@ async function seedSections() {
           image: "/assets/avatar/manager.jpg",
         },
         {
-          id: "our-team-card-3",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Дмитрий Сергеев",
           title_en: "Dmitry Sergeev",
           title_ky: "Дмитрий Сергеев",
@@ -769,8 +756,7 @@ async function seedSections() {
           image: "/assets/avatar/alex.jpg",
         },
         {
-          id: "our-team-card-4",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Анна Королева",
           title_en: "Anna Koroleva",
           title_ky: "Анна Королева",
@@ -786,8 +772,7 @@ async function seedSections() {
           image: "/assets/avatar/manager.jpg",
         },
         {
-          id: "our-team-card-5",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Дмитрий Сергеев",
           title_en: "Dmitry Sergeev",
           title_ky: "Дмитрий Сергеев",
@@ -803,8 +788,7 @@ async function seedSections() {
           image: "/assets/avatar/alex.jpg",
         },
         {
-          id: "our-team-card-6",
-          sectionId: "our-team",
+          sectionId: 9,
           title_ru: "Анна Королева",
           title_en: "Anna Koroleva",
           title_ky: "Анна Королева",
@@ -822,7 +806,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "our-partners",
+      uid: 10,
+      slug: "our-partners",
       sectionName_ru: "Наши партнеры",
       sectionName_en: "Our partners",
       sectionName_ky: "Биздин өнөктөштөр",
@@ -843,8 +828,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "our-partners-card-1",
-          sectionId: "our-partners",
+          sectionId: 10,
           title_ru: "Компания 1",
           title_en: "Company 1",
           title_ky: "Компания 1",
@@ -860,8 +844,7 @@ async function seedSections() {
           image: "/assets/partners/1.png",
         },
         {
-          id: "our-partners-card-2",
-          sectionId: "our-partners",
+          sectionId: 10,
           title_ru: "Компания 2",
           title_en: "Company 2",
           title_ky: "Компания 2",
@@ -877,8 +860,7 @@ async function seedSections() {
           image: "/assets/partners/2.png",
         },
         {
-          id: "our-partners-card-3",
-          sectionId: "our-partners",
+          sectionId: 10,
           title_ru: "Компания 3",
           title_en: "Company 3",
           title_ky: "Компания 3",
@@ -894,8 +876,7 @@ async function seedSections() {
           image: "/assets/partners/3.png",
         },
         {
-          id: "our-partners-card-4",
-          sectionId: "our-partners",
+          sectionId: 10,
           title_ru: "Компания 4",
           title_en: "Company 4",
           title_ky: "Компания 4",
@@ -911,8 +892,7 @@ async function seedSections() {
           image: "/assets/partners/4.png",
         },
         {
-          id: "our-partners-card-5",
-          sectionId: "our-partners",
+          sectionId: 10,
           title_ru: "Компания 5",
           title_en: "Company 5",
           title_ky: "Компания 5",
@@ -930,7 +910,8 @@ async function seedSections() {
       ],
     },
     {
-      id: "faq",
+      uid: 11,
+      slug: "faq",
       sectionName_ru: "Часто задаваемые вопросы",
       sectionName_en: "Frequently asked questions",
       sectionName_ky: "Көп берилүүчү суроолор",
@@ -952,8 +933,7 @@ async function seedSections() {
       secondaryButton_ky: null,
       cards: [
         {
-          id: "faq-card-1",
-          sectionId: "faq",
+          sectionId: 11,
           title_ru: "В каких случаях предприниматель должен выставить ЭСФ?",
           title_en: "When should an entrepreneur apply for an ESF?",
           title_ky: "Кандай учурларда ишкер ESF чыгарышы керек?",
@@ -972,8 +952,7 @@ async function seedSections() {
           image: null,
         },
         {
-          id: "faq-card-2",
-          sectionId: "faq",
+          sectionId: 11,
           title_ru: "В каких случаях предприниматель должен выставить ЭСФ?",
           title_en: "When should an entrepreneur apply for an ESF?",
           title_ky: "Кандай учурларда ишкер ESF чыгарышы керек?",
@@ -995,26 +974,18 @@ async function seedSections() {
     },
   ]
 
+  await prisma.section.deleteMany({})
+
   for (const section of sections) {
     const { cards, ...rest } = section
-    const sectionInDB = await prisma.section.upsert({
-      where: { id: section.id },
-      update: {
-        // No operation update
-      },
-      create: rest,
+    await prisma.section.create({
+      data: rest,
     })
 
     if (cards.length > 0) {
-      for (const card of cards) {
-        await prisma.card.upsert({
-          where: { sectionId_id: { sectionId: sectionInDB.id, id: card.id } },
-          update: {
-            // No operation update
-          },
-          create: { ...card, sectionId: sectionInDB.id },
-        })
-      }
+      await prisma.card.createMany({
+        data: cards,
+      })
     }
   }
 
@@ -1031,12 +1002,10 @@ async function seedAdminUser() {
     )
   }
 
-  await prisma.user.upsert({
-    where: { email: adminEmail },
-    update: {
-      // No operation update
-    },
-    create: {
+  await prisma.user.deleteMany({})
+
+  await prisma.user.create({
+    data: {
       name: "Admin",
       email: adminEmail,
       password: adminPassword,
@@ -1050,7 +1019,6 @@ async function seedAdminUser() {
 async function seedSocialsAndContacts() {
   const contacts: zContact[] = [
     {
-      id: "phone",
       name_ru: "+996 500 30 10 80",
       name_en: "+996 500 30 10 80",
       name_ky: "+996 500 30 10 80",
@@ -1058,7 +1026,6 @@ async function seedSocialsAndContacts() {
       icon: "/assets/contacts/phone.png",
     },
     {
-      id: "work-hours",
       name_ru: "пн - пт с 9:00 до 18:00",
       name_en: "Mon - Fri from 9:00 to 18:00",
       name_ky: "Дүйшөмбү - Жума 9:00дөн 18:00гө чейин",
@@ -1066,7 +1033,6 @@ async function seedSocialsAndContacts() {
       icon: "/assets/contacts/clock.png",
     },
     {
-      id: "location",
       name_ru: "г.Бишкек, ул. Абдрахманова 1",
       name_en: "Bishkek, st. Abdrakhmanova 1",
       name_ky: "Бишкек ш., Абдрахманов көч. 1",
@@ -1074,7 +1040,6 @@ async function seedSocialsAndContacts() {
       icon: "/assets/contacts/marker.png",
     },
     {
-      id: "email",
       name_ru: "arfinance@gmail.com",
       name_en: "arfinance@gmail.com",
       name_ky: "arfinance@gmail.com",
@@ -1084,58 +1049,40 @@ async function seedSocialsAndContacts() {
   ]
   const socials: zSocial[] = [
     {
-      id: "1",
       name: "whatsapp",
       link: "https://api.whatsapp.com/send?phone=996555000555",
       icon: "/assets/socials/whatsapp-white.png",
     },
     {
-      id: "2",
       name: "instagram",
       link: "https://www.instagram.com/",
       icon: "/assets/socials/instagram-white.png",
     },
     {
-      id: "3",
       name: "facebook",
       link: "https://www.facebook.com/",
       icon: "/assets/socials/facebook-white.png",
     },
     {
-      id: "4",
       name: "telegram",
       link: "https://t.me/",
       icon: "/assets/socials/telegram-white.png",
     },
     {
-      id: "5",
       name: "tiktok",
       link: "https://www.tiktok.com/",
       icon: "/assets/socials/tiktok-white.png",
     },
   ]
 
+  prisma.contact.deleteMany({})
+  prisma.social.deleteMany({})
+
   // Contacts
-  for (const contact of contacts) {
-    await prisma.contact.upsert({
-      where: { id: contact.id },
-      update: {
-        // No operation update
-      },
-      create: contact,
-    })
-  }
+  await prisma.contact.createMany({ data: contacts })
 
   // Socials
-  for (const social of socials) {
-    await prisma.social.upsert({
-      where: { id: social.id },
-      update: {
-        // No operation update
-      },
-      create: social,
-    })
-  }
+  await prisma.social.createMany({ data: socials })
 
   console.log("Socials and contacts have been seeded.")
 }
