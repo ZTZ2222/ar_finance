@@ -1,13 +1,11 @@
 "use client"
 
 import React from "react"
-import { Plus, Trash2 } from "lucide-react"
-import { useLocale, useTranslations } from "next-intl"
+import { PlusCircle, Trash2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
 import { useFieldArray, useForm } from "react-hook-form"
 import { toast } from "sonner"
-import { v4 as uuidv4 } from "uuid"
-import { AppConfig } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"
@@ -20,7 +18,7 @@ import {
 } from "@/components/ui/form"
 import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
-import { updateSocials } from "@/server/actions/content-action"
+import { deleteSocial, upsertSocials } from "@/server/actions/content-action"
 import { type zSocial } from "@/types/content.schema"
 
 type Props = {
@@ -40,7 +38,6 @@ export default function SocialsForm({ socialsData, className }: Props) {
         ? socialsData
         : [
             {
-              id: "",
               name: "",
               link: "",
               icon: "",
@@ -48,6 +45,12 @@ export default function SocialsForm({ socialsData, className }: Props) {
           ],
     },
   })
+
+  const newSocial: zSocial = {
+    name: "",
+    link: "",
+    icon: "",
+  }
 
   const {
     fields: socialFields,
@@ -58,19 +61,42 @@ export default function SocialsForm({ socialsData, className }: Props) {
     name: "socials",
   })
 
-  const { execute, isExecuting } = useAction(updateSocials, {
-    onSuccess() {
-      toast.success(t("update-success"))
-    },
-    onError() {
-      toast.error(t("update-error"))
+  const { execute, isExecuting } = useAction(upsertSocials, {
+    onSuccess: ({ data }) => {
+      if (data?.error) {
+        toast.error(data.error)
+      }
+      if (data?.success) {
+        toast.success(data.success)
+      }
     },
   })
 
+  const { execute: deleteDB, isExecuting: isDeleting } = useAction(
+    deleteSocial,
+    {
+      onSuccess: ({ data }) => {
+        if (data?.error) {
+          toast.error(data.error)
+        }
+        if (data?.success) {
+          toast.success(data.success)
+        }
+      },
+    },
+  )
+
+  function handleDelete(itemUID: number | undefined, itemIndex: number) {
+    if (!itemUID) {
+      remove(itemIndex)
+    } else {
+      deleteDB({ uid: itemUID })
+      remove(itemIndex)
+    }
+  }
+
   function onSubmit(data: FormValues) {
-    // toast(JSON.stringify(data))
-    const formData = data.socials
-    execute(formData)
+    execute(data.socials)
   }
   return (
     <Form {...form}>
@@ -80,20 +106,23 @@ export default function SocialsForm({ socialsData, className }: Props) {
           <div className="flex flex-wrap gap-10 xl:col-span-2">
             {socialFields.map((social, index) => (
               <div
-                key={index}
+                key={social.id}
                 className={cn(
-                  "space-y-5 rounded-lg border border-slate-200 p-5",
+                  "relative space-y-5 rounded-lg border border-slate-200 p-5",
                   socialsData.length <= 3 && "flex-1",
                 )}
               >
                 {/* Delete button */}
-                <button
+                <Button
                   type="button"
-                  onClick={() => remove(index)}
-                  className="ml-auto w-full text-red-500 hover:text-red-700"
+                  variant="destructive"
+                  size="icon"
+                  onClick={handleDelete.bind(null, social.uid, index)}
+                  className="absolute right-2 top-2"
+                  disabled={isDeleting}
                 >
-                  <Trash2 className="h-5 w-5" />
-                </button>
+                  <Trash2 className="size-5" />
+                </Button>
 
                 {/* Image Upload */}
                 <FormField
@@ -147,25 +176,18 @@ export default function SocialsForm({ socialsData, className }: Props) {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="space-x-5 border-t px-6 py-4">
+        <CardFooter className="gap-5 border-t px-6 py-4">
+          <Button type="submit" disabled={isExecuting}>
+            {t("form-save")}
+          </Button>
           <Button
             variant="secondary"
             type="button"
-            onClick={() =>
-              append({
-                id: uuidv4(),
-                name: "",
-                link: "",
-                icon: "",
-              })
-            }
-            className="flex items-center space-x-2"
+            onClick={() => append(newSocial)}
+            className="w-fit"
           >
-            <Plus className="h-5 w-5" />
-            <span>Add element</span>
-          </Button>
-          <Button type="submit" disabled={isExecuting}>
-            {t("form-save")}
+            <PlusCircle className="mr-2 size-5" />
+            {t("button-add-new")}
           </Button>
         </CardFooter>
       </form>

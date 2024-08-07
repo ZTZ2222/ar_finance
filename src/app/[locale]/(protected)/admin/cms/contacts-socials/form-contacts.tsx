@@ -1,12 +1,11 @@
 "use client"
 
 import React from "react"
-import { Plus, Trash2 } from "lucide-react"
-import { useLocale, useTranslations } from "next-intl"
+import { PlusCircle, Trash2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
 import { useFieldArray, useForm } from "react-hook-form"
 import { toast } from "sonner"
-import { v4 as uuidv4 } from "uuid"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"
@@ -19,7 +18,7 @@ import {
 } from "@/components/ui/form"
 import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
-import { updateContacts } from "@/server/actions/content-action"
+import { deleteContact, upsertContacts } from "@/server/actions/content-action"
 import { type zContact } from "@/types/content.schema"
 
 type Props = {
@@ -39,7 +38,6 @@ export default function ContactsForm({ contactsData, className }: Props) {
         ? contactsData
         : [
             {
-              id: "",
               name_ru: "",
               name_en: "",
               name_ky: "",
@@ -50,6 +48,14 @@ export default function ContactsForm({ contactsData, className }: Props) {
     },
   })
 
+  const newContact: zContact = {
+    name_ru: "",
+    name_en: "",
+    name_ky: "",
+    link: "",
+    icon: "",
+  }
+
   const {
     fields: contactFields,
     append,
@@ -59,19 +65,42 @@ export default function ContactsForm({ contactsData, className }: Props) {
     name: "contacts",
   })
 
-  const { execute, isExecuting } = useAction(updateContacts, {
-    onSuccess() {
-      toast.success(t("update-success"))
-    },
-    onError() {
-      toast.error(t("update-error"))
+  const { execute, isExecuting } = useAction(upsertContacts, {
+    onSuccess: ({ data }) => {
+      if (data?.error) {
+        toast.error(data.error)
+      }
+      if (data?.success) {
+        toast.success(data.success)
+      }
     },
   })
 
+  const { execute: deleteDB, isExecuting: isDeleting } = useAction(
+    deleteContact,
+    {
+      onSuccess: ({ data }) => {
+        if (data?.error) {
+          toast.error(data.error)
+        }
+        if (data?.success) {
+          toast.success(data.success)
+        }
+      },
+    },
+  )
+
+  function handleDelete(itemUID: number | undefined, itemIndex: number) {
+    if (!itemUID) {
+      remove(itemIndex)
+    } else {
+      deleteDB({ uid: itemUID })
+      remove(itemIndex)
+    }
+  }
+
   function onSubmit(data: FormValues) {
-    // toast(JSON.stringify(data))
-    const formData = data.contacts
-    execute(formData)
+    execute(data.contacts)
   }
   return (
     <Form {...form}>
@@ -81,20 +110,23 @@ export default function ContactsForm({ contactsData, className }: Props) {
           <div className="flex flex-wrap gap-10 xl:col-span-2">
             {contactFields.map((contact, index) => (
               <div
-                key={index}
+                key={contact.id}
                 className={cn(
-                  "space-y-5 rounded-lg border border-slate-200 p-5",
+                  "relative space-y-5 rounded-lg border border-slate-200 p-5",
                   contactsData.length <= 3 && "flex-1",
                 )}
               >
                 {/* Delete button */}
-                <button
+                <Button
                   type="button"
-                  onClick={() => remove(index)}
-                  className="text-red-500 hover:text-red-700"
+                  variant="destructive"
+                  size="icon"
+                  onClick={handleDelete.bind(null, contact.uid, index)}
+                  className="absolute right-2 top-2"
+                  disabled={isDeleting}
                 >
-                  <Trash2 className="h-5 w-5" />
-                </button>
+                  <Trash2 className="size-5" />
+                </Button>
 
                 {/* Image Upload */}
                 <FormField
@@ -184,27 +216,18 @@ export default function ContactsForm({ contactsData, className }: Props) {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="space-x-5 border-t px-6 py-4">
+        <CardFooter className="gap-5 border-t px-6 py-4">
+          <Button type="submit" disabled={isExecuting}>
+            {t("form-save")}
+          </Button>
           <Button
             variant="secondary"
             type="button"
-            onClick={() =>
-              append({
-                id: uuidv4(),
-                name_ru: "",
-                name_en: "",
-                name_ky: "",
-                link: "",
-                icon: "",
-              })
-            }
-            className="flex items-center space-x-2"
+            onClick={() => append(newContact)}
+            className="w-fit"
           >
-            <Plus className="h-5 w-5" />
-            <span>Add element</span>
-          </Button>
-          <Button type="submit" disabled={isExecuting}>
-            {t("form-save")}
+            <PlusCircle className="mr-2 size-5" />
+            {t("button-add-new")}
           </Button>
         </CardFooter>
       </form>
