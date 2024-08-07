@@ -15,16 +15,16 @@ type Props = {
 export default async function AdminHero({ params }: Props) {
   const t = await getTranslations()
   const sectionData = await db.section.findUnique({
-    where: { id: params.section },
+    where: { slug: params.section },
     include: {
       cards: {
-        orderBy: { id: "asc" },
+        orderBy: { uid: "asc" },
       },
     },
   })
 
   return (
-    <Card className="mb-10 lg:my-0">
+    <Card className="mb-10 lg:mt-0">
       <CardHeader>
         <CardTitle>{t("Pages.Admin.CMS.Section.card-heading")}</CardTitle>
         <CardDescription>

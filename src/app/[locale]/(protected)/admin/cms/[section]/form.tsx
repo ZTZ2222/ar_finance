@@ -2,11 +2,13 @@
 
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { PlusCircle } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
-import { useForm } from "react-hook-form"
+import { useFieldArray, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { AppConfig } from "@/lib/i18n"
+import { useRouter } from "@/lib/i18n-navigation"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -20,8 +22,12 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { updateSection } from "@/server/actions/content-action"
-import { sectionSchema, type zSection } from "@/types/content.schema"
-import FormCards from "./form-cards"
+import {
+  sectionSchema,
+  type zCard,
+  type zSection,
+} from "@/types/content.schema"
+import FormCard from "./form-card"
 
 type Props = {
   sectionData: zSection
@@ -36,14 +42,38 @@ export default function SectionForm({ sectionData, className }: Props) {
     defaultValues: sectionData,
   })
 
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "cards",
+  })
+
   const { execute, isExecuting } = useAction(updateSection, {
-    onSuccess() {
-      toast.success(t("update-success"))
-    },
-    onError() {
-      toast.error(t("update-error"))
+    onSuccess: ({ data }) => {
+      if (data?.error) {
+        toast.error(data.error)
+      }
+      if (data?.success) {
+        toast.success(data.success)
+      }
     },
   })
+
+  const newCard: zCard = {
+    sectionId: sectionData.uid as number,
+    title_ru: "",
+    title_en: "",
+    title_ky: "",
+    description_ru: "",
+    description_en: "",
+    description_ky: "",
+    extra_ru: "",
+    extra_en: "",
+    extra_ky: "",
+    bullets_ru: [],
+    bullets_en: [],
+    bullets_ky: [],
+    image: "",
+  }
 
   function onSubmit(data: zSection) {
     execute(data)
@@ -67,120 +97,126 @@ export default function SectionForm({ sectionData, className }: Props) {
                 className="grid gap-x-5 gap-y-10 xl:grid-cols-2"
               >
                 {/* Название секции */}
-                {sectionData[`sectionName_${locale.id}` as keyof zSection] && (
-                  <FormField
-                    control={form.control}
-                    name={`sectionName_${locale.id}` as keyof zSection}
-                    render={({ field }) => (
-                      <FormItem className="xl:col-span-2">
-                        <FormLabel>{t("section-name-label")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("section-name-placeholder")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                )}
+                <FormField
+                  control={form.control}
+                  name={`sectionName_${locale.id}` as keyof zSection}
+                  render={({ field }) => (
+                    <FormItem className="xl:col-span-2">
+                      <FormLabel>{t("section-name-label")}</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder={t("section-name-placeholder")}
+                          {...field}
+                          value={(field.value as string) || ""}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
 
                 {/* Заголовок */}
-                {sectionData[`heading_${locale.id}` as keyof zSection] && (
-                  <FormField
-                    control={form.control}
-                    name={`heading_${locale.id}` as keyof zSection}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("heading-label")}</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            rows={6}
-                            placeholder={t("heading-placeholder")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                )}
+                <FormField
+                  control={form.control}
+                  name={`heading_${locale.id}` as keyof zSection}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("heading-label")}</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          rows={6}
+                          placeholder={t("heading-placeholder")}
+                          {...field}
+                          value={(field.value as string) || ""}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
 
                 {/* Подзаголовок */}
-                {sectionData[`subheading_${locale.id}` as keyof zSection] && (
-                  <FormField
-                    control={form.control}
-                    name={`subheading_${locale.id}` as keyof zSection}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("subheading-label")}</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            rows={6}
-                            placeholder={t("subheading-placeholder")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                )}
+                <FormField
+                  control={form.control}
+                  name={`subheading_${locale.id}` as keyof zSection}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("subheading-label")}</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          rows={6}
+                          placeholder={t("subheading-placeholder")}
+                          {...field}
+                          value={(field.value as string) || ""}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
 
                 {/* Основная кнопка */}
-                {sectionData[
-                  `primaryButton_${locale.id}` as keyof zSection
-                ] && (
-                  <FormField
-                    control={form.control}
-                    name={`primaryButton_${locale.id}` as keyof zSection}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("primary-button-label")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("primary-button-placeholder")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                )}
+                <FormField
+                  control={form.control}
+                  name={`primaryButton_${locale.id}` as keyof zSection}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("primary-button-label")}</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder={t("primary-button-placeholder")}
+                          {...field}
+                          value={(field.value as string) || ""}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
 
                 {/* Дополнительная кнопка */}
-                {sectionData[
-                  `secondaryButton_${locale.id}` as keyof zSection
-                ] && (
-                  <FormField
-                    control={form.control}
-                    name={`secondaryButton_${locale.id}` as keyof zSection}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("secondary-button-label")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("secondary-button-placeholder")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                )}
+                <FormField
+                  control={form.control}
+                  name={`secondaryButton_${locale.id}` as keyof zSection}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("secondary-button-label")}</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder={t("secondary-button-placeholder")}
+                          {...field}
+                          value={(field.value as string) || ""}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
 
                 {/* Карточки */}
-                <FormCards sectionData={sectionData} locale={locale.id} />
+                <div className="flex flex-wrap gap-10 xl:col-span-2">
+                  {fields.map((field, index) => (
+                    <FormCard
+                      key={field.id}
+                      index={index}
+                      card={field}
+                      fieldLocale={locale.id}
+                      remove={remove}
+                      className={sectionData.cards.length < 3 ? "flex-1" : ""}
+                    />
+                  ))}
+                </div>
               </TabsContent>
             ))}
           </Tabs>
         </CardContent>
-        <CardFooter className="border-t px-6 py-4">
+        <CardFooter className="gap-5 border-t px-6 py-4">
           <Button type="submit" disabled={isExecuting}>
             {t("form-save")}
+          </Button>
+          <Button
+            variant="secondary"
+            type="button"
+            onClick={() => append(newCard)}
+            className="w-fit"
+          >
+            <PlusCircle className="mr-2 size-5" />
+            {t("button-add-new")}
           </Button>
         </CardFooter>
       </form>
