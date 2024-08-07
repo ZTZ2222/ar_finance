@@ -2,6 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
+import { House } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { usePathname } from "@/lib/i18n-navigation"
 import {
@@ -12,6 +13,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 // import { ModeToggle } from "@/components/layout/mode-toggle"
 
@@ -61,6 +69,20 @@ export default function HeaderAdmin() {
       {/* <div className="relative flex items-center">
         <ModeToggle />
       </div> */}
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="/">
+                <House className="size-5" />
+              </Link>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{t("go-index-page")}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </header>
   )
 }
