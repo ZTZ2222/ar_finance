@@ -1,6 +1,8 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
+import { getTranslations } from "next-intl/server"
+import { z } from "zod"
 import { db } from "@/server"
 import {
   contactSchema,
@@ -12,70 +14,127 @@ import { actionClient } from "./safe-action"
 export const updateSection = actionClient
   .schema(sectionSchema)
   .action(async ({ parsedInput }) => {
+    const t = await getTranslations()
     const { cards, ...rest } = parsedInput
 
     try {
       await db.section.update({
-        where: { id: parsedInput.id },
+        where: { uid: parsedInput.uid },
         data: rest,
       })
 
       // Update each card individually
       for (const card of cards) {
-        await db.card.update({
-          where: { id: card.id },
-          data: card,
-        })
+        if (card.uid) {
+          await db.card.update({
+            where: { uid: card.uid },
+            data: card,
+          })
+        } else {
+          await db.card.create({ data: card })
+        }
       }
 
-      revalidatePath("/")
+      revalidatePath("/admin/cms/[section]")
 
-      return { success: "Section updated!" }
+      return { success: t("Server.actions.success-update") }
     } catch (error) {
-      return { error: "Something went wrong!" }
+      return { error: t("Server.actions.error") }
     }
   })
 
-export const updateContacts = actionClient
+export const deleteCard = actionClient
+  .schema(z.object({ uid: z.number() }))
+  .action(async ({ parsedInput }) => {
+    const t = await getTranslations()
+    try {
+      await db.card.delete({ where: { uid: parsedInput.uid } })
+      revalidatePath("/admin/cms/[section]")
+
+      return { success: t("Server.actions.success-delete") }
+    } catch (error) {
+      return { error: t("Server.actions.error") }
+    }
+  })
+
+export const upsertContacts = actionClient
   .schema(contactSchema.array())
   .action(async ({ parsedInput: contacts }) => {
+    const t = await getTranslations()
     try {
-      // Contacts
       for (const contact of contacts) {
-        await db.contact.upsert({
-          where: { id: contact.id },
-          create: contact,
-          update: contact,
-        })
+        if (contact.uid) {
+          await db.contact.update({
+            where: { uid: contact.uid },
+            data: contact,
+          })
+        } else {
+          await db.contact.create({
+            data: contact,
+          })
+        }
       }
 
-      revalidatePath("/")
+      revalidatePath("/", "layout")
 
-      return { success: "Contacts updated!" }
+      return { success: t("Server.actions.success-update") }
     } catch (error) {
-      console.log(error)
-      return { error: "Something went wrong!" }
+      return { error: t("Server.actions.error") }
     }
   })
 
-export const updateSocials = actionClient
+export const deleteContact = actionClient
+  .schema(z.object({ uid: z.number() }))
+  .action(async ({ parsedInput }) => {
+    const t = await getTranslations()
+    try {
+      await db.contact.delete({ where: { uid: parsedInput.uid } })
+      revalidatePath("/", "layout")
+
+      return { success: t("Server.actions.success-delete") }
+    } catch (error) {
+      return { error: t("Server.actions.error") }
+    }
+  })
+
+export const upsertSocials = actionClient
   .schema(socialSchema.array())
   .action(async ({ parsedInput: socials }) => {
+    const t = await getTranslations()
     try {
-      // Socials
       for (const social of socials) {
-        await db.social.upsert({
-          where: { id: social.id },
-          create: social,
-          update: social,
-        })
+        if (social.uid) {
+          await db.social.update({
+            where: { uid: social.uid },
+            data: social,
+          })
+        } else {
+          await db.social.create({
+            data: social,
+          })
+        }
       }
 
-      revalidatePath("/")
+      revalidatePath("/", "layout")
 
-      return { success: "Socials updated!" }
+      return { success: t("Server.actions.success-update") }
     } catch (error) {
       console.log(error)
-      return { error: "Something went wrong!" }
+
+      return { error: t("Server.actions.error") }
+    }
+  })
+
+export const deleteSocial = actionClient
+  .schema(z.object({ uid: z.number() }))
+  .action(async ({ parsedInput }) => {
+    const t = await getTranslations()
+    try {
+      await db.social.delete({ where: { uid: parsedInput.uid } })
+      revalidatePath("/", "layout")
+
+      return { success: t("Server.actions.success-delete") }
+    } catch (error) {
+      return { error: t("Server.actions.error") }
     }
   })
