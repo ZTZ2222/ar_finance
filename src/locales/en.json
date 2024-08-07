@@ -40,7 +40,8 @@
       "our-partners": "Our partners",
       "faq": "FAQ",
       "contacts-socials": "Contacts & Socials",
-      "meta": "Metadata"
+      "meta": "Metadata",
+      "go-index-page": "Go to home page"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -54,7 +55,8 @@
       "logout": "Logout",
       "learn-more": "Learn more",
       "close": "Close",
-      "choose-plan": "Choose plan"
+      "choose-plan": "Choose plan",
+      "add-new": "Add New"
     },
     "FormSection": {
       "heading-label": "Heading",
@@ -74,12 +76,13 @@
       "card-title": "Card {number} - Title",
       "card-title-placeholder": "Enter card title",
       "card-description-label": "Card {number} - Description",
-      "card-bullets-label": "List items",
+      "card-bullets-label": "List",
       "card-bullets-placeholder": "Enter list item",
       "card-bullets-add-bullet": "Add list item",
       "card-extra-label": "Card {number} - Additional field",
       "card-description-placeholder": "Enter card description",
-      "card-extra-placeholder": "Enter additional field"
+      "card-extra-placeholder": "Enter additional field",
+      "button-add-new": "Add New"
     },
     "PlanCard": {
       "card-title": "Plan"
@@ -131,6 +134,14 @@
         "title": "Settings",
         "description": "Admin panel settings"
       }
+    }
+  },
+  "Server": {
+    "actions": {
+      "success-create": "Successfully created!",
+      "success-update": "Successfully updated!",
+      "success-delete": "Successfully deleted!",
+      "error": "Oops! Something went wrong."
     }
   }
 }

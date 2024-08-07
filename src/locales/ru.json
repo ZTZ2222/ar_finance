@@ -40,7 +40,8 @@
       "our-partners": "Наша партнеры",
       "faq": "Часто задаваемые вопросы",
       "contacts-socials": "Контакты и социальные сети",
-      "meta": "Метаданные"
+      "meta": "Метаданные",
+      "go-index-page": "Вернуться на домашнюю страницу"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -74,12 +75,13 @@
       "card-title": "Карточка {number} — Заголовок",
       "card-title-placeholder": "Введите заголовок карты",
       "card-description-label": "Карточка {number} — Описание",
-      "card-bullets-label": "Список элементов",
-      "card-bullets-placeholder": "Введите элемент списка",
-      "card-bullets-add-bullet": "Добавить элемент списка",
+      "card-bullets-label": "Список",
+      "card-bullets-placeholder": "Введите пункт списка",
+      "card-bullets-add-bullet": "Добавить пункт списка",
       "card-extra-label": "Карточка {number} – Доп. поле",
       "card-description-placeholder": "Введите описание карточки",
-      "card-extra-placeholder": "Введите дополнительное поле"
+      "card-extra-placeholder": "Введите дополнительное поле",
+      "button-add-new": "Добавить"
     },
     "PlanCard": {
       "card-title": "Тариф"
@@ -131,6 +133,14 @@
         "title": "Настройки",
         "description": "Настройки панели управления"
       }
+    }
+  },
+  "Server": {
+    "actions": {
+      "success-create": "Успешно создан!",
+      "success-update": "Успешно обновлено!",
+      "success-delete": "Успешно удалено!",
+      "error": "Упс! Произошла ошибка."
     }
   }
 }

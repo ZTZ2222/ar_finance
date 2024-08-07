@@ -1,8 +1,8 @@
 import { z } from "zod"
 
 export const cardSchema = z.object({
-  id: z.string(),
-  sectionId: z.string(),
+  uid: z.number().optional(),
+  sectionId: z.number(),
   title_ru: z.string().nullable(),
   title_en: z.string().nullable(),
   title_ky: z.string().nullable(),
@@ -19,7 +19,8 @@ export const cardSchema = z.object({
 })
 
 export const sectionSchema = z.object({
-  id: z.string(),
+  uid: z.number().optional(),
+  slug: z.string(),
   sectionName_ru: z.string().nullable(),
   sectionName_en: z.string().nullable(),
   sectionName_ky: z.string().nullable(),
@@ -42,7 +43,7 @@ export type zCard = z.infer<typeof cardSchema>
 export type zSection = z.infer<typeof sectionSchema>
 
 export type NormalizedCard = {
-  id: string
+  uid: number
   title: string
   description: string
   extra: string
@@ -51,6 +52,8 @@ export type NormalizedCard = {
 }
 
 export type NormalizedSection = {
+  uid: number
+  slug: string
   sectionName: string | null
   heading: string | null
   subheading: string | null
@@ -60,14 +63,14 @@ export type NormalizedSection = {
 }
 
 export const socialSchema = z.object({
-  id: z.string(),
+  uid: z.number().optional(),
   name: z.string(),
   link: z.string(),
   icon: z.string(),
 })
 
 export const contactSchema = z.object({
-  id: z.string(),
+  uid: z.number().optional(),
   name_ru: z.string().nullable(),
   name_en: z.string().nullable(),
   name_ky: z.string().nullable(),
@@ -76,7 +79,7 @@ export const contactSchema = z.object({
 })
 
 export const articleSchema = z.object({
-  id: z.string(),
+  uid: z.number().optional(),
   title_ru: z.string().nullable(),
   title_en: z.string().nullable(),
   title_ky: z.string().nullable(),
@@ -93,11 +96,11 @@ export const articleSchema = z.object({
 })
 
 export const articleSocialSchema = z.object({
-  id: z.string(),
+  uid: z.number().optional(),
   name: z.string(),
   link: z.string(),
   icon: z.string(),
-  articleId: z.string(),
+  articleId: z.number(),
 })
 
 export type zSocial = z.infer<typeof socialSchema>

@@ -40,7 +40,8 @@
       "our-partners": "Биздин өнөктөштөр",
       "faq": "Көп берилүүчү суроолор",
       "contacts-socials": "Байланыштар жана социалдык тармактар",
-      "meta": "Метадайындар"
+      "meta": "Метадайындар",
+      "go-index-page": "Башкы бетке өтүңүз"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -74,12 +75,13 @@
       "card-title": "Карточка {number} - Башы",
       "card-title-placeholder": "Картанын аталышын киргизиңиз",
       "card-description-label": "Карточка {number} - Сүрөттөмө",
-      "card-bullets-label": "Тизме элементтери",
+      "card-bullets-label": "Тизме",
       "card-bullets-placeholder": "Тизме элементин киргизиңиз",
       "card-bullets-add-bullet": "Тизме элементин кошуу",
       "card-extra-label": "Карточка {number} - Кошумча талаа",
       "card-description-placeholder": "Карточканын сүрөттөмөсүн киргизиңиз",
-      "card-extra-placeholder": "Кошумча талаасын киргизиңиз"
+      "card-extra-placeholder": "Кошумча талаасын киргизиңиз",
+      "button-add-new": "Жаңы кошуу"
     },
     "PlanCard": {
       "card-title": "Тариф"
@@ -131,6 +133,14 @@
         "title": "Орнотуулар",
         "description": "Башкаруу панелинин орнотуулары"
       }
+    }
+  },
+  "Server": {
+    "actions": {
+      "success-create": "Ийгиликтүү түзүлдү!!",
+      "success-update": "Ийгиликтүү жаңыртылды!!",
+      "success-delete": "Ийгиликтүү өчүрүлдү!!",
+      "error": "Ой! Ката кетти."
     }
   }
 }
