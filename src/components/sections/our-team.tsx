@@ -18,7 +18,7 @@ export default async function OurTeam() {
       </div>
       <div className="grid gap-16 lg:col-span-2 lg:grid-cols-3 lg:gap-8">
         {sectionData?.cards.map(card => (
-          <div key={card.id} className="flex flex-col items-center gap-5">
+          <div key={card.uid} className="flex flex-col items-center gap-5">
             {/* Team person image */}
             <div className="relative size-40 overflow-hidden rounded-full">
               <Image

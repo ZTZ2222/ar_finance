@@ -19,7 +19,7 @@ export default async function OurServices() {
       </div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {sectionData?.cards.map((card, index) => (
-          <ServiceCard key={card.id} card={card} index={index} />
+          <ServiceCard key={card.uid} card={card} index={index} />
         ))}
       </div>
     </section>

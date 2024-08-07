@@ -25,8 +25,8 @@ export default async function FAQ() {
       >
         {sectionData?.cards.map(card => (
           <AccordionItem
-            key={card.id}
-            value={card.id}
+            key={card.uid}
+            value={card.uid.toString()}
             className="flex w-[262px] flex-col lg:w-[368.73px] xl:w-[486px]"
           >
             <AccordionTrigger className="p-[30px] pb-5 text-start text-lg leading-5 text-black">

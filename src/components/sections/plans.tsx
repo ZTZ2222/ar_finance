@@ -19,7 +19,7 @@ export default async function Plans() {
       </div>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {sectionData?.cards.map((card, index) => (
-          <PlanCard key={card.id} index={index} card={card} />
+          <PlanCard key={card.uid} index={index} card={card} />
         ))}
       </div>
     </section>

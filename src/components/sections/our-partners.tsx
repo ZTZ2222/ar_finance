@@ -17,7 +17,7 @@ export default async function OurPartners() {
       <ScrollArea className="pb-5 pl-4 sm:container">
         <div className="flex w-max justify-center gap-[30px] lg:w-full lg:gap-[60px]">
           {sectionData?.cards.map(card => (
-            <div key={card.id} className="relative size-[60px]">
+            <div key={card.uid} className="relative size-[60px]">
               <Image
                 src={card.image}
                 alt={card.title}
