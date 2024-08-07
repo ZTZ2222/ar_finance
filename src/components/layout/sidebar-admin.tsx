@@ -29,13 +29,13 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
         <SquareTerminal className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-    {
-      label: t("users"),
-      href: "/admin/users",
-      icon: (
-        <Users className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
+    // {
+    //   label: t("users"),
+    //   href: "/admin/users",
+    //   icon: (
+    //     <Users className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+    //   ),
+    // },
     {
       label: t("cms"),
       href: "/admin/cms",
