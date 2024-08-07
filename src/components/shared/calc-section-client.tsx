@@ -18,7 +18,7 @@ export default function CalculatorSectionClient({
   subheading,
 }: Props) {
   return (
-    <section className="container mb-[100px] grid gap-[30px] md:mb-[120px] xl:grid-cols-3 xl:gap-[60px]">
+    <section className="container mb-[100px] grid gap-[30px] overflow-x-hidden md:mb-[120px] xl:grid-cols-3 xl:gap-[60px]">
       <motion.div
         initial={{ y: 200, opacity: 0 }}
         whileInView={{ y: 0, opacity: 100 }}
