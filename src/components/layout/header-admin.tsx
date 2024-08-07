@@ -20,6 +20,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import LocaleSwitcher from "@/components/shared/locale-switcher"
 
 // import { ModeToggle } from "@/components/layout/mode-toggle"
 
@@ -69,6 +70,7 @@ export default function HeaderAdmin() {
       {/* <div className="relative flex items-center">
         <ModeToggle />
       </div> */}
+      <LocaleSwitcher className="py-2" />
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
