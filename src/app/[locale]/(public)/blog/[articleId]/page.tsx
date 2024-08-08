@@ -1,6 +1,7 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowDown } from "lucide-react"
-import { getLocale } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -20,70 +21,34 @@ import {
 import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
 import SectionName from "@/components/shared/section-name"
-import type { zPostRead } from "@/types/post.schema"
+import {
+  getNormalizedArticleById,
+  getNormalizedArticles,
+} from "@/server/data-access-layer/article"
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: { articleId: string }
 }) {
-  const { slug } = params
-  const locale = await getLocale()
-  // const data = await getBlogBySlug(slug)
+  const post = await getNormalizedArticleById(Number(params.articleId))
   return {
-    title: "Блог",
+    title: post?.title,
   }
 }
 
-export default function BlogDetail({ params }: { params: { slug: string } }) {
-  // const post = await getBlogBySlug(slug)
-  const post: zPostRead = {
-    id: "1",
-    title: "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-    short_description:
-      "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-    content:
-      "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. Правильный выбор программного обеспечения может помочь вам сэкономить время, улучшить точность учета и обеспечить соответствие законодательным требованиям. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-    primaryImage: "/assets/blog/blog_image_1.jpg",
-    slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-    createdAt: new Date(),
-  }
+export default async function BlogDetail({
+  params,
+}: {
+  params: { articleId: string }
+}) {
+  const locale = await getLocale()
+  const t = await getTranslations()
+  const post = await getNormalizedArticleById(Number(params.articleId))
 
-  const other_posts: zPostRead[] = [
-    {
-      id: "1",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_1.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "2",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_2.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "3",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_3.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-  ]
+  const other_posts = (await getNormalizedArticles()).filter(
+    post => post.uid !== Number(params.articleId),
+  )
 
   return (
     <div className="container mb-[150px] space-y-[100px]">
@@ -91,12 +56,14 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         <Breadcrumb className="self-start">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/blog">Блог</BreadcrumbLink>
+              <BreadcrumbLink href="/blog">
+                {t("Components.Breadcrumb.blog")}
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage className="max-w-[75vw] truncate md:max-w-[55vw]">
-                {post.title}
+                {post?.title}
               </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -105,20 +72,16 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         {/* Title and date */}
         <div className="space-y-[30px] text-center lg:max-w-[800px]">
           <span className="text-sm font-medium leading-[18.2px] text-rose-750">
-            {post.createdAt.toLocaleDateString("ru-RU", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {post?.createdAt.toLocaleDateString(locale)}
           </span>
-          <Heading>{post.title}</Heading>
+          <Heading>{post?.title}</Heading>
         </div>
 
         {/* Image */}
         <div className="relative h-[218px] w-full overflow-hidden rounded-lg md:h-[300px] lg:h-[400px] xl:h-[500px]">
           <Image
-            src={post.primaryImage}
-            alt={post.title}
+            src={post?.image || ""}
+            alt={`Blog #${post?.uid} image`}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -127,30 +90,34 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Content */}
-        <div>{post.content}</div>
+        <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} />
 
         <div className="space-y-10">
-          <Button variant="support" size="mobile" className="gap-2">
-            Законопроект №123 от 12.01.2022 г
-            <ArrowDown className="size-5" />
-          </Button>
-          <div className="flex justify-center gap-10">
-            <WhatsAppColored className="size-8" />
-            <TelegramColored className="size-8" />
-            <FacebookColored className="size-8" />
-            <InstagramColored className="size-8" />
-            <TikTokColored className="size-8" />
-          </div>
+          {post?.linkTitle && post.linkHref && (
+            <Button variant="support" size="mobile" className="gap-2 px-2.5">
+              <Link href={post.linkHref} className="max-w-[220px] truncate">
+                {post?.linkTitle}
+              </Link>
+              <ArrowDown className="size-5" />
+            </Button>
+          )}
+          {post?.socials && post.socials.length > 0 && (
+            <div className="flex justify-center gap-10">
+              <WhatsAppColored className="size-8" />
+              <TelegramColored className="size-8" />
+              <FacebookColored className="size-8" />
+              <InstagramColored className="size-8" />
+              <TikTokColored className="size-8" />
+            </div>
+          )}
         </div>
       </div>
       <div className="space-y-[30px]">
-        <SectionName>Другие статьи</SectionName>
+        <SectionName>{t("Pages.Blog.other-articles")}</SectionName>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {other_posts
-            .filter(blog => blog.id !== post.id)
-            .map(blog => (
-              <BlogCard key={blog.id} {...blog} />
-            ))}
+          {other_posts.map(blog => (
+            <BlogCard key={blog.uid} {...blog} />
+          ))}
         </div>
       </div>
     </div>
