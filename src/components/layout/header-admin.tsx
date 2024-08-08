@@ -39,7 +39,9 @@ export default function HeaderAdmin() {
     return (
       <BreadcrumbItem key={href}>
         <BreadcrumbLink asChild>
-          <Link href={href}>{t(segment)}</Link>
+          <Link href={href}>
+            {isNaN(Number(segment)) ? t(segment) : segment}
+          </Link>
         </BreadcrumbLink>
       </BreadcrumbItem>
     )
@@ -58,7 +60,9 @@ export default function HeaderAdmin() {
               <BreadcrumbSeparator />
               {index === pathSegments.length - 1 ? (
                 <BreadcrumbItem key={segment}>
-                  <BreadcrumbPage>{t(segment)}</BreadcrumbPage>
+                  <BreadcrumbPage>
+                    {isNaN(Number(segment)) ? t(segment) : segment}
+                  </BreadcrumbPage>
                 </BreadcrumbItem>
               ) : (
                 getBreadcrumbLink(segment, index)

@@ -89,7 +89,7 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
                 href: "#",
                 icon: (
                   <Image
-                    src={session.data?.user.image || "/placeholder-user.jpg"}
+                    src={"/placeholder-user.jpg"}
                     className="h-7 w-7 flex-shrink-0 rounded-full"
                     width={50}
                     height={50}
