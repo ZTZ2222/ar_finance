@@ -44,7 +44,8 @@
       "go-index-page": "Башкы бетке өтүңүз",
       "security": "Коопсуздук",
       "advanced": "Өркүндөтүлгөн орнотуулар",
-      "new": "Жаңы"
+      "new": "Жаңы",
+      "home": "Башкы бет"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",

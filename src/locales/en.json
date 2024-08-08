@@ -44,7 +44,8 @@
       "go-index-page": "Go to home page",
       "security": "Security",
       "advanced": "Advanced",
-      "new": "New"
+      "new": "New",
+      "home": "Home"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -59,7 +60,8 @@
       "learn-more": "Learn more",
       "close": "Close",
       "choose-plan": "Choose plan",
-      "add-new": "Add New"
+      "add-new": "Add New",
+      "read-more": "Read more"
     },
     "FormSection": {
       "heading-label": "Heading",

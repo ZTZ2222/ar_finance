@@ -44,7 +44,8 @@
       "go-index-page": "Вернуться на домашнюю страницу",
       "security": "Безопасность",
       "advanced": "Расширенные настройки",
-      "new": "Новый"
+      "new": "Новый",
+      "home": "Главная"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -104,7 +105,7 @@
       "placeholder-link-href": "Введите ссылку",
       "label-select-status": "Статус",
       "status-draft": "Черновик",
-      "status-published": "Публиковать",
+      "status-published": "Опубликовано",
       "status-archived": "Архив",
       "label-blog-image": "Изображение блога",
       "form-title-update": "Обновить новую статью",
