@@ -1,3 +1,5 @@
+"use server"
+
 import { getLocale } from "next-intl/server"
 import { db } from "@/server"
 import type { NormalizedArticleRead, zArticleRead } from "@/types/blog.schema"
@@ -64,36 +66,38 @@ export async function getNormalizedArticleById(
 }
 
 export async function getNormalizedArticles(
-  query?: string,
   currentPage: number = 1,
+  query?: string,
+  publicOnly: boolean = true,
 ): Promise<NormalizedArticleRead[]> {
   const locale = await getLocale()
 
   const articles = await db.article.findMany({
-    where: query
-      ? {
-          OR: [
-            {
-              title_ru: {
-                contains: query,
-                mode: "insensitive",
-              },
+    where: {
+      ...(publicOnly && { status: "PUBLISHED" }),
+      ...(query && {
+        OR: [
+          {
+            title_ru: {
+              contains: query,
+              mode: "insensitive",
             },
-            {
-              title_en: {
-                contains: query,
-                mode: "insensitive",
-              },
+          },
+          {
+            title_en: {
+              contains: query,
+              mode: "insensitive",
             },
-            {
-              title_ky: {
-                contains: query,
-                mode: "insensitive",
-              },
+          },
+          {
+            title_ky: {
+              contains: query,
+              mode: "insensitive",
             },
-          ],
-        }
-      : {},
+          },
+        ],
+      }),
+    },
     take: 10,
     skip: (Number(currentPage) - 1) * 10,
     orderBy: {
