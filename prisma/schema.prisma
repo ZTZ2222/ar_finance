@@ -127,24 +127,32 @@ model Contact {
   @@map("contacts")
 }
 
+enum Status {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
 model Article {
   uid            Int          @id @default(autoincrement())
-  title_ru      String?
+  title_ru      String
   title_en      String?
   title_ky      String?
-  content_ru      String?
+  content_ru      String
   content_en      String?
   content_ky      String?
   image      String
-  slug      String
-  linkName  String
-  linkHref  String
+  linkTitle_ru  String?
+  linkTitle_en  String?
+  linkTitle_ky  String?
+  linkHref  String?
+  status    Status @default(DRAFT)
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   socials  ArticleSocial[]
 
-  @@index([slug])
   @@map("articles")
 }
 
