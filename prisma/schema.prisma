@@ -167,3 +167,123 @@ model ArticleSocial {
 
   @@map("article_socials")
 }
+
+model Plan {
+  uid            Int          @id @default(autoincrement())
+  title_ru      String
+  title_en      String
+  title_ky      String
+  description_ru      String
+  description_en      String
+  description_ky      String
+  price      String
+  icon   String
+  bullets_ru      String[]
+  bullets_en      String[]
+  bullets_ky      String[]
+  createdAt DateTime @default(now()) @map("created_at")
+
+  ClientRequest ClientRequest[]
+
+  @@map("plans")
+}
+
+model FormOfOwnership {
+  uid            Int          @id @default(autoincrement())
+  name_ru      String
+  name_en      String
+  name_ky      String
+  ServiceCost ServiceCost[]
+  ClientRequest ClientRequest[]
+
+  @@map("form_of_ownerships")
+}
+
+model FieldOfActivity {
+  uid            Int          @id @default(autoincrement())
+  name_ru      String
+  name_en      String
+  name_ky      String
+  ServiceCost ServiceCost[]
+  ClientRequest ClientRequest[]
+
+  @@map("field_of_activities")
+}
+
+model TaxSystem {
+  uid            Int          @id @default(autoincrement())
+  name_ru      String
+  name_en      String
+  name_ky      String
+  ServiceCost ServiceCost[]
+  ClientRequest ClientRequest[]
+
+  @@map("tax_systems")
+}
+
+model EmployeeRange {
+  uid            Int          @id @default(autoincrement())
+  range       String
+  ServiceCost ServiceCost[]
+  ClientRequest ClientRequest[]
+
+  @@map("employee_ranges")
+}
+
+model TimePeriod {
+  uid            Int          @id @default(autoincrement())
+  period       String
+  ServiceCost ServiceCost[]
+  ClientRequest ClientRequest[]
+
+  @@map("time_periods")
+}
+
+model ServiceCost {
+  uid            Int          @id @default(autoincrement())
+  formOfOwnershipId  Int
+  fieldOfActivityId  Int
+  taxSystemId        Int
+  employeeRangeId    Int
+  timePeriodId         Int
+  amount             Float
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  formOfOwnership FormOfOwnership @relation(fields: [formOfOwnershipId], references: [uid])
+  fieldOfActivity FieldOfActivity @relation(fields: [fieldOfActivityId], references: [uid])
+  taxSystem       TaxSystem       @relation(fields: [taxSystemId], references: [uid])
+  employeeRange   EmployeeRange   @relation(fields: [employeeRangeId], references: [uid])
+  timePeriod      TimePeriod      @relation(fields: [timePeriodId], references: [uid])
+
+  @@map("service_costs")
+}
+
+enum RequestStatus {
+  READ
+  UNREAD
+}
+
+model ClientRequest {
+  uid            Int          @id @default(autoincrement())
+  name              String
+  contactPhone      String
+  planId            Int?
+  formOfOwnershipId Int?
+  fieldOfActivityId Int?
+  taxSystemId       Int?
+  employeeRangeId   Int?
+  timePeriodId      Int?
+  additionalInfo    String
+  status            RequestStatus @default(UNREAD)
+  createdAt         DateTime @default(now())
+
+  Plan               Plan?          @relation(fields: [planId], references: [uid])
+  FormOfOwnership    FormOfOwnership? @relation(fields: [formOfOwnershipId], references: [uid])
+  FieldOfActivity    FieldOfActivity? @relation(fields: [fieldOfActivityId], references: [uid])
+  TaxSystem          TaxSystem?       @relation(fields: [taxSystemId], references: [uid])
+  EmployeeRange      EmployeeRange?   @relation(fields: [employeeRangeId], references: [uid])
+  TimePeriod         TimePeriod?      @relation(fields: [timePeriodId], references: [uid])
+
+  @@map("client_requests")
+}
