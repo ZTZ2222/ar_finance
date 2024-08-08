@@ -43,7 +43,8 @@
       "meta": "Metadata",
       "go-index-page": "Go to home page",
       "security": "Security",
-      "advanced": "Advanced"
+      "advanced": "Advanced",
+      "new": "New"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -88,6 +89,32 @@
     },
     "PlanCard": {
       "card-title": "Plan"
+    },
+    "FormArticle": {
+      "form-title-create": "Create New Article",
+      "form-title-update": "Update New Article",
+      "form-description-create": "Please fill out the form below to create a new article. Make sure you enter all the required information, including the title, content, main image, and status of the article. You can save the article as a draft for further editing or publish it immediately.",
+      "form-description-update": "Please fill out the form below to update a new article. Make sure you enter all the required information, including the title, content, main image, and status of the article. You can save the article as a draft for further editing or publish it immediately.",
+      "button-add-social": "Add Social",
+      "button-save-post": "Save",
+      "label-blog-title": "Blog title  ({locale})",
+      "placeholder-blog-title": "Enter blog title",
+      "label-blog-content": "Blog content  ({locale})",
+      "placeholder-blog-content": "Enter blog content",
+      "label-link-title": "Link title ({locale})",
+      "placeholder-link-title": "Enter link title",
+      "label-link-href": "Link",
+      "placeholder-link-href": "Enter link",
+      "label-select-status": "Status",
+      "status-draft": "Draft",
+      "status-published": "Publish",
+      "status-archived": "Archive",
+      "label-blog-image": "Blog image",
+      "button-cancel": "Cancel",
+      "column-title": "Title",
+      "column-date": "Date",
+      "column-status": "Status",
+      "column-actions": "Actions"
     }
   },
   "Pages": {
@@ -98,7 +125,11 @@
     },
     "Admin": {
       "Dashboard": {},
-      "Users": {},
+      "Users": {
+        "title": "User Management",
+        "button-add-new": "New User",
+        "search-placeholder": "Search user..."
+      },
       "CMS": {
         "Navigation": {
           "hero": "Hero Section",
@@ -131,7 +162,11 @@
           "subheading": "Edit the site metadata"
         }
       },
-      "Blog": {},
+      "Blog": {
+        "title": "Blog Management",
+        "button-add-new": "New Article",
+        "search-placeholder": "Search article..."
+      },
       "Settings": {
         "title": "System settings",
         "Navigation": {

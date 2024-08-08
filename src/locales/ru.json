@@ -43,7 +43,8 @@
       "meta": "Метаданные",
       "go-index-page": "Вернуться на домашнюю страницу",
       "security": "Безопасность",
-      "advanced": "Расширенные настройки"
+      "advanced": "Расширенные настройки",
+      "new": "Новый"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -87,6 +88,32 @@
     },
     "PlanCard": {
       "card-title": "Тариф"
+    },
+    "FormArticle": {
+      "form-title-create": "Создать новую статью",
+      "form-description-create": "Пожалуйста, заполните форму ниже, чтобы создать новую статью. \nОбязательно введите всю необходимую информацию, включая заголовок, содержание, основное изображение и статус статьи. \nВы можете сохранить статью как черновик для дальнейшего редактирования или сразу опубликовать.",
+      "button-add-social": "Добавить соц. сеть",
+      "button-save-post": "Сохранить",
+      "placeholder-blog-title": "Введите название блога",
+      "label-blog-title": "Название блога  ({locale})",
+      "label-blog-content": "Содержание блога  ({locale})",
+      "placeholder-blog-content": "Введите содержание блога",
+      "label-link-title": "Название ссылки ({locale})",
+      "placeholder-link-title": "Введите название ссылки",
+      "label-link-href": "Ссылка",
+      "placeholder-link-href": "Введите ссылку",
+      "label-select-status": "Статус",
+      "status-draft": "Черновик",
+      "status-published": "Публиковать",
+      "status-archived": "Архив",
+      "label-blog-image": "Изображение блога",
+      "form-title-update": "Обновить новую статью",
+      "form-description-update": "Пожалуйста, заполните форму ниже, чтобы обновить новую статью. \nОбязательно введите всю необходимую информацию, включая заголовок, содержание, основное изображение и статус статьи. \nВы можете сохранить статью как черновик для дальнейшего редактирования или сразу опубликовать.",
+      "button-cancel": "Отмена",
+      "column-title": "Заголовок",
+      "column-date": "Дата",
+      "column-status": "Статус",
+      "column-actions": "Действия"
     }
   },
   "Pages": {
@@ -97,7 +124,11 @@
     },
     "Admin": {
       "Dashboard": {},
-      "Users": {},
+      "Users": {
+        "title": "Управление пользователями",
+        "search-placeholder": "Поиск пользователя...",
+        "button-add-new": "Новый пользователь"
+      },
       "CMS": {
         "Navigation": {
           "hero": "Лицевая секция",
@@ -130,7 +161,11 @@
           "subheading": "Редактировать метаданные сайта"
         }
       },
-      "Blog": {},
+      "Blog": {
+        "title": "Управление блогом",
+        "button-add-new": "Новая статья",
+        "search-placeholder": "Искать статью..."
+      },
       "Settings": {
         "title": "Настройки системы",
         "Navigation": {

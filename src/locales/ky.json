@@ -43,7 +43,8 @@
       "meta": "Метадайындар",
       "go-index-page": "Башкы бетке өтүңүз",
       "security": "Коопсуздук",
-      "advanced": "Өркүндөтүлгөн орнотуулар"
+      "advanced": "Өркүндөтүлгөн орнотуулар",
+      "new": "Жаңы"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -87,6 +88,32 @@
     },
     "PlanCard": {
       "card-title": "Тариф"
+    },
+    "FormArticle": {
+      "form-title-create": "Жаңы макала түзүү",
+      "form-description-create": "Сураныч, жаңы макала түзүү үчүн төмөнкү форманы толтуруңуз. \nМакаланын аталышын, мазмунун, негизги сүрөтүн жана статусун камтыган бардык керектүү маалыматты киргизгениңизди текшериңиз. \nМакаланы андан ары оңдоо үчүн долбоор катары сактап же дароо жарыяласаңыз болот.",
+      "button-add-social": "Социалдык кошуу",
+      "button-save-post": "Сактоо",
+      "placeholder-blog-title": "Блогдун аталышын киргизиңиз",
+      "label-blog-title": "Блогдун аталышы  ({locale})",
+      "label-blog-content": "Блог мазмуну  ({locale})",
+      "placeholder-blog-content": "Блогдун мазмунун киргизиңиз",
+      "label-link-title": "Шилтеменин аталышы ({locale})",
+      "placeholder-link-title": "Шилтеменин аталышын киргизиңиз",
+      "label-link-href": "Шилтеме",
+      "placeholder-link-href": "Шилтемени киргизиңиз",
+      "label-select-status": "Статус",
+      "status-draft": "Долбоор",
+      "status-published": "Жарыялоо",
+      "status-archived": "Архив",
+      "label-blog-image": "Блог сүрөтү",
+      "form-title-update": "Жаңы макаланы жаңыртуу",
+      "form-description-update": "Сураныч, жаңы макаланы жаңыртуу үчүн төмөнкү форманы толтуруңуз. \nМакаланын аталышын, мазмунун, негизги сүрөтүн жана статусун камтыган бардык керектүү маалыматты киргизгениңизди текшериңиз. \nМакаланы андан ары оңдоо үчүн долбоор катары сактап же дароо жарыяласаңыз болот.",
+      "button-cancel": "Жокко чыгаруу",
+      "column-title": "Title",
+      "column-date": "Дата",
+      "column-status": "Статус",
+      "column-actions": "Аракеттер"
     }
   },
   "Pages": {
@@ -97,7 +124,11 @@
     },
     "Admin": {
       "Dashboard": {},
-      "Users": {},
+      "Users": {
+        "title": "Колдонуучуну башкаруу",
+        "search-placeholder": "Колдонуучуну издөө...",
+        "button-add-new": "Жаңы колдонуучу"
+      },
       "CMS": {
         "Navigation": {
           "hero": "Алдыңкы секция",
@@ -130,7 +161,11 @@
           "subheading": "Сайттын метадайындарын түзөтүңүз"
         }
       },
-      "Blog": {},
+      "Blog": {
+        "title": "Блог башкаруу",
+        "button-add-new": "Жаңы макала",
+        "search-placeholder": "Макала издөө..."
+      },
       "Settings": {
         "title": "Система орнотуулары",
         "Navigation": {
