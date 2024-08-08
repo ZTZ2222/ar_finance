@@ -85,13 +85,8 @@ export default function Editor({ field, placeholder }: Props) {
       ref={editor}
       value={content}
       config={config}
-      //   tabIndex={1} // tabIndex of textarea
       onChange={handleChange} // preferred to use only this option to update the content for performance reasons
-      //   className="h-[500px]"
     />
   )
 }
-// <div className="p-5">
-//   <h2>Content Preview:</h2>
 //   <div dangerouslySetInnerHTML={{ __html: content }} />
-// </div>
