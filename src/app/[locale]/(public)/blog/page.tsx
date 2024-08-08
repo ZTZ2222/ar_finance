@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,109 +7,40 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import BlogCard from "@/components/shared/blog-card"
 import Heading from "@/components/shared/heading"
+import InfiniteScroll from "@/components/shared/infinite-scroll"
 import SectionName from "@/components/shared/section-name"
 import Subheading from "@/components/shared/subheading"
-import type { zPostRead } from "@/types/post.schema"
+import { getNormalizedArticles } from "@/server/data-access-layer/article"
+import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function Blog() {
-  const posts: zPostRead[] = [
-    {
-      id: "1",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_1.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "2",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_2.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "3",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_3.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "4",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_1.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "5",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_2.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-    {
-      id: "6",
-      title:
-        "Как выбрать правильную бухгалтерскую программу для вашего бизнеса",
-      short_description:
-        "В современном мире технологий выбор подходящей бухгалтерской программы может значительно упростить вашу работу. В этой статье мы расскажем о ключевых критериях выбора и рассмотрим популярные решения на рынке.",
-      content: "Содержание статьи",
-      primaryImage: "/assets/blog/blog_image_3.jpg",
-      slug: "kak-vybrat-pravilnuyu-buhgalterskuyu-programmu-dlya-vashego-biznesa",
-      createdAt: new Date(),
-    },
-  ]
+  const t = await getTranslations()
+  const sectionData = await getNormalizedSectionById("blog")
+  const posts = await getNormalizedArticles()
+
   return (
     <div className="container mb-[150px] space-y-[50px] lg:space-y-[60px]">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Главная</BreadcrumbLink>
+            <BreadcrumbLink href="/">
+              {t("Components.Breadcrumb.home")}
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Блог</BreadcrumbPage>
+            <BreadcrumbPage>{t("Components.Breadcrumb.blog")}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
       <div className="space-y-[26px]">
-        <SectionName>Блог</SectionName>
-        <Heading>Последние статьи</Heading>
-        <Subheading>
-          Здесь вы найдете последние новости, полезные советы и экспертные
-          мнения по вопросам бухгалтерии и финансов. Мы делимся знаниями и
-          опытом, чтобы помочь вашему бизнесу расти и процветать.
-        </Subheading>
+        <SectionName>{sectionData?.sectionName}</SectionName>
+        <Heading>{sectionData?.heading}</Heading>
+        <Subheading>{sectionData?.subheading}</Subheading>
       </div>
-      <div className="grid gap-20 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-y-[60px]">
-        {posts.map(post => (
-          <BlogCard key={post.id} {...post} />
-        ))}
-      </div>
+      <InfiniteScroll initialArticles={posts} />
     </div>
   )
 }
