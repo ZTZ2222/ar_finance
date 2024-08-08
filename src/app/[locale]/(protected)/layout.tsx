@@ -17,7 +17,7 @@ export default async function ProtectedLayout({
     <SidebarAdmin>
       <div className="flex h-screen w-full flex-col bg-muted">
         <HeaderAdmin />
-        <main className="container overflow-auto">{children}</main>
+        <main className="container overflow-auto pb-20">{children}</main>
       </div>
     </SidebarAdmin>
   )
