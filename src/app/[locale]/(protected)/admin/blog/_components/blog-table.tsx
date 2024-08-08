@@ -29,7 +29,7 @@ export default async function BlogTable({ query, currentPage }: Props) {
 
   // await sleepTimeout(3000)
 
-  const articles = await getNormalizedArticles(query, currentPage)
+  const articles = await getNormalizedArticles(currentPage, query, false)
 
   return (
     <Table className="flex-1 overflow-auto rounded-lg bg-muted">

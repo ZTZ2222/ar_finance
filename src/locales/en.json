@@ -177,6 +177,9 @@
           "advanced": "Advanced settings"
         }
       }
+    },
+    "Blog": {
+      "other-articles": "Other articles"
     }
   },
   "Server": {
