@@ -232,7 +232,9 @@ model EmployeeRange {
 
 model TimePeriod {
   uid            Int          @id @default(autoincrement())
-  period       String
+  period_ru       String
+  period_en       String
+  period_ky       String
   ServiceCost ServiceCost[]
   ClientRequest ClientRequest[]
 
@@ -246,16 +248,18 @@ model ServiceCost {
   taxSystemId        Int
   employeeRangeId    Int
   timePeriodId         Int
-  amount             Float
+  total_amount             Int
+  total_amount_after_discount             Int
   createdAt          DateTime    @default(now())
   updatedAt          DateTime    @updatedAt
 
-  formOfOwnership FormOfOwnership @relation(fields: [formOfOwnershipId], references: [uid])
-  fieldOfActivity FieldOfActivity @relation(fields: [fieldOfActivityId], references: [uid])
-  taxSystem       TaxSystem       @relation(fields: [taxSystemId], references: [uid])
-  employeeRange   EmployeeRange   @relation(fields: [employeeRangeId], references: [uid])
-  timePeriod      TimePeriod      @relation(fields: [timePeriodId], references: [uid])
+  formOfOwnership FormOfOwnership @relation(fields: [formOfOwnershipId], references: [uid], onDelete: Cascade)
+  fieldOfActivity FieldOfActivity @relation(fields: [fieldOfActivityId], references: [uid], onDelete: Cascade)
+  taxSystem       TaxSystem       @relation(fields: [taxSystemId], references: [uid], onDelete: Cascade)
+  employeeRange   EmployeeRange   @relation(fields: [employeeRangeId], references: [uid], onDelete: Cascade)
+  timePeriod      TimePeriod      @relation(fields: [timePeriodId], references: [uid], onDelete: Cascade)
 
+  @@unique([formOfOwnershipId, fieldOfActivityId, taxSystemId, employeeRangeId, timePeriodId])
   @@map("service_costs")
 }
 
@@ -278,12 +282,12 @@ model ClientRequest {
   status            RequestStatus @default(UNREAD)
   createdAt         DateTime @default(now())
 
-  Plan               Plan?          @relation(fields: [planId], references: [uid])
-  FormOfOwnership    FormOfOwnership? @relation(fields: [formOfOwnershipId], references: [uid])
-  FieldOfActivity    FieldOfActivity? @relation(fields: [fieldOfActivityId], references: [uid])
-  TaxSystem          TaxSystem?       @relation(fields: [taxSystemId], references: [uid])
-  EmployeeRange      EmployeeRange?   @relation(fields: [employeeRangeId], references: [uid])
-  TimePeriod         TimePeriod?      @relation(fields: [timePeriodId], references: [uid])
+  Plan               Plan?          @relation(fields: [planId], references: [uid], onDelete: Cascade)
+  FormOfOwnership    FormOfOwnership? @relation(fields: [formOfOwnershipId], references: [uid], onDelete: Cascade)
+  FieldOfActivity    FieldOfActivity? @relation(fields: [fieldOfActivityId], references: [uid], onDelete: Cascade)
+  TaxSystem          TaxSystem?       @relation(fields: [taxSystemId], references: [uid], onDelete: Cascade)
+  EmployeeRange      EmployeeRange?   @relation(fields: [employeeRangeId], references: [uid], onDelete: Cascade)
+  TimePeriod         TimePeriod?      @relation(fields: [timePeriodId], references: [uid], onDelete: Cascade)
 
   @@map("client_requests")
 }
