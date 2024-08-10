@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -30,25 +31,26 @@ import LocaleSwitcher from "@/components/shared/locale-switcher"
 import ScrollLink from "@/components/shared/scroll-link"
 
 export default function Navigation() {
+  const t = useTranslations("Components.NavigationLinks")
   const links = [
     {
-      name: "Услуги",
+      name: t("services"),
       href: "our-services",
     },
     {
-      name: "Тарифы",
+      name: t("plans"),
       href: "plans",
     },
     {
-      name: "Блог",
+      name: t("blog"),
       href: "blog",
     },
     {
-      name: "Команда",
+      name: t("team"),
       href: "our-team",
     },
     {
-      name: "Контакты",
+      name: t("contacts"),
       href: "contacts",
     },
   ]
@@ -82,65 +84,24 @@ export default function Navigation() {
           </nav>
           <SheetFooter className="w-full items-center gap-5">
             <LocaleSwitcher />
-
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="core" size="mobile" className="gap-2.5">
-                  Калькулятор услуг
-                  <CalculatorIcon />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="rounded-[30px] border-none bg-transparent p-0">
-                <ScrollArea className="h-screen">
-                  <div className="h-[870px]">
-                    <Calculator />
-                  </div>
-                </ScrollArea>
-                <DialogHeader className="sr-only">
-                  <DialogTitle>Калькулятор</DialogTitle>
-                  <DialogDescription>Калькулятор</DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
           </SheetFooter>
           <BgLogo className="mt-5 size-[224px] w-full self-center" />
         </SheetContent>
       </Sheet>
 
       {/* Desktop */}
-      <div className="hidden lg:flex">
-        <nav className="flex shrink-0 items-center overflow-hidden rounded-lg bg-white/80">
-          {links.map(link => (
-            <ScrollLink
-              key={link.name}
-              href={link.href}
-              className="px-[20px] py-[14px] transition-colors hover:bg-black/80 hover:text-white lg:py-[22px] xl:px-[30px]"
-            >
-              {link.name}
-            </ScrollLink>
-          ))}
-        </nav>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button
-              variant="core"
-              size="mobile"
-              className="ml-5 w-[240px] shrink-0 gap-2.5 text-sm xl:ml-[50px] xl:text-base"
-            >
-              Калькулятор услуг
-              <CalculatorIcon />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="rounded-[30px] border-none bg-transparent p-0 lg:max-w-[853px]">
-            <Calculator />
-            <DialogHeader className="sr-only">
-              <DialogTitle>Калькулятор</DialogTitle>
-              <DialogDescription>Калькулятор</DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-        <LocaleSwitcher className="ml-2.5 xl:ml-5" />
-      </div>
+      <nav className="hidden shrink-0 items-center overflow-hidden rounded-lg bg-white/80 lg:flex">
+        {links.map(link => (
+          <ScrollLink
+            key={link.name}
+            href={link.href}
+            className="px-[20px] py-[14px] transition-colors hover:bg-black/80 hover:text-white lg:py-[22px] xl:px-[30px]"
+          >
+            {link.name}
+          </ScrollLink>
+        ))}
+      </nav>
+      <LocaleSwitcher className="ml-2.5 hidden lg:inline-flex xl:ml-5" />
     </>
   )
 }

@@ -1,14 +1,26 @@
 import React from "react"
 import Image from "next/image"
 import { CircleArrowDown } from "lucide-react"
+import { getTranslations } from "next-intl/server"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Lines } from "@/components/icons"
+import { Calculator as CalculatorIcon } from "@/components/icons"
 import Navigation from "@/components/layout/navigation"
+import Calculator from "@/components/shared/calculator"
 import ScrollLink from "@/components/shared/scroll-link"
 import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function Hero() {
+  const t = await getTranslations()
   const sectionData = await getNormalizedSectionById("hero")
 
   // Split heading text into words
@@ -56,9 +68,25 @@ export default async function Hero() {
             {sectionData?.subheading}
           </p>
         </div>
-        <Button variant="core" size="mobile" className="w-fit px-[30px]">
-          {sectionData?.primaryButton}
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              variant="core"
+              size="mobile"
+              className="w-fit gap-2.5 px-[30px]"
+            >
+              {t("Components.Button.service-calculator")}
+              <CalculatorIcon />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="rounded-[30px] border-none bg-transparent p-0 lg:max-w-[853px]">
+            <Calculator />
+            <DialogHeader className="sr-only">
+              <DialogTitle>Калькулятор</DialogTitle>
+              <DialogDescription>Калькулятор</DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </section>
       <div className="absolute inset-0 bg-black opacity-60" />
       <ScrollLink
