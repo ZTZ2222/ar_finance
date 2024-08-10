@@ -92,11 +92,11 @@ export default function Calculator({ className }: Props) {
     const calculateCost = async () => {
       try {
         const serviceCost = await getServiceCost(
-          formValues.formOfOwnershipId,
-          formValues.fieldOfActivityId,
-          formValues.taxSystemId,
-          formValues.employeeRangeId,
-          formValues.timePeriodId,
+          Number(formValues.formOfOwnershipId),
+          Number(formValues.fieldOfActivityId),
+          Number(formValues.taxSystemId),
+          Number(formValues.employeeRangeId),
+          Number(formValues.timePeriodId),
         )
         if (serviceCost) {
           setTotalAmount(serviceCost.total_amount)

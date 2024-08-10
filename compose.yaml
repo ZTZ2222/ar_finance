@@ -1,16 +1,18 @@
 version: '3.8'
 
 services:
-  pozitiv:
-    image: tilzam/ar_finance:latest
+  ar-finance:
+    image: tilzam/ar-finance:latest
     container_name: ar_finance_container
     ports:
       - "3000:3000"  # Map port 3000 on the host to port 3000 in the container
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/ar_finance?schema=public  # Environment variable for database URL
-      - NODE_ENV=production
+    env_file: 
+      - .env
+    volumes:
+      - ./uploads:/public/assets/uploads
     depends_on:
       - db
+    entrypoint: [ "sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node server.js" ]
     restart: always  # Always restart the container if it stops
 
   db:
