@@ -60,7 +60,8 @@
       "logout": "Чыгуу",
       "learn-more": "Көбүрөөк билүү",
       "close": "Жабуу",
-      "choose-plan": "Тарифти тандаңыз"
+      "choose-plan": "Тарифти тандаңыз",
+      "service-calculator": "Кызмат калькулятору"
     },
     "FormSection": {
       "heading-label": "Заголовок",
@@ -133,7 +134,16 @@
       "total-amount-after-discount": "Арзандатуудан кийинки сумма",
       "actions": "Аракеттер",
       "table-caption": "Кызмат көрсөтүүлөргө чыгымдардын тизмеси.",
-      "select-placeholder": "Опцияны тандаңыз"
+      "select-placeholder": "Опцияны тандаңыз",
+      "calculator-helper-text": "Сиздин бизнесиңизге ылайыктуу варианттарды тандаңыз, биз баасын эсептейбиз",
+      "button-get-offer": "Сунуш алыңыз"
+    },
+    "NavigationLinks": {
+      "services": "Кызматтар",
+      "plans": "Тарифтер",
+      "blog": "Блог",
+      "team": "Команда",
+      "contacts": "Байланыштар"
     }
   },
   "Pages": {

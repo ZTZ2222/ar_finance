@@ -62,7 +62,8 @@
       "close": "Close",
       "choose-plan": "Choose plan",
       "add-new": "Add New",
-      "read-more": "Read more"
+      "read-more": "Read more",
+      "service-calculator": "Service Calculator"
     },
     "FormSection": {
       "heading-label": "Heading",
@@ -135,7 +136,16 @@
       "total-amount-after-discount": "Amount after discount",
       "actions": "Actions",
       "table-caption": "List of costs for services.",
-      "select-placeholder": "Select an option"
+      "select-placeholder": "Select an option",
+      "calculator-helper-text": "Select the options that suit your business and we will calculate the cost",
+      "button-get-offer": "Get an offer"
+    },
+    "NavigationLinks": {
+      "services": "Services",
+      "plans": "Plans",
+      "blog": "Blog",
+      "team": "Team",
+      "contacts": "Contacts"
     }
   },
   "Pages": {

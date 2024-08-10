@@ -60,7 +60,8 @@
       "logout": "Выход",
       "learn-more": "Подробнее",
       "close": "Закрыть",
-      "choose-plan": "Выбрать тариф"
+      "choose-plan": "Выбрать тариф",
+      "service-calculator": "Калькулятор услуг"
     },
     "FormSection": {
       "heading-label": "Заголовок",
@@ -133,7 +134,16 @@
       "total-amount-after-discount": "Сумма после скидки",
       "actions": "Действия",
       "table-caption": "Список стоимостей за услуги.",
-      "select-placeholder": "Выберите вариант"
+      "select-placeholder": "Выберите вариант",
+      "calculator-helper-text": "Выберите варианты, подходящие вашему бизнесу, и мы рассчитаем стоимость",
+      "button-get-offer": "Получить предложение"
+    },
+    "NavigationLinks": {
+      "services": "Услуги",
+      "plans": "Тарифы",
+      "blog": "Блог",
+      "team": "Команда",
+      "contacts": "Контакты"
     }
   },
   "Pages": {
