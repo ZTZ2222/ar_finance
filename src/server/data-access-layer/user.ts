@@ -1,3 +1,5 @@
+"use server"
+
 import { db } from "@/server"
 
 export const getUserByEmailPasswordOmit = async (email: string) => {
