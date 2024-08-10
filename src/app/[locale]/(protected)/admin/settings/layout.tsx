@@ -7,19 +7,23 @@ export default async function SettingsLayout({
   children: React.ReactNode
 }) {
   const t = await getTranslations()
-  const sections = [
+  const settingsSections = [
     {
       title: t("Pages.Admin.Settings.Navigation.general"),
       href: "/admin/settings",
     },
     {
-      title: t("Pages.Admin.Settings.Navigation.security"),
-      href: "/admin/settings/security",
+      title: t("Pages.Admin.Settings.Navigation.calculator"),
+      href: "/admin/settings/calculator",
     },
-    {
-      title: t("Pages.Admin.Settings.Navigation.advanced"),
-      href: "/admin/settings/advanced",
-    },
+    // {
+    //   title: t("Pages.Admin.Settings.Navigation.security"),
+    //   href: "/admin/settings/security",
+    // },
+    // {
+    //   title: t("Pages.Admin.Settings.Navigation.advanced"),
+    //   href: "/admin/settings/advanced",
+    // },
   ]
   return (
     <div className="flex flex-1 flex-col gap-4 bg-muted/40 md:gap-8">
@@ -28,8 +32,8 @@ export default async function SettingsLayout({
           {t("Pages.Admin.Settings.title")}
         </h1>
       </div>
-      <div className="mx-auto grid w-full items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-        <ContentNavigation sections={sections} />
+      <div className="mx-auto grid w-full items-start gap-6 md:grid-cols-[140px_1fr]">
+        <ContentNavigation sections={settingsSections} />
         {children}
       </div>
     </div>

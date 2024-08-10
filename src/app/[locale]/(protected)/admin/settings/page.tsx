@@ -12,10 +12,11 @@ export default async function Settings() {
   return (
     <Card>
       <CardHeader className="space-y-3.5">
-        <CardTitle>General Settings</CardTitle>
+        <CardTitle>
+          {t("Pages.Admin.Settings.general-settings-title")}
+        </CardTitle>
         <CardDescription>
-          Manage the overall settings of your application. This section includes
-          options for configuring site information and appearance.
+          {t("Pages.Admin.Settings.general-settings-description")}
         </CardDescription>
       </CardHeader>
       <GeneralSettingsForm />
