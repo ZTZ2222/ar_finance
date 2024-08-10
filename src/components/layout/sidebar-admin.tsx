@@ -6,10 +6,10 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import {
   BookOpenText,
+  ClipboardList,
   MonitorCog,
   Settings,
   SquareTerminal,
-  Users,
 } from "lucide-react"
 import { useSession } from "next-auth/react"
 import { useTranslations } from "next-intl"
@@ -58,6 +58,13 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
       ),
     },
   ]
+  const requestsLink = {
+    label: t("requests"),
+    href: "/admin/requests",
+    icon: (
+      <ClipboardList className="size-6 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  }
   const [open, setOpen] = useState(false)
 
   return (
@@ -73,6 +80,12 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
             {open ? <Logo /> : <LogoIcon />}
             {/* <Logo /> */}
             <div className="mt-8 flex flex-col gap-2">
+              <div className="relative">
+                <SidebarLink link={requestsLink} />
+                <div className="absolute left-0 top-0 grid size-5 place-content-center rounded-full bg-rose-750 text-xs font-bold text-white">
+                  12
+                </div>
+              </div>
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
