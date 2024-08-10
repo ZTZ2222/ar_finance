@@ -137,7 +137,11 @@
       "table-caption": "Кызмат көрсөтүүлөргө чыгымдардын тизмеси.",
       "select-placeholder": "Опцияны тандаңыз",
       "calculator-helper-text": "Сиздин бизнесиңизге ылайыктуу варианттарды тандаңыз, биз баасын эсептейбиз",
-      "button-get-offer": "Сунуш алыңыз"
+      "button-get-offer": "Сунуш алыңыз",
+      "placeholder-form-of-ownership": "Менчик формасын тандаңыз",
+      "placeholder-field-of-activity": "Иш чөйрөсүн тандаңыз",
+      "placeholder-time-period": "Убакыт аралыгын тандаңыз",
+      "placeholder-employee-range": "Кызматкерлер диапазонун тандоо"
     },
     "NavigationLinks": {
       "services": "Кызматтар",

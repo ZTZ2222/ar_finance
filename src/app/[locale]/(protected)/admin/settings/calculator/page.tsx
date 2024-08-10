@@ -42,23 +42,33 @@ export default async function CalculatorSettings() {
         </CardHeader>
         <CardContent className="grid gap-5 lg:grid-cols-2">
           <div className="space-y-1.5">
-            <h4 className="text-lg font-semibold">Form Of Ownership</h4>
+            <h4 className="text-lg font-semibold">
+              {t("Components.FormServiceCost.form-of-ownership")}
+            </h4>
             <FormOfOwnershipForm optionsData={ownershipTypes} />
           </div>
           <div className="space-y-1.5">
-            <h4 className="text-lg font-semibold">Field Of Activity</h4>
+            <h4 className="text-lg font-semibold">
+              {t("Components.FormServiceCost.field-of-activity")}
+            </h4>
             <FieldOfActivityForm optionsData={fieldOfActivities} />
           </div>
           <div className="space-y-1.5">
-            <h4 className="text-lg font-semibold">Tax System</h4>
+            <h4 className="text-lg font-semibold">
+              {t("Components.FormServiceCost.tax-system")}
+            </h4>
             <TaxSystemForm optionsData={taxSystems} />
           </div>
           <div className="space-y-1.5">
-            <h4 className="text-lg font-semibold">Employee Range</h4>
+            <h4 className="text-lg font-semibold">
+              {t("Components.FormServiceCost.employee-range")}
+            </h4>
             <EmployeeRangeForm optionsData={employeeRanges} />
           </div>
           <div className="space-y-1.5">
-            <h4 className="text-lg font-semibold">Time Period</h4>
+            <h4 className="text-lg font-semibold">
+              {t("Components.FormServiceCost.time-period")}
+            </h4>
             <TimePeriodForm optionsData={timePeriods} />
           </div>
         </CardContent>

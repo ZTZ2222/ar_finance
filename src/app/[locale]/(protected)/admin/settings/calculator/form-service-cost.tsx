@@ -177,7 +177,11 @@ export default function ServiceCostForm({
                             >
                               <FormControl>
                                 <SelectTrigger className="">
-                                  <SelectValue placeholder="Select form of ownership" />
+                                  <SelectValue
+                                    placeholder={t(
+                                      "placeholder-form-of-ownership",
+                                    )}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
@@ -213,7 +217,11 @@ export default function ServiceCostForm({
                             >
                               <FormControl>
                                 <SelectTrigger className="">
-                                  <SelectValue placeholder="Select field of activity" />
+                                  <SelectValue
+                                    placeholder={t(
+                                      "placeholder-field-of-activity",
+                                    )}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
@@ -249,7 +257,9 @@ export default function ServiceCostForm({
                             >
                               <FormControl>
                                 <SelectTrigger className="">
-                                  <SelectValue placeholder="Select tax system" />
+                                  <SelectValue
+                                    placeholder={t("placeholder-tax-system")}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
@@ -281,7 +291,11 @@ export default function ServiceCostForm({
                             >
                               <FormControl>
                                 <SelectTrigger className="">
-                                  <SelectValue placeholder="Select employee range" />
+                                  <SelectValue
+                                    placeholder={t(
+                                      "placeholder-employee-range",
+                                    )}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
@@ -313,7 +327,9 @@ export default function ServiceCostForm({
                             >
                               <FormControl>
                                 <SelectTrigger className="w-max">
-                                  <SelectValue placeholder="Select time period" />
+                                  <SelectValue
+                                    placeholder={t("placeholder-time-period")}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>

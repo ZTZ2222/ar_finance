@@ -138,7 +138,12 @@
       "table-caption": "List of costs for services.",
       "select-placeholder": "Select an option",
       "calculator-helper-text": "Select the options that suit your business and we will calculate the cost",
-      "button-get-offer": "Get an offer"
+      "button-get-offer": "Get an offer",
+      "placeholder-form-of-ownership": "Select form of ownership",
+      "placeholder-field-of-activity": "Select field of activity",
+      "placeholder-tax-system": "Select tax system",
+      "placeholder-employee-range": "Select employee range",
+      "placeholder-time-period": "Select time period"
     },
     "NavigationLinks": {
       "services": "Services",

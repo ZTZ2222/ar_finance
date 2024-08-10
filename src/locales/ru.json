@@ -137,7 +137,11 @@
       "table-caption": "Список стоимостей за услуги.",
       "select-placeholder": "Выберите вариант",
       "calculator-helper-text": "Выберите варианты, подходящие вашему бизнесу, и мы рассчитаем стоимость",
-      "button-get-offer": "Получить предложение"
+      "button-get-offer": "Получить предложение",
+      "placeholder-form-of-ownership": "Выберите форму собственности",
+      "placeholder-field-of-activity": "Выберите сферу деятельности",
+      "placeholder-time-period": "Выберите период времени",
+      "placeholder-employee-range": "Выберите диапазон сотрудников"
     },
     "NavigationLinks": {
       "services": "Услуги",
