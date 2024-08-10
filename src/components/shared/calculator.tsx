@@ -331,14 +331,13 @@ export default function Calculator({ className }: Props) {
                   </span>
                 </div>
                 <Button type="button" variant="core" size="mobile">
-                  Получить предложение
+                  {t("button-get-offer")}
                 </Button>
               </div>
             ) : (
               <div className="flex flex-col items-center gap-5 text-center lg:mt-auto lg:max-w-[373px]">
                 <p className="text-sm text-black">
-                  Выберите варианты, подходящие под Ваш бизнес, и мы рассчитаем
-                  стоимость
+                  {t("calculator-helper-text")}
                 </p>
                 <div className="relative size-[200px]">
                   <Image
