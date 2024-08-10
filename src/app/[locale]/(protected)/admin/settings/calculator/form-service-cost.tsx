@@ -78,11 +78,11 @@ export default function ServiceCostForm({
   })
 
   const newServiceCost: zServiceCost = {
-    formOfOwnershipId: (ownershipTypes && ownershipTypes[0].uid) || 1,
-    fieldOfActivityId: (fieldOfActivities && fieldOfActivities[0].uid) || 1,
-    taxSystemId: (taxSystems && taxSystems[0].uid) || 1,
-    employeeRangeId: (employeeRanges && employeeRanges[0].uid) || 1,
-    timePeriodId: (timePeriods && timePeriods[0].uid) || 1,
+    formOfOwnershipId: (ownershipTypes && ownershipTypes[0]?.uid) || 1,
+    fieldOfActivityId: (fieldOfActivities && fieldOfActivities[0]?.uid) || 1,
+    taxSystemId: (taxSystems && taxSystems[0]?.uid) || 1,
+    employeeRangeId: (employeeRanges && employeeRanges[0]?.uid) || 1,
+    timePeriodId: (timePeriods && timePeriods[0]?.uid) || 1,
     total_amount: 0,
     total_amount_after_discount: 0,
   }

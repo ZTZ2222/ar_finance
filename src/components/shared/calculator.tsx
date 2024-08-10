@@ -71,13 +71,13 @@ export default function Calculator({ className }: Props) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       formOfOwnershipId:
-        (data?.formsOfOwnership && data?.formsOfOwnership[0].uid) || 1,
+        (data?.formsOfOwnership && data?.formsOfOwnership[0]?.uid) || 1,
       fieldOfActivityId:
-        (data?.fieldsOfActivity && data?.fieldsOfActivity[0].uid) || 1,
-      taxSystemId: (data?.taxSystems && data?.taxSystems[0].uid) || 1,
+        (data?.fieldsOfActivity && data?.fieldsOfActivity[0]?.uid) || 1,
+      taxSystemId: (data?.taxSystems && data?.taxSystems[0]?.uid) || 1,
       employeeRangeId:
-        (data?.employeeRanges && data?.employeeRanges[0].uid) || 1,
-      timePeriodId: (data?.timePeriods && data?.timePeriods[0].uid) || 3,
+        (data?.employeeRanges && data?.employeeRanges[0]?.uid) || 1,
+      timePeriodId: (data?.timePeriods && data?.timePeriods[0]?.uid) || 3,
     },
   })
 
