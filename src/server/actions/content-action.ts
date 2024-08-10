@@ -119,8 +119,6 @@ export const upsertSocials = actionClient
 
       return { success: t("Server.actions.success-update") }
     } catch (error) {
-      console.log(error)
-
       return { error: t("Server.actions.error") }
     }
   })
