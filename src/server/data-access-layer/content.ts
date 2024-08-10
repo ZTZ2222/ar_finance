@@ -1,3 +1,5 @@
+"use server"
+
 import { getLocale } from "next-intl/server"
 import { db } from "@/server"
 import type {
@@ -82,7 +84,6 @@ export async function getContacts(): Promise<zContact[] | null> {
     if (!contacts) return null
     return contacts
   } catch (error) {
-    console.log(error)
     return null
   }
 }
@@ -95,7 +96,6 @@ export async function getSocials(): Promise<zSocial[] | null> {
     if (!socials) return null
     return socials
   } catch (error) {
-    console.log(error)
     return null
   }
 }
