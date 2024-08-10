@@ -53,7 +53,8 @@
       "users": "Users",
       "settings": "Settings",
       "cms": "Content",
-      "blog": "Blog"
+      "blog": "Blog",
+      "requests": "Applications"
     },
     "Button": {
       "logout": "Logout",
@@ -117,6 +118,24 @@
       "column-date": "Date",
       "column-status": "Status",
       "column-actions": "Actions"
+    },
+    "FormOptions": {
+      "placeholder-type": "Option",
+      "button-save": "Save"
+    },
+    "FormServiceCost": {
+      "button-save": "Save",
+      "button-add-new": "Add new",
+      "form-of-ownership": "Form of Ownership",
+      "field-of-activity": "Field of activity",
+      "tax-system": "Tax system",
+      "employee-range": "Employee range",
+      "time-period": "Time period",
+      "total-amount": "Total amount",
+      "total-amount-after-discount": "Amount after discount",
+      "actions": "Actions",
+      "table-caption": "List of costs for services.",
+      "select-placeholder": "Select an option"
     }
   },
   "Pages": {
@@ -174,8 +193,17 @@
         "Navigation": {
           "general": "General settings",
           "security": "Security settings",
-          "advanced": "Advanced settings"
-        }
+          "advanced": "Advanced settings",
+          "calculator": "Calculator settings"
+        },
+        "general-settings-title": "General Settings",
+        "general-settings-description": "Manage the overall settings of your application. This section includes options for configuring site information and appearance."
+      },
+      "Calculator": {
+        "title": "Calculator Service Cost",
+        "description": "Manage the calculator settings of your application. This section includes cost of services for configuring calculator options.",
+        "options-management-title": "Calculator Options Management",
+        "options-management-description": "Manage the calculator settings of your application. This section includes options for configuring calculator options."
       }
     },
     "Blog": {
