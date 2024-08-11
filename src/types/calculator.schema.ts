@@ -40,24 +40,9 @@ export const serviceCostSchema = z.object({
   taxSystemId: z.coerce.number(),
   employeeRangeId: z.coerce.number(),
   timePeriodId: z.coerce.number(),
-  total_amount: z.coerce.number(),
-  total_amount_after_discount: z.coerce.number(),
+  totalAmount: z.coerce.number(),
+  totalAmountAfterDiscount: z.coerce.number(),
   createdAt: z.date().optional(),
-})
-
-export const clientRequestSchema = z.object({
-  uid: z.number().optional(),
-  name: z.string(),
-  contactPhone: z.string(),
-  planId: z.number(),
-  formOfOwnershipId: z.number(),
-  fieldOfActivityId: z.number(),
-  taxSystemId: z.number(),
-  employeeRangeId: z.number(),
-  timePeriodId: z.number(),
-  additionalInfo: z.string(),
-  status: z.enum(["READ", "UNREAD"]),
-  createdAt: z.date(),
 })
 
 export type zFormOfOwnership = z.infer<typeof formOfOwnershipSchema>
@@ -66,7 +51,6 @@ export type zTaxSystem = z.infer<typeof taxSystemSchema>
 export type zEmployeeRange = z.infer<typeof EmployeeRangeSchema>
 export type zTimePeriod = z.infer<typeof timePeriodSchema>
 export type zServiceCost = z.infer<typeof serviceCostSchema>
-export type zClientRequest = z.infer<typeof clientRequestSchema>
 
 export type CalculatorFields = {
   formsOfOwnership: zFormOfOwnership[] | null
