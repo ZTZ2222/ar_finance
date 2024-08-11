@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import { getTranslations } from "next-intl/server"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -11,9 +12,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import FormRequest from "@/components/forms/form-request"
 import { getNormalizedSectionById } from "@/server/data-access-layer/content"
 
 export default async function CTA() {
+  const t = await getTranslations()
   const sectionData = await getNormalizedSectionById("cta")
   const card = sectionData?.cards[0]
   return (
@@ -36,11 +39,15 @@ export default async function CTA() {
           </p>
         </div>
         <div className="relative z-10 mx-4 space-y-2.5 lg:space-x-2.5">
-          <Button variant="core" size="mobile" className="lg:max-w-[320px]">
-            {sectionData?.primaryButton}
-          </Button>
+          <FormRequest
+            btnText={sectionData?.primaryButton}
+            additionalInfo={{
+              additionalInfo: "Startup | Стартап",
+            }}
+            className="lg:max-w-[320px]"
+          />
 
-          {/* Dialog Button */}
+          {/* Learn More Button */}
           <Dialog>
             <DialogTrigger asChild>
               <Button

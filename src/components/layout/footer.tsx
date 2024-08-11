@@ -1,9 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import { getLocale } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 import { getContacts, getSocials } from "@/server/data-access-layer/content"
 
 export default async function Footer() {
+  const t = await getTranslations()
   const locale = await getLocale()
   const contacts = await getContacts()
   const socials = await getSocials()
@@ -23,7 +24,9 @@ export default async function Footer() {
           id="contacts"
           className="flex flex-col gap-4 text-lg text-[#E0E0E0]"
         >
-          <h3 className="font-bold text-white">Наши контакты</h3>
+          <h3 className="font-bold text-white">
+            {t("Components.Footer.our-contacts")}
+          </h3>
           {contacts?.map((contact, index) => (
             <div key={index} className="flex gap-2.5">
               <div className="relative size-6">
@@ -40,7 +43,7 @@ export default async function Footer() {
           ))}
         </div>
         <div className="flex flex-col gap-4 text-lg text-white">
-          <h3 className="font-bold">Мы в соцсетях</h3>
+          <h3 className="font-bold">{t("Components.Footer.our-socials")}</h3>
           <div className="flex gap-2">
             {socials?.map((social, index) => (
               <Link key={index} href={social.link} target="_blank">

@@ -12,7 +12,7 @@ type Props = {
   params: { section: string }
 }
 
-export default async function AdminHero({ params }: Props) {
+export default async function AdminSection({ params }: Props) {
   const t = await getTranslations()
   const sectionData = await db.section.findUnique({
     where: { slug: params.section },

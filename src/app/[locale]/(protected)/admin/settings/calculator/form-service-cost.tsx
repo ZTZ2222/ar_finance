@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { PlusCircle, Trash2, X } from "lucide-react"
+import { PlusCircle, Trash2 } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
 import { useFieldArray, useForm } from "react-hook-form"
@@ -9,13 +9,7 @@ import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter } from "@/components/ui/card"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import {
   Select,
@@ -83,8 +77,8 @@ export default function ServiceCostForm({
     taxSystemId: (taxSystems && taxSystems[0]?.uid) || 1,
     employeeRangeId: (employeeRanges && employeeRanges[0]?.uid) || 1,
     timePeriodId: (timePeriods && timePeriods[0]?.uid) || 1,
-    total_amount: 0,
-    total_amount_after_discount: 0,
+    totalAmount: 0,
+    totalAmountAfterDiscount: 0,
   }
 
   const tableHeadList = [
@@ -356,7 +350,7 @@ export default function ServiceCostForm({
                     <TableCell>
                       <FormField
                         control={form.control}
-                        name={`serviceCosts.${index}.total_amount`}
+                        name={`serviceCosts.${index}.totalAmount`}
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
@@ -375,7 +369,7 @@ export default function ServiceCostForm({
                     <TableCell>
                       <FormField
                         control={form.control}
-                        name={`serviceCosts.${index}.total_amount_after_discount`}
+                        name={`serviceCosts.${index}.totalAmountAfterDiscount`}
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
