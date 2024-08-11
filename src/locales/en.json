@@ -45,7 +45,8 @@
       "security": "Security",
       "advanced": "Advanced",
       "new": "New",
-      "home": "Home"
+      "home": "Home",
+      "requests": "Applications"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -143,7 +144,10 @@
       "placeholder-field-of-activity": "Select field of activity",
       "placeholder-tax-system": "Select tax system",
       "placeholder-employee-range": "Select employee range",
-      "placeholder-time-period": "Select time period"
+      "placeholder-time-period": "Select time period",
+      "cost-of-accounting-services": "Cost of accounting services for",
+      "currency": "som",
+      "price-without-discount": "som per month without discount"
     },
     "NavigationLinks": {
       "services": "Services",
@@ -151,6 +155,27 @@
       "blog": "Blog",
       "team": "Team",
       "contacts": "Contacts"
+    },
+    "Footer": {
+      "our-contacts": "Our contacts",
+      "our-socials": "Our socials"
+    },
+    "FormRequest": {
+      "get-an-offer": "Get an offer",
+      "name-label": "Your name",
+      "name-placeholder": "Azamat Azamatovich",
+      "phone-label": "Your phone number",
+      "title": "Name",
+      "phone": "Phone",
+      "status": "Status",
+      "contents-of-the-application": "Contents of the application",
+      "date": "Date",
+      "unread": "UNREAD",
+      "read": "READ",
+      "alert-title": "Are you absolutely sure?",
+      "alert-description": "This action cannot be undone. This will permanently delete request and remove it from our servers.",
+      "button-continue": "Continue",
+      "button-cancel": "Cancel"
     }
   },
   "Pages": {
@@ -219,6 +244,11 @@
         "description": "Manage the calculator settings of your application. This section includes cost of services for configuring calculator options.",
         "options-management-title": "Calculator Options Management",
         "options-management-description": "Manage the calculator settings of your application. This section includes options for configuring calculator options."
+      },
+      "Request": {
+        "title": "Client Applications",
+        "search-placeholder": "Search application...",
+        "button-add-new": "Add Application"
       }
     },
     "Blog": {
@@ -230,7 +260,9 @@
       "success-create": "Successfully created!",
       "success-update": "Successfully updated!",
       "success-delete": "Successfully deleted!",
-      "error": "Oops! Something went wrong."
+      "error": "Oops! Something went wrong.",
+      "request-submit-success": "Your application has been successfully delivered!",
+      "request-submit-error": "There was an error submitting your application. Please try again."
     }
   }
 }

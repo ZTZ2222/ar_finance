@@ -45,7 +45,8 @@
       "security": "Коопсуздук",
       "advanced": "Өркүндөтүлгөн орнотуулар",
       "new": "Жаңы",
-      "home": "Башкы бет"
+      "home": "Башкы бет",
+      "requests": "Тиркемелер"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -141,7 +142,11 @@
       "placeholder-form-of-ownership": "Менчик формасын тандаңыз",
       "placeholder-field-of-activity": "Иш чөйрөсүн тандаңыз",
       "placeholder-time-period": "Убакыт аралыгын тандаңыз",
-      "placeholder-employee-range": "Кызматкерлер диапазонун тандоо"
+      "placeholder-employee-range": "Кызматкерлер диапазонун тандоо",
+      "placeholder-tax-system": "Салык системасын тандоо",
+      "cost-of-accounting-services": "Бухгалтердик кызмат көрсөтүүлөрдүн баасы:",
+      "currency": "сом",
+      "price-without-discount": "сом арзандатуусуз айына"
     },
     "NavigationLinks": {
       "services": "Кызматтар",
@@ -149,6 +154,27 @@
       "blog": "Блог",
       "team": "Команда",
       "contacts": "Байланыштар"
+    },
+    "Footer": {
+      "our-contacts": "Биздин байланыштар",
+      "our-socials": "Биздин соц"
+    },
+    "FormRequest": {
+      "get-an-offer": "Сунуш алыңыз",
+      "name-label": "Сиздин атыңыз",
+      "phone-label": "Сиздин телефон номериңиз",
+      "name-placeholder": "Азамат Азаматович",
+      "title": "аты",
+      "phone": "Телефон",
+      "status": "Статус",
+      "contents-of-the-application": "Колдонмонун мазмуну",
+      "date": "Дата",
+      "read": "ОКУЛГАН",
+      "unread": "ОКУЛБАГАН",
+      "alert-title": "Сиз толук ишенесизби?",
+      "alert-description": "Бул аракетти артка кайтаруу мүмкүн эмес. \nБул өтүнүчтү биротоло жок кылат жана аны серверлерибизден алып салат.",
+      "button-continue": "Улантуу",
+      "button-cancel": "Жокко чыгаруу"
     }
   },
   "Pages": {
@@ -217,6 +243,11 @@
         "description": "Колдонмоңуздун калькулятор жөндөөлөрүн башкарыңыз. \nБул бөлүм калькулятордун параметрлерин конфигурациялоо боюнча кызматтардын баасын камтыйт.",
         "options-management-title": "Калькулятор параметрлерин башкаруу",
         "options-management-description": "Колдонмоңуздун калькулятор жөндөөлөрүн башкарыңыз. \nБул бөлүм калькулятордун параметрлерин конфигурациялоо үчүн опцияларды камтыйт."
+      },
+      "Request": {
+        "title": "Кардардын суроо-талаптары",
+        "button-add-new": "Сурам кошуу",
+        "search-placeholder": "Колдонмо издөө..."
       }
     },
     "Blog": {
@@ -228,7 +259,9 @@
       "success-create": "Ийгиликтүү түзүлдү!!",
       "success-update": "Ийгиликтүү жаңыртылды!!",
       "success-delete": "Ийгиликтүү өчүрүлдү!!",
-      "error": "Ой! Ката кетти."
+      "error": "Ой! Ката кетти.",
+      "request-submit-success": "Сиздин арыз ийгиликтүү жеткирилди!",
+      "request-submit-error": "Өтүнмөңүздү тапшырууда ката кетти. \nСураныч, кайра аракет кылыңыз."
     }
   }
 }

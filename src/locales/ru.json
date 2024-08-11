@@ -45,7 +45,8 @@
       "security": "Безопасность",
       "advanced": "Расширенные настройки",
       "new": "Новый",
-      "home": "Главная"
+      "home": "Главная",
+      "requests": "Заявки"
     },
     "SidebarAdmin": {
       "company-name": "AR Finance",
@@ -141,7 +142,11 @@
       "placeholder-form-of-ownership": "Выберите форму собственности",
       "placeholder-field-of-activity": "Выберите сферу деятельности",
       "placeholder-time-period": "Выберите период времени",
-      "placeholder-employee-range": "Выберите диапазон сотрудников"
+      "placeholder-employee-range": "Выберите диапазон сотрудников",
+      "placeholder-tax-system": "Выберите систему налогообложения",
+      "cost-of-accounting-services": "Стоимость бухгалтерского обслуживания за",
+      "currency": "сом",
+      "price-without-discount": "сом в месяц без скидки"
     },
     "NavigationLinks": {
       "services": "Услуги",
@@ -149,6 +154,27 @@
       "blog": "Блог",
       "team": "Команда",
       "contacts": "Контакты"
+    },
+    "Footer": {
+      "our-contacts": "Наши контакты",
+      "our-socials": "Мы в соцсетях"
+    },
+    "FormRequest": {
+      "get-an-offer": "Получить предложение",
+      "name-label": "Ваше имя",
+      "phone-label": "Ваш номер телефона",
+      "name-placeholder": "Азамат Азаматович",
+      "title": "Имя",
+      "phone": "Телефон",
+      "status": "Статус",
+      "contents-of-the-application": "Содержание заявки",
+      "date": "Дата",
+      "read": "ПРОЧИТАНО",
+      "unread": "НЕПРОЧИТАННО",
+      "alert-title": "Вы абсолютно уверены?",
+      "alert-description": "Это действие невозможно отменить. \nЭто приведет к окончательному удалению запроса и его удалению с наших серверов.",
+      "button-continue": "Продолжить",
+      "button-cancel": "Отмена"
     }
   },
   "Pages": {
@@ -217,6 +243,11 @@
         "description": "Управляйте настройками калькулятора вашего приложения. \nВ данном разделе представлена ​​стоимость услуг по настройке параметров калькулятора.",
         "options-management-title": "Управление опциями калькулятора",
         "options-management-description": "Управляйте настройками калькулятора вашего приложения. \nВ этом разделе представлены параметры настройки параметров калькулятора."
+      },
+      "Request": {
+        "title": "Клиентские заявки",
+        "button-add-new": "Добавить заявку",
+        "search-placeholder": "Поиск заявки..."
       }
     },
     "Blog": {
@@ -228,7 +259,9 @@
       "success-create": "Успешно создан!",
       "success-update": "Успешно обновлено!",
       "success-delete": "Успешно удалено!",
-      "error": "Упс! Произошла ошибка."
+      "error": "Упс! Произошла ошибка.",
+      "request-submit-success": "Ваша заявка успешно доставлена!",
+      "request-submit-error": "При отправке вашей заявки произошла ошибка. \nПожалуйста, попробуйте еще раз."
     }
   }
 }
