@@ -13,6 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import FormRequest from "@/components/forms/form-request"
 import { CheckCircle } from "@/components/icons"
 import type { NormalizedCard } from "@/types/content.schema"
 
@@ -88,9 +89,12 @@ export default function PlanCard({
           </div>
         </CardContent>
         <CardFooter className="mt-auto flex max-h-[120px] justify-center bg-[#F9FAFB] p-8">
-          <Button variant="core" size="mobile">
-            {t("Components.Button.choose-plan")}
-          </Button>
+          <FormRequest
+            btnText={t("Components.Button.choose-plan")}
+            additionalInfo={{
+              planId: card.uid,
+            }}
+          />
         </CardFooter>
       </Card>
     </motion.div>
