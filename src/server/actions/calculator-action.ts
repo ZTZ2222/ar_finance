@@ -107,16 +107,31 @@ export const upsertServiceCosts = actionClient
     const t = await getTranslations()
     try {
       for (const serviceCost of serviceCosts) {
-        if (serviceCost.uid) {
-          await db.serviceCost.update({
-            where: { uid: serviceCost.uid },
-            data: serviceCost,
-          })
-        } else {
-          await db.serviceCost.create({
-            data: serviceCost,
-          })
-        }
+        // if (serviceCost.uid) {
+        //   await db.serviceCost.update({
+        //     where: { uid: serviceCost.uid },
+        //     data: serviceCost,
+        //   })
+        // } else {
+        //   await db.serviceCost.create({
+        //     data: serviceCost,
+        //   })
+        // }
+
+        await db.serviceCost.upsert({
+          where: {
+            formOfOwnershipId_fieldOfActivityId_taxSystemId_employeeRangeId_timePeriodId:
+              {
+                formOfOwnershipId: serviceCost.formOfOwnershipId,
+                fieldOfActivityId: serviceCost.fieldOfActivityId,
+                taxSystemId: serviceCost.taxSystemId,
+                employeeRangeId: serviceCost.employeeRangeId,
+                timePeriodId: serviceCost.timePeriodId,
+              },
+          },
+          create: serviceCost,
+          update: serviceCost,
+        })
       }
       revalidatePath("/admin/settings/calculator")
 
