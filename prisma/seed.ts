@@ -1,4 +1,11 @@
 import { PrismaClient } from "@prisma/client"
+import type {
+  zEmployeeRange,
+  zFieldOfActivity,
+  zFormOfOwnership,
+  zTaxSystem,
+  zTimePeriod,
+} from "@/types/calculator.schema"
 import type { zContact, zSection, zSocial } from "@/types/content.schema"
 
 const prisma = new PrismaClient()
@@ -1087,10 +1094,196 @@ async function seedSocialsAndContacts() {
   console.log("Socials and contacts have been seeded.")
 }
 
+async function seedCalculatorOptions() {
+  const formsOfOwnership: zFormOfOwnership[] = [
+    {
+      name_ru: "ИП",
+      name_en: "SP",
+      name_ky: "ЖИ",
+    },
+    {
+      name_ru: "ОсОО",
+      name_en: "LLC",
+      name_ky: "ЖЧК",
+    },
+  ]
+  const fieldsOfActivity: zFieldOfActivity[] = [
+    {
+      name_ru: "Услуги",
+      name_en: "Services",
+      name_ky: "Кызматтар",
+    },
+    {
+      name_ru: "Торговля",
+      name_en: "Trade",
+      name_ky: "Соода",
+    },
+  ]
+  const taxSystems: zTaxSystem[] = [
+    {
+      name_ru: "Общий налоговый режим",
+      name_en: "General tax regime",
+      name_ky: "Жалпы салык режими",
+    },
+  ]
+  const employeeRanges: zEmployeeRange[] = [
+    {
+      range: "1-5",
+    },
+  ]
+  const timePeriods: zTimePeriod[] = [
+    {
+      period_ru: "1 месяц",
+      period_en: "1 month",
+      period_ky: "1 ай",
+    },
+    {
+      period_ru: "3 месяца",
+      period_en: "3 months",
+      period_ky: "3 ай",
+    },
+    {
+      period_ru: "6 месяцев",
+      period_en: "6 months",
+      period_ky: "6 ай",
+    },
+    {
+      period_ru: "1 год",
+      period_en: "1 year",
+      period_ky: "1 жыл",
+    },
+  ]
+
+  prisma.formOfOwnership.deleteMany({})
+  prisma.fieldOfActivity.deleteMany({})
+  prisma.taxSystem.deleteMany({})
+  prisma.employeeRange.deleteMany({})
+  prisma.timePeriod.deleteMany({})
+
+  // formsOfOwnership
+  await prisma.formOfOwnership.createMany({ data: formsOfOwnership })
+
+  // fieldsOfActivity
+  await prisma.fieldOfActivity.createMany({ data: fieldsOfActivity })
+
+  // taxSystems
+  await prisma.taxSystem.createMany({ data: taxSystems })
+
+  // employeeRanges
+  await prisma.employeeRange.createMany({ data: employeeRanges })
+
+  // timePeriods
+  await prisma.timePeriod.createMany({ data: timePeriods })
+
+  console.log("Calculator options have been seeded.")
+}
+
+// async function seedPlans() {
+//   const plans: zPlanCreate[] = [
+//     {
+//       title_ru: "Базовый",
+//       title_en: "Basic",
+//       title_ky: "Базовый",
+//       description_ru: "Идеально подходит для малого бизнеса и стартапов",
+//       description_en: "Ideal for small businesses and startups",
+//       description_ky: "Бизнес аркылууларда болгону жана стартаптарда болгону",
+//       price_ru: "от 7 900 сом",
+//       price_en: "from 7,900 som",
+//       price_ky: "7 900 сомдон",
+//       bullets_ru: [
+//         "Ведение бухгалтерского учета",
+//         "Подготовка и сдача отчетности",
+//         "Консультации по основным вопросам налогообложения",
+//         "Поддержка по email",
+//       ],
+//       bullets_en: [
+//         "Accounting",
+//         "Preparation and submission of reports",
+//         "Consultations on basic tax issues",
+//         "Support by email",
+//       ],
+//       bullets_ky: [
+//         "Бухгалтердик эсеп",
+//         "Отчетторду даярдоо жана берүү",
+//         "Салыктын негизги маселелери боюнча консультациялар",
+//         "Электрондук почта аркылуу колдоо",
+//       ],
+//       icon: "/assets/plan-icons/zap.png",
+//     },
+//     {
+//       title_ru: "Стандарт",
+//       title_en: "Standard",
+//       title_ky: "Стандарт",
+//       description_ru: "Оптимальный выбор для развивающихся компаний",
+//       description_en: "Optimal for growing businesses",
+//       description_ky: "Өнүгүп жаткан компаниялар үчүн оптималдуу тандоо",
+//       price_ru: "от 17 900 сом",
+//       price_en: "from 17,900 som",
+//       price_ky: "17 900 сомдон",
+//       bullets_ru: [
+//         "Все перечисленное в тарифе 'Базовый', плюс:",
+//         "Поддержка по email",
+//         "Поддержка по email",
+//         "Поддержка по email",
+//       ],
+//       bullets_en: [
+//         "Everything listed in the 'Basic' plan, plus:",
+//         "Support by email",
+//         "Support by email",
+//         "Support by email",
+//       ],
+//       bullets_ky: [
+//         "«Базовый» тарифте жазылгандардын баары, жана:",
+//         "Электрондук почта аркылуу колдоо",
+//         "Электрондук почта аркылуу колдоо",
+//         "Электрондук почта аркылуу колдоо",
+//       ],
+//       icon: "/assets/plan-icons/cluster.png",
+//     },
+//     {
+//       title_ru: "Премиум",
+//       title_en: "Premium",
+//       title_ky: "Премиум",
+//       description_ru:
+//         "Для компаний, которым нужен комплексный подход к бухгалтерскому учету и налоговому планированию",
+//       description_en:
+//         "For businesses with complex accounting and tax planning needs",
+//       description_ky:
+//         "Бухгалтердик эсепке жана салыкты пландаштырууга комплекстүү мамилени талап кылган компаниялар үчүн",
+//       price_ru: "от 37 900 сом",
+//       price_en: "from 37,900 som",
+//       price_ky: "37 900 сомдон",
+//       bullets_ru: [
+//         "Все перечисленное в тарифе 'Стандарт', плюс:",
+//         "Подготовка и сдача отчетности",
+//         "Подготовка и сдача отчетности",
+//         "Подготовка и сдача отчетности",
+//       ],
+//       bullets_en: [
+//         "Everything listed in the 'Standard' plan, plus:",
+//         "Preparation and submission of reports",
+//         "Preparation and submission of reports",
+//         "Preparation and submission of reports",
+//       ],
+//       bullets_ky: [
+//         "«Стандарт» тарифте жазылгандардын баары, жана:",
+//         "Отчетторду даярдоо жана берүү",
+//         "Отчетторду даярдоо жана берүү",
+//         "Отчетторду даярдоо жана берүү",
+//       ],
+//       icon: "/assets/plan-icons/star.png",
+//     },
+//   ]
+//   prisma.plan.deleteMany({})
+//   await prisma.plan.createMany({ data: plans })
+//   console.log("Plans have been seeded.")
+// }
 async function main() {
   await seedSections()
   await seedAdminUser()
   await seedSocialsAndContacts()
+  await seedCalculatorOptions()
+  // await seedPlans()
 }
 
 main()

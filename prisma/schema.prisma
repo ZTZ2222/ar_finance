@@ -102,6 +102,8 @@ model Card {
   createdAt DateTime @default(now()) @map("created_at")
 
   section Section @relation(fields: [sectionId], references: [uid], onDelete: Cascade)
+  ClientRequest ClientRequest[]
+
 
   @@unique([sectionId, uid])
   @@map("cards")
@@ -176,15 +178,18 @@ model Plan {
   description_ru      String
   description_en      String
   description_ky      String
-  price      String
+  price_ru      String
+  price_en      String
+  price_ky      String
   icon   String
   bullets_ru      String[]
   bullets_en      String[]
   bullets_ky      String[]
   createdAt DateTime @default(now()) @map("created_at")
 
-  ClientRequest ClientRequest[]
+  // ClientRequest ClientRequest[]
 
+  @@unique([title_ru, title_en, title_ky])
   @@map("plans")
 }
 
@@ -248,8 +253,8 @@ model ServiceCost {
   taxSystemId        Int
   employeeRangeId    Int
   timePeriodId         Int
-  total_amount             Int
-  total_amount_after_discount             Int
+  totalAmount             Int
+  totalAmountAfterDiscount             Int
   createdAt          DateTime    @default(now())
   updatedAt          DateTime    @updatedAt
 
@@ -278,11 +283,11 @@ model ClientRequest {
   taxSystemId       Int?
   employeeRangeId   Int?
   timePeriodId      Int?
-  additionalInfo    String
+  additionalInfo    String?
   status            RequestStatus @default(UNREAD)
   createdAt         DateTime @default(now())
 
-  Plan               Plan?          @relation(fields: [planId], references: [uid], onDelete: Cascade)
+  Plan               Card?          @relation(fields: [planId], references: [uid], onDelete: Cascade)
   FormOfOwnership    FormOfOwnership? @relation(fields: [formOfOwnershipId], references: [uid], onDelete: Cascade)
   FieldOfActivity    FieldOfActivity? @relation(fields: [fieldOfActivityId], references: [uid], onDelete: Cascade)
   TaxSystem          TaxSystem?       @relation(fields: [taxSystemId], references: [uid], onDelete: Cascade)

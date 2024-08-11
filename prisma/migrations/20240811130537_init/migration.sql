@@ -150,7 +150,9 @@ CREATE TABLE "plans" (
     "description_ru" TEXT NOT NULL,
     "description_en" TEXT NOT NULL,
     "description_ky" TEXT NOT NULL,
-    "price" TEXT NOT NULL,
+    "price_ru" TEXT NOT NULL,
+    "price_en" TEXT NOT NULL,
+    "price_ky" TEXT NOT NULL,
     "icon" TEXT NOT NULL,
     "bullets_ru" TEXT[],
     "bullets_en" TEXT[],
@@ -216,8 +218,8 @@ CREATE TABLE "service_costs" (
     "taxSystemId" INTEGER NOT NULL,
     "employeeRangeId" INTEGER NOT NULL,
     "timePeriodId" INTEGER NOT NULL,
-    "total_amount" INTEGER NOT NULL,
-    "total_amount_after_discount" INTEGER NOT NULL,
+    "totalAmount" INTEGER NOT NULL,
+    "totalAmountAfterDiscount" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -235,7 +237,7 @@ CREATE TABLE "client_requests" (
     "taxSystemId" INTEGER,
     "employeeRangeId" INTEGER,
     "timePeriodId" INTEGER,
-    "additionalInfo" TEXT NOT NULL,
+    "additionalInfo" TEXT,
     "status" "RequestStatus" NOT NULL DEFAULT 'UNREAD',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -253,6 +255,9 @@ CREATE UNIQUE INDEX "sections_slug_key" ON "sections"("slug");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "cards_sectionId_uid_key" ON "cards"("sectionId", "uid");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "plans_title_ru_title_en_title_ky_key" ON "plans"("title_ru", "title_en", "title_ky");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "service_costs_formOfOwnershipId_fieldOfActivityId_taxSystem_key" ON "service_costs"("formOfOwnershipId", "fieldOfActivityId", "taxSystemId", "employeeRangeId", "timePeriodId");
@@ -282,7 +287,7 @@ ALTER TABLE "service_costs" ADD CONSTRAINT "service_costs_employeeRangeId_fkey" 
 ALTER TABLE "service_costs" ADD CONSTRAINT "service_costs_timePeriodId_fkey" FOREIGN KEY ("timePeriodId") REFERENCES "time_periods"("uid") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "client_requests" ADD CONSTRAINT "client_requests_planId_fkey" FOREIGN KEY ("planId") REFERENCES "plans"("uid") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "client_requests" ADD CONSTRAINT "client_requests_planId_fkey" FOREIGN KEY ("planId") REFERENCES "cards"("uid") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "client_requests" ADD CONSTRAINT "client_requests_formOfOwnershipId_fkey" FOREIGN KEY ("formOfOwnershipId") REFERENCES "form_of_ownerships"("uid") ON DELETE CASCADE ON UPDATE CASCADE;
