@@ -1,3 +1,6 @@
+import { getTranslations } from "next-intl/server"
+
 export default async function Dashboard() {
-  return <div className="text-2xl">Protected Page | Dashboard</div>
+  const t = await getTranslations()
+  return <div className="text-2xl">{t("Pages.Admin.Dashboard.heading")}</div>
 }
