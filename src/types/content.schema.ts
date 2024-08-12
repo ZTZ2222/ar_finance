@@ -80,3 +80,26 @@ export const contactSchema = z.object({
 
 export type zSocial = z.infer<typeof socialSchema>
 export type zContact = z.infer<typeof contactSchema>
+
+export const metaUpsertSchema = z.object({
+  uid: z.number().optional(),
+  title_ru: z.string(),
+  title_en: z.string(),
+  title_ky: z.string(),
+  description_ru: z.string(),
+  description_en: z.string(),
+  description_ky: z.string(),
+  keywords_ru: z.string(),
+  keywords_en: z.string(),
+  keywords_ky: z.string(),
+  ogImage: z.string(),
+  logo1: z.string(),
+  logo2: z.string(),
+})
+
+export const metaReadSchema = metaUpsertSchema.omit({ uid: true }).extend({
+  uid: z.number(),
+})
+
+export type zMetaUpsert = z.infer<typeof metaUpsertSchema>
+export type zMetaRead = z.infer<typeof metaReadSchema>

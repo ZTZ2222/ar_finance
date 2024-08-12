@@ -182,6 +182,18 @@
       "button-save": "Сохранить",
       "mark-as-read": "Отметить как прочитанное",
       "mark-as-unread": "Отметить как непрочитанное"
+    },
+    "FormMeta": {
+      "label-meta-title": "Мета-заголовок",
+      "placeholder-meta-title": "Мета-заголовок...",
+      "label-meta-description": "Мета-описание",
+      "placeholder-meta-description": "Мета-описание...",
+      "label-meta-keywords": "Мета-ключевые слова",
+      "placeholder-meta-keywords": "Мета-ключевые слова...",
+      "label-og-image": "OG Изображение",
+      "button-save": "Сохранить",
+      "label-logo-1": "Логотип 1",
+      "label-logo-2": "Логотип 2"
     }
   },
   "Pages": {
@@ -191,7 +203,9 @@
       "link": "Вернуться на главную"
     },
     "Admin": {
-      "Dashboard": {},
+      "Dashboard": {
+        "heading": "Панель администратора"
+      },
       "Users": {
         "title": "Управление пользователями",
         "search-placeholder": "Поиск пользователя...",

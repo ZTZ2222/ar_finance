@@ -5,10 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import GeneralSettingsForm from "./form"
+import { getMetadata } from "@/server/data-access-layer/content"
+import MetadataForm from "./form-meta"
 
 export default async function Settings() {
   const t = await getTranslations()
+  const metaData = await getMetadata()
   return (
     <Card>
       <CardHeader className="space-y-3.5">
@@ -19,7 +21,7 @@ export default async function Settings() {
           {t("Pages.Admin.Settings.general-settings-description")}
         </CardDescription>
       </CardHeader>
-      <GeneralSettingsForm />
+      <MetadataForm metaData={metaData} />
     </Card>
   )
 }

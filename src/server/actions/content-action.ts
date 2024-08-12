@@ -6,6 +6,7 @@ import { z } from "zod"
 import { db } from "@/server"
 import {
   contactSchema,
+  metaUpsertSchema,
   sectionSchema,
   socialSchema,
 } from "@/types/content.schema"
@@ -133,6 +134,32 @@ export const deleteSocial = actionClient
 
       return { success: t("Server.actions.success-delete") }
     } catch (error) {
+      return { error: t("Server.actions.error") }
+    }
+  })
+
+export const upsertMetadata = actionClient
+  .schema(metaUpsertSchema)
+  .action(async ({ parsedInput: metadata }) => {
+    const t = await getTranslations()
+    try {
+      if (metadata.uid) {
+        await db.metaData.update({
+          where: { uid: metadata.uid },
+          data: metadata,
+        })
+      } else {
+        await db.metaData.create({
+          data: metadata,
+        })
+      }
+
+      revalidatePath("/", "layout")
+
+      return { success: t("Server.actions.success-update") }
+    } catch (error) {
+      console.log(error)
+
       return { error: t("Server.actions.error") }
     }
   })

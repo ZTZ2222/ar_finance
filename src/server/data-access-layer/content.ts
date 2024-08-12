@@ -6,6 +6,7 @@ import type {
   NormalizedCard,
   NormalizedSection,
   zContact,
+  zMetaRead,
   zSection,
   zSocial,
 } from "@/types/content.schema"
@@ -95,6 +96,16 @@ export async function getSocials(): Promise<zSocial[] | null> {
     })
     if (!socials) return null
     return socials
+  } catch (error) {
+    return null
+  }
+}
+
+export async function getMetadata(): Promise<zMetaRead | null> {
+  try {
+    const metadata = await db.metaData.findFirst({})
+    if (!metadata) return null
+    return metadata
   } catch (error) {
     return null
   }

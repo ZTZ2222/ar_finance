@@ -182,6 +182,18 @@
       "button-save": "Сактоо",
       "mark-as-read": "Окулган деп белгилөө",
       "mark-as-unread": "Окула элек деп белгилөө"
+    },
+    "FormMeta": {
+      "label-meta-title": "Мета аталышы",
+      "placeholder-meta-title": "Мета аталышы...",
+      "label-meta-description": "Мета сүрөттөмө",
+      "placeholder-meta-description": "Мета сүрөттөмө...",
+      "label-meta-keywords": "Мета ачкыч сөздөр",
+      "placeholder-meta-keywords": "Мета ачкыч сөздөр...",
+      "label-og-image": "OG Сүрөт",
+      "button-save": "Сактоо",
+      "label-logo-1": "Логотип 1",
+      "label-logo-2": "Логотип 2"
     }
   },
   "Pages": {
@@ -191,7 +203,9 @@
       "link": "Башкы бетке кайтуу"
     },
     "Admin": {
-      "Dashboard": {},
+      "Dashboard": {
+        "heading": "Админ панели"
+      },
       "Users": {
         "title": "Колдонуучуну башкаруу",
         "search-placeholder": "Колдонуучуну издөө...",

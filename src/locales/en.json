@@ -183,6 +183,18 @@
       "phone-number": "Phone number",
       "mark-as-read": "Mark as read",
       "mark-as-unread": "Mark as unread"
+    },
+    "FormMeta": {
+      "label-meta-title": "Meta title",
+      "placeholder-meta-title": "Meta title...",
+      "label-meta-description": "Meta description",
+      "placeholder-meta-description": "Meta description...",
+      "label-meta-keywords": "Meta keywords",
+      "placeholder-meta-keywords": "Meta keywords...",
+      "label-og-image": "OG Image",
+      "button-save": "Save",
+      "label-logo-1": "Logo 1",
+      "label-logo-2": "Logo 2"
     }
   },
   "Pages": {
@@ -192,7 +204,9 @@
       "link": "Back to homepage"
     },
     "Admin": {
-      "Dashboard": {},
+      "Dashboard": {
+        "heading": "Admin Panel"
+      },
       "Users": {
         "title": "User Management",
         "button-add-new": "New User",
