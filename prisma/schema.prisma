@@ -296,3 +296,21 @@ model ClientRequest {
 
   @@map("client_requests")
 }
+
+model MetaData {
+  uid            Int          @id @default(autoincrement())
+  title_ru      String
+  title_en      String
+  title_ky      String
+  description_ru      String
+  description_en      String
+  description_ky      String
+  keywords_ru      String
+  keywords_en      String
+  keywords_ky      String
+  ogImage      String
+  logo1      String
+  logo2      String
+  
+  @@map("meta_datas")
+}
