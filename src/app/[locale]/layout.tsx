@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Inter as FontSans } from "next/font/google"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider } from "next-intl"
@@ -6,21 +7,39 @@ import { Toaster } from "sonner"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/context/auth-provider"
+import { getMetadata } from "@/server/data-access-layer/content"
 // import { ThemeProvider } from "@/context/theme-provider"
 import "@/styles/globals.css"
+import type { zMetaRead } from "@/types/content.schema"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
-export async function generateMetadata() {
-  const locale = await getLocale()
-  const t = await getTranslations()
+type Props = {
+  params: { locale: string }
+}
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const t = await getTranslations()
+  const metadata = await getMetadata()
+  if (!metadata)
+    return {
+      title: t("Meta.title"),
+      description: t("Meta.description"),
+    }
   return {
-    title: t("Meta.title"),
-    description: t("Meta.description"),
+    title: metadata[`title_${params.locale}` as keyof zMetaRead] as string,
+    description: metadata[
+      `description_${params.locale}` as keyof zMetaRead
+    ] as string,
+    keywords: metadata[
+      `keywords_${params.locale}` as keyof zMetaRead
+    ] as string,
+    openGraph: {
+      images: [metadata.ogImage],
+    },
   }
 }
 

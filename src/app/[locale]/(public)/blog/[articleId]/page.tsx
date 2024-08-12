@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown } from "lucide-react"
@@ -26,14 +27,22 @@ import {
   getNormalizedArticles,
 } from "@/server/data-access-layer/article"
 
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: { articleId: string }
-}) {
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const post = await getNormalizedArticleById(Number(params.articleId))
+  const previousImages = (await parent).openGraph?.images || []
   return {
     title: post?.title,
+    description: post?.content,
+    openGraph: {
+      images: [post?.image!, ...previousImages],
+    },
   }
 }
 
