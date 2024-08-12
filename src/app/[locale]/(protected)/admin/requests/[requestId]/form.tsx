@@ -26,7 +26,6 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
 import {
   Select,
@@ -36,48 +35,39 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Editor from "@/components/shared/editor"
-import { updateArticle } from "@/server/actions/article-action"
-import { articleUpdateSchema, type zArticleUpdate } from "@/types/blog.schema"
+import { updateClientRequest } from "@/server/actions/request-action"
+import {
+  clientRequestUpdateSchema,
+  type zClientRequestUpdate,
+} from "@/types/request.schema"
 
 type Props = {
-  article: zArticleUpdate
+  request: zClientRequestUpdate
   className?: string
 }
 
-export default function UpdateArticleForm({ article, className }: Props) {
+export default function UpdateRequestForm({ request, className }: Props) {
   const locale = useLocale()
-  const t = useTranslations("Components.FormArticle")
+  const t = useTranslations("Components.FormRequest")
   const router = useRouter()
-  const form = useForm<zArticleUpdate>({
-    resolver: zodResolver(articleUpdateSchema),
-    defaultValues: article,
+  const form = useForm<zClientRequestUpdate>({
+    resolver: zodResolver(clientRequestUpdateSchema),
+    defaultValues: request,
   })
 
-  const { execute, isExecuting } = useAction(updateArticle, {
+  const { execute, isExecuting } = useAction(updateClientRequest, {
     onSuccess: ({ data }) => {
       if (data?.error) {
         toast.error(data.error)
       }
       if (data?.success) {
         toast.success(data.success)
-        router.push("/admin/blog")
+        router.push("/admin/requests")
       }
     },
   })
 
-  // const { fields, append, remove } = useFieldArray({
-  //   control: form.control,
-  //   name: "socials",
-  // })
-
-  // const newSocial: zArticleSocialCreate = {
-  //   name: "",
-  //   link: "",
-  //   icon: "",
-  // }
-
-  function onSubmit(data: zArticleUpdate) {
+  function onSubmit(data: zClientRequestUpdate) {
     execute(data)
   }
 
@@ -108,7 +98,7 @@ export default function UpdateArticleForm({ article, className }: Props) {
                   name="status"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{t("label-select-status")}</FormLabel>
+                      <FormLabel>{t("status")}</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -117,26 +107,19 @@ export default function UpdateArticleForm({ article, className }: Props) {
                           <SelectTrigger
                             className={cn(
                               "w-[140px]",
-                              field.value === "DRAFT" && "text-yellow-600",
-                              field.value === "PUBLISHED" && "text-green-600",
-                              field.value === "ARCHIVED" && "text-red-600",
+                              field.value === "READ" && "text-green-600",
+                              field.value === "UNREAD" && "text-red-600",
                             )}
                           >
-                            <SelectValue placeholder="Select article status" />
+                            <SelectValue placeholder="Select request status" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="DRAFT" className="text-yellow-600">
-                            {t("status-draft")}
+                          <SelectItem value="READ" className="text-green-600">
+                            {t("read")}
                           </SelectItem>
-                          <SelectItem
-                            value="PUBLISHED"
-                            className="text-green-600"
-                          >
-                            {t("status-published")}
-                          </SelectItem>
-                          <SelectItem value="ARCHIVED" className="text-red-600">
-                            {t("status-archived")}
+                          <SelectItem value="UNREAD" className="text-red-600">
+                            {t("unread")}
                           </SelectItem>
                         </SelectContent>
                       </Select>
@@ -150,18 +133,16 @@ export default function UpdateArticleForm({ article, className }: Props) {
                   value={locale.id}
                   className="grid gap-x-5 gap-y-5 lg:gap-y-10 xl:grid-cols-2"
                 >
-                  {/* Название блога */}
+                  {/* Имя */}
                   <FormField
                     control={form.control}
-                    name={`title_${locale.id}` as keyof zArticleUpdate}
+                    name="name"
                     render={({ field }) => (
                       <FormItem className="xl:col-span-2">
-                        <FormLabel>
-                          {t("label-blog-title", { locale: locale.id })}
-                        </FormLabel>
+                        <FormLabel>{t("customer-name")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder={t("placeholder-blog-title")}
+                            placeholder="Azamat Azamatov"
                             {...field}
                             value={(field.value as string) || ""}
                           />
@@ -170,37 +151,17 @@ export default function UpdateArticleForm({ article, className }: Props) {
                     )}
                   />
 
-                  {/* Контент блога */}
+                  {/* Контактный номер */}
                   <FormField
                     control={form.control}
-                    name={`content_${locale.id}` as keyof zArticleUpdate}
+                    name="contactPhone"
                     render={({ field }) => (
                       <FormItem className="xl:col-span-2">
-                        <FormLabel>
-                          {t("label-blog-content", { locale: locale.id })}{" "}
-                        </FormLabel>
-                        <FormControl>
-                          <Editor
-                            field={field}
-                            placeholder={t("placeholder-blog-content")}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-
-                  {/* Название ссылки */}
-                  <FormField
-                    control={form.control}
-                    name={`linkTitle_${locale.id}` as keyof zArticleUpdate}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>
-                          {t("label-link-title", { locale: locale.id })}
-                        </FormLabel>
+                        <FormLabel>{t("phone-number")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder={t("placeholder-link-title")}
+                            type="tel"
+                            placeholder="+996 700 555 555"
                             {...field}
                             value={(field.value as string) || ""}
                           />
@@ -208,40 +169,6 @@ export default function UpdateArticleForm({ article, className }: Props) {
                       </FormItem>
                     )}
                   />
-
-                  {/* Ссылка */}
-                  <FormField
-                    control={form.control}
-                    name="linkHref"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("label-link-href")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("placeholder-link-href")}
-                            {...field}
-                            value={(field.value as string) || ""}
-                          />
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-
-                  {/* Главная картинка */}
-                  <div className="space-y-2 xl:col-span-2">
-                    <FormLabel>{t("label-blog-image")}</FormLabel>
-                    <FormField
-                      control={form.control}
-                      name="image"
-                      render={({ field }) => (
-                        <ImageUpload
-                          field={field}
-                          existingImage={field.value || undefined}
-                          className="h-[200px] w-[300px]"
-                        />
-                      )}
-                    />
-                  </div>
                 </TabsContent>
               ))}
             </Tabs>
@@ -249,20 +176,16 @@ export default function UpdateArticleForm({ article, className }: Props) {
           <CardFooter className="flex-wrap gap-5 border-t px-6 py-4">
             <Button type="submit" size="sm" disabled={isExecuting}>
               <Save className="mr-2 size-5" />
-              {t("button-save-post")}
+              {t("button-save")}
             </Button>
-            <Button type="button" variant="secondary" size="sm">
+            <Button
+              onClick={() => router.push("/admin/requests")}
+              type="button"
+              variant="secondary"
+              size="sm"
+            >
               {t("button-cancel")}
             </Button>
-            {/* <Button
-              variant="secondary"
-              type="button"
-              onClick={() => append(newSocial)}
-              className="w-fit"
-            >
-              <PlusCircle className="mr-2 size-5" />
-              {t("button-add-social")}
-            </Button> */}
           </CardFooter>
         </Card>
       </form>

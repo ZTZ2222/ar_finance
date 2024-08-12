@@ -175,7 +175,14 @@
       "alert-title": "Are you absolutely sure?",
       "alert-description": "This action cannot be undone. This will permanently delete request and remove it from our servers.",
       "button-continue": "Continue",
-      "button-cancel": "Cancel"
+      "button-cancel": "Cancel",
+      "form-title-update": "Update application request",
+      "form-description-update": "Please fill out the form below to update an application request. You can save the request as read or unread.",
+      "button-save": "Save",
+      "customer-name": "Customer Name",
+      "phone-number": "Phone number",
+      "mark-as-read": "Mark as read",
+      "mark-as-unread": "Mark as unread"
     }
   },
   "Pages": {
@@ -262,7 +269,8 @@
       "success-delete": "Successfully deleted!",
       "error": "Oops! Something went wrong.",
       "request-submit-success": "Your application has been successfully delivered!",
-      "request-submit-error": "There was an error submitting your application. Please try again."
+      "request-submit-error": "There was an error submitting your application. Please try again.",
+      "item-not-found": "Item not found"
     }
   }
 }

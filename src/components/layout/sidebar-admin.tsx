@@ -14,10 +14,17 @@ import {
 import { useSession } from "next-auth/react"
 import { useTranslations } from "next-intl"
 import { cn } from "@/lib/utils"
+import Counter from "@/app/[locale]/(protected)/admin/requests/_components/counter"
 import LogoutButton from "@/components/ui/logout-button"
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar"
 
-export function SidebarAdmin({ children }: { children: React.ReactNode }) {
+export function SidebarAdmin({
+  count,
+  children,
+}: {
+  count?: number | null
+  children: React.ReactNode
+}) {
   const t = useTranslations("Components.SidebarAdmin")
   const session = useSession()
 
@@ -82,9 +89,7 @@ export function SidebarAdmin({ children }: { children: React.ReactNode }) {
             <div className="mt-8 flex flex-col gap-2">
               <div className="relative">
                 <SidebarLink link={requestsLink} />
-                <div className="absolute left-0 top-0 grid size-5 place-content-center rounded-full bg-rose-750 text-xs font-bold text-white">
-                  12
-                </div>
+                <Counter count={count} />
               </div>
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />

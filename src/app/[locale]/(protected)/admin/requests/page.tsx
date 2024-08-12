@@ -49,14 +49,6 @@ export default async function RequestList({ searchParams }: Props) {
         </h1>
         <div className="flex justify-end">
           <Search placeholder={t("Pages.Admin.Request.search-placeholder")} />
-          {/* <Button className="gap-2" asChild>
-            <Link href="/admin/requests/new">
-              <PlusCircle className="size-5" />
-              <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                {t("Pages.Admin.Request.button-add-new")}
-              </span>
-            </Link>
-          </Button> */}
         </div>
       </div>
       <Suspense key={query + currentPage} fallback={<SkeletonRequestTable />}>

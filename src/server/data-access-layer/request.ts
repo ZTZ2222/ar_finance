@@ -1,7 +1,6 @@
 "use server"
 
 import { db } from "@/server"
-import type { zClientRequestRead } from "@/types/request.schema"
 
 export async function getClientRequests(
   currentPage: number = 1,
@@ -79,6 +78,28 @@ export async function getClientRequests(
 
     return clientRequests
   } catch (error) {
+    return null
+  }
+}
+
+export async function getClientRequestById(uid: number) {
+  try {
+    const clientRequest = await db.clientRequest.findUnique({
+      where: { uid },
+    })
+    if (!clientRequest) return null
+    return clientRequest
+  } catch (error) {
+    return null
+  }
+}
+
+export async function getUnreadRequestsCount() {
+  try {
+    const count = await db.clientRequest.count({ where: { status: "UNREAD" } })
+    return count
+  } catch (error) {
+    console.error("Failed to fetch counter data:", error)
     return null
   }
 }

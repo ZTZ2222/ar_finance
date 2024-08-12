@@ -50,7 +50,7 @@ export default async function LocaleLayout({
           > */}
           <NextIntlClientProvider locale={params.locale} messages={messages}>
             {children}
-            <Toaster richColors />
+            <Toaster position="top-right" richColors />
           </NextIntlClientProvider>
           {/* </ThemeProvider> */}
         </AuthProvider>

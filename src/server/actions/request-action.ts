@@ -16,6 +16,8 @@ export const createClientRequest = actionClient
     const t = await getTranslations()
     try {
       await db.clientRequest.create({ data: parsedInput })
+      revalidatePath("/admin/requests")
+      revalidatePath("/[locale]/(protected)", "layout")
       return { success: t("Server.actions.request-submit-success") }
     } catch (error) {
       console.log(error)
@@ -50,6 +52,35 @@ export const deleteClientRequest = actionClient
       revalidatePath("/admin/requests")
 
       return { success: t("Server.actions.success-delete") }
+    } catch (error) {
+      return { error: t("Server.actions.error") }
+    }
+  })
+
+export const changeClientRequestStatus = actionClient
+  .schema(z.object({ uid: z.number() }))
+  .action(async ({ parsedInput }) => {
+    const t = await getTranslations()
+    try {
+      const request = await db.clientRequest.findUnique({
+        where: { uid: parsedInput.uid },
+      })
+      if (!request) return { error: t("Server.actions.item-not-found") }
+      if (request.status === "READ") {
+        await db.clientRequest.update({
+          where: { uid: parsedInput.uid },
+          data: { status: "UNREAD" },
+        })
+      } else {
+        await db.clientRequest.update({
+          where: { uid: parsedInput.uid },
+          data: { status: "READ" },
+        })
+      }
+      revalidatePath("/admin/requests")
+      revalidatePath("/[locale]/(protected)", "layout")
+
+      return { success: t("Server.actions.success-update") }
     } catch (error) {
       return { error: t("Server.actions.error") }
     }

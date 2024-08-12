@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table"
 import { getClientRequests } from "@/server/data-access-layer/request"
 import ActionButtonGroup from "./action-button-group"
+import ChangeStatusButton from "./change-status"
 
 type Props = {
   query?: string
@@ -80,15 +81,10 @@ export default async function RequestTable({ query, currentPage }: Props) {
               {request.createdAt.toLocaleDateString(locale)}
             </TableCell>
             <TableCell>
-              {request.status === "UNREAD" ? (
-                <Badge variant="default">
-                  {t("Components.FormRequest.unread")}
-                </Badge>
-              ) : (
-                <Badge variant="outline">
-                  {t("Components.FormRequest.read")}
-                </Badge>
-              )}
+              <ChangeStatusButton
+                applicationUid={request.uid}
+                applicationStatus={request.status}
+              />
             </TableCell>
             <TableCell>
               <ActionButtonGroup requestId={request.uid} />

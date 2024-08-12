@@ -41,7 +41,7 @@ export default function ActionButtonGroup({
     execute({ uid: requestId })
   }
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center justify-center gap-2">
       {/* <Button variant="ghost" size="icon" asChild>
         <Link href={`/admin/requests/${requestId}`}>
           <FilePen className="h-4 w-4" />

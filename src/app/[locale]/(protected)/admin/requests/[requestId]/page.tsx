@@ -1,6 +1,6 @@
 import React from "react"
-import { getArticleById } from "@/server/data-access-layer/article"
-import UpdateArticleForm from "./form"
+import { getClientRequestById } from "@/server/data-access-layer/request"
+import UpdateRequestForm from "./form"
 
 type Props = {
   params: {
@@ -9,12 +9,12 @@ type Props = {
 }
 
 export default async function RequestEditPage({ params }: Props) {
-  const article = await getArticleById(Number(params.requestId))
-  if (!article)
+  const request = await getClientRequestById(Number(params.requestId))
+  if (!request)
     return (
       <div className="p-10 text-center text-2xl text-red-500">
-        Article {params.requestId} not found
+        Request {params.requestId} not found
       </div>
     )
-  return <UpdateArticleForm article={article} />
+  return <UpdateRequestForm request={request} />
 }
