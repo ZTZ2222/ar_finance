@@ -6,7 +6,7 @@ import { usePathname } from "@/lib/i18n-navigation"
 import { cn } from "@/lib/utils"
 import Navigation from "@/components/layout/navigation"
 
-export default function Header() {
+export default function Header({ logo }: { logo?: string }) {
   const pathname = usePathname()
   return (
     <header
@@ -17,13 +17,13 @@ export default function Header() {
     >
       <Link href="/" className="relative size-14 lg:size-[120px]">
         <Image
-          src="/assets/logo/ar_finance_rounded_224px.png"
+          src={logo || "/assets/logo/ar_finance_rounded_224px.png"}
           alt="AR Finance Logo"
           fill
           className="object-cover"
         />
       </Link>
-      <Navigation />
+      <Navigation logo={logo} />
     </header>
   )
 }

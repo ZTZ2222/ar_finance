@@ -1,19 +1,24 @@
 import Image from "next/image"
 import Link from "next/link"
 import { getLocale, getTranslations } from "next-intl/server"
-import { getContacts, getSocials } from "@/server/data-access-layer/content"
+import {
+  getContacts,
+  getMetadata,
+  getSocials,
+} from "@/server/data-access-layer/content"
 
 export default async function Footer() {
   const t = await getTranslations()
   const locale = await getLocale()
   const contacts = await getContacts()
   const socials = await getSocials()
+  const logo = (await getMetadata())?.logo1
   return (
     <footer className="rounded-t-[30px] bg-gradient-to-r from-rose-750 to-[#860525]">
       <div className="container my-[50px] flex flex-col gap-[70px] xl:my-[60px] xl:flex-row xl:gap-[80px]">
         <div className="relative size-20">
           <Image
-            src="/assets/logo/ar_finance_224px.png"
+            src={logo || "/assets/logo/ar_finance_224px.png"}
             alt="AR Finance Logo"
             fill
             className="object-cover"

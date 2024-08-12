@@ -3,15 +3,6 @@
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import {
   Sheet,
   SheetClose,
   SheetContent,
@@ -21,16 +12,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import {
-  BgLogo,
-  BurgerMenu,
-  Calculator as CalculatorIcon,
-} from "@/components/icons"
-import Calculator from "@/components/shared/calculator"
+import { BgLogo, BurgerMenu } from "@/components/icons"
 import LocaleSwitcher from "@/components/shared/locale-switcher"
 import ScrollLink from "@/components/shared/scroll-link"
 
-export default function Navigation() {
+export default function Navigation({ logo }: { logo?: string }) {
   const t = useTranslations("Components.NavigationLinks")
   const links = [
     {
@@ -67,7 +53,7 @@ export default function Navigation() {
             <BurgerMenu />
           </Button>
         </SheetTrigger>
-        <SheetContent className="w-full px-4 py-[30px] xl:hidden">
+        <SheetContent className="w-full px-4 py-[30px] xl:hidden" logo={logo}>
           <SheetHeader className="sr-only">
             <SheetTitle>Меню навигации</SheetTitle>
             <SheetDescription>Открыть меню навигации</SheetDescription>

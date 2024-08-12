@@ -17,7 +17,10 @@ import { Calculator as CalculatorIcon } from "@/components/icons"
 import Navigation from "@/components/layout/navigation"
 import Calculator from "@/components/shared/calculator"
 import ScrollLink from "@/components/shared/scroll-link"
-import { getNormalizedSectionById } from "@/server/data-access-layer/content"
+import {
+  getMetadata,
+  getNormalizedSectionById,
+} from "@/server/data-access-layer/content"
 
 export default async function Hero() {
   const t = await getTranslations()
@@ -27,6 +30,7 @@ export default async function Hero() {
   const words = sectionData?.heading?.split(" ")
   const lastWord = words?.pop() // Extract the last word
   const restOfWords = words?.join(" ") // Join the remaining words
+  const logo = (await getMetadata())?.logo1
 
   return (
     <div
@@ -46,7 +50,7 @@ export default async function Hero() {
       >
         <div className="relative size-14 lg:size-[120px]">
           <Image
-            src="/assets/logo/ar_finance_224px.png"
+            src={logo || "/assets/logo/ar_finance_224px.png"}
             alt="AR Finance Logo"
             fill
             className="object-cover"

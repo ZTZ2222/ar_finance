@@ -51,12 +51,14 @@ const sheetVariants = cva(
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
+    VariantProps<typeof sheetVariants> {
+  logo?: string
+}
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", logo, className, children, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content
@@ -68,7 +70,7 @@ const SheetContent = React.forwardRef<
       <div className="mb-10 flex justify-between">
         <div className="relative size-14">
           <Image
-            src="/assets/logo/ar_finance_rounded_224px.png"
+            src={logo || "/assets/logo/ar_finance_rounded_224px.png"}
             alt="Logo"
             fill
             className="object-cover"
