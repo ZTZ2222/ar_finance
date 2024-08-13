@@ -133,7 +133,7 @@ export default function Calculator({ className }: Props) {
   return (
     <Card
       className={cn(
-        "rounded-[30px] bg-white shadow-card lg:flex lg:w-full lg:justify-evenly lg:gap-20 lg:px-[40px] lg:py-[50px]",
+        "overflow-y-auto rounded-[30px] bg-white shadow-card lg:flex lg:w-full lg:justify-evenly lg:gap-20 lg:px-[40px] lg:py-[50px]",
         className,
       )}
     >
@@ -141,7 +141,7 @@ export default function Calculator({ className }: Props) {
         <CardTitle>Калькулятор</CardTitle>
         <CardDescription>Калькулятор</CardDescription>
       </CardHeader>
-      <CardContent className="shrink-0 space-y-[30px] px-4 pb-10 pt-[50px] lg:w-[320px] lg:p-0">
+      <CardContent className="shrink-0 space-y-3 px-4 pb-[25px] pt-[30px] lg:w-[320px] lg:space-y-[30px] lg:p-0 lg:pb-10 lg:pt-[50px]">
         {/* Форма собственности */}
         <div className="space-y-2">
           <Label>{t("form-of-ownership")}</Label>
@@ -235,7 +235,7 @@ export default function Calculator({ className }: Props) {
         </div>
       </CardContent>
 
-      <CardFooter className="flex-col gap-[50px] p-2.5 pb-[50px] pt-0 lg:shrink-0 lg:p-0">
+      <CardFooter className="flex-col gap-[30px] p-2.5 pb-[30px] pt-0 lg:shrink-0 lg:gap-[50px] lg:p-0 lg:pb-[50px]">
         {/* Кнопки */}
         <div className="space-y-2 lg:w-full">
           <ButtonGroup
@@ -256,7 +256,7 @@ export default function Calculator({ className }: Props) {
         </div>
 
         {totalAmountAfterDiscount ? (
-          <div className="flex flex-col gap-[50px] lg:h-full lg:max-w-[373px] lg:justify-between">
+          <div className="flex flex-col gap-[30px] lg:h-full lg:max-w-[373px] lg:justify-between lg:gap-[50px]">
             <div className="flex flex-col items-center gap-5 text-center">
               <h5 className="text-lg font-medium leading-[27px] text-gray-650">
                 {t("cost-of-accounting-services")}{" "}

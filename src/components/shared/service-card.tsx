@@ -38,8 +38,8 @@ export default function ServiceCard({ card, index, className }: Props) {
       {/* Icon */}
       <div className="relative size-9">
         <Image
-          src={card.image as string}
-          alt={card.title}
+          src={card.image || ""}
+          alt={card.title || ""}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -77,8 +77,8 @@ export default function ServiceCard({ card, index, className }: Props) {
           {/* Icon */}
           <div className="relative size-9">
             <Image
-              src={card.image as string}
-              alt={card.title}
+              src={card.image || ""}
+              alt={card.title || ""}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

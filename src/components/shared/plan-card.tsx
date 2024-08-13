@@ -52,8 +52,8 @@ export default function PlanCard({
             {/* Plan card icon */}
             <div className="relative size-10">
               <Image
-                src={card.image as string}
-                alt={card.title}
+                src={card.image || ""}
+                alt={card.title || ""}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
