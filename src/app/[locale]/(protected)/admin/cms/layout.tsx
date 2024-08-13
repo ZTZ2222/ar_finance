@@ -58,7 +58,7 @@ export default async function CMSLayout({
     },
     {
       title: t("Pages.Admin.CMS.Navigation.meta"),
-      href: "/admin/cms/meta",
+      href: "/admin/settings",
     },
   ]
   return (
