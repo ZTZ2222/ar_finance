@@ -1,6 +1,6 @@
 "use client"
 
-import { PlusCircle, Trash2 } from "lucide-react"
+import { PlusCircle, Trash2, XCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useAction } from "next-safe-action/hooks"
 import {
@@ -203,7 +203,7 @@ export default function FormCard({
         className="absolute right-2 top-0"
         disabled={isDeleting}
       >
-        <Trash2 className="size-5" />
+        <XCircle className="size-7" />
       </Button>
     </div>
   )
