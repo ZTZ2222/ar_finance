@@ -19,8 +19,8 @@ export default async function OurPartners() {
           {sectionData?.cards.map(card => (
             <div key={card.uid} className="relative size-[60px]">
               <Image
-                src={card.image}
-                alt={card.title}
+                src={card.image || ""}
+                alt={card.title || ""}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

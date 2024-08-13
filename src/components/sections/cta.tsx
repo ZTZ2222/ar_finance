@@ -24,7 +24,9 @@ export default async function CTA() {
       <div
         className="relative space-y-[46px] overflow-hidden rounded-[30px] py-[60px] lg:px-[70px] lg:py-[75px]"
         style={{
-          backgroundImage: `url("/assets/cta-bg.jpeg")`,
+          backgroundImage: sectionData?.image
+            ? `url(${sectionData?.image})`
+            : `url("/assets/cta-bg.jpeg")`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -88,7 +90,7 @@ export default async function CTA() {
                   {/* Close Button */}
                   <DialogClose asChild>
                     <Button variant="support" size="mobile">
-                      Закрыть
+                      {t("Components.Button.close")}
                     </Button>
                   </DialogClose>
                 </div>

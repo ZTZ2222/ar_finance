@@ -22,8 +22,8 @@ export default async function OurTeam() {
             {/* Team person image */}
             <div className="relative size-40 overflow-hidden rounded-full">
               <Image
-                src={card.image}
-                alt={card.title}
+                src={card.image || "/placeholder-user.jpg"}
+                alt={card.title || ""}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

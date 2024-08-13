@@ -36,7 +36,8 @@ export default async function Hero() {
     <div
       className="relative flex h-screen flex-col"
       style={{
-        backgroundImage: `url("/assets/hero-bg2.jpeg")`,
+        backgroundImage:
+          `url(${sectionData?.image})` || `url("/assets/hero-bg2.jpeg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -83,7 +84,7 @@ export default async function Hero() {
               <CalculatorIcon />
             </Button>
           </DialogTrigger>
-          <DialogContent className="rounded-[30px] border-none bg-transparent p-0 lg:max-w-[853px]">
+          <DialogContent className="overflow-auto rounded-[30px] border-none bg-transparent p-0 lg:max-w-[853px]">
             <Calculator />
             <DialogHeader className="sr-only">
               <DialogTitle>Калькулятор</DialogTitle>
