@@ -58,11 +58,13 @@ export async function getNormalizedSectionById(
 
   const normalizedCards: NormalizedCard[] = sectionData.cards.map(card => ({
     uid: card.uid,
-    title: card[`title_${locale}` as keyof typeof card] as string,
-    description: card[`description_${locale}` as keyof typeof card] as string,
-    extra: card[`extra_${locale}` as keyof typeof card] as string,
+    title: card[`title_${locale}` as keyof typeof card] as string | null,
+    description: card[`description_${locale}` as keyof typeof card] as
+      | string
+      | null,
+    extra: card[`extra_${locale}` as keyof typeof card] as string | null,
     bullets: card[`bullets_${locale}` as keyof typeof card] as string[],
-    image: card.image as string,
+    image: card.image as string | null,
   }))
 
   return {
@@ -73,6 +75,7 @@ export async function getNormalizedSectionById(
     subheading,
     primaryButton,
     secondaryButton,
+    image: sectionData.image,
     cards: normalizedCards,
   }
 }

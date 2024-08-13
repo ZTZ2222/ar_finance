@@ -90,7 +90,8 @@
       "card-extra-label": "Card {number} - Additional field",
       "card-description-placeholder": "Enter card description",
       "card-extra-placeholder": "Enter additional field",
-      "button-add-new": "Add New"
+      "button-add-new": "Add New",
+      "image-label": "Image"
     },
     "PlanCard": {
       "card-title": "Plan"

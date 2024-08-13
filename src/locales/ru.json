@@ -89,7 +89,8 @@
       "card-extra-label": "Карточка {number} – Доп. поле",
       "card-description-placeholder": "Введите описание карточки",
       "card-extra-placeholder": "Введите дополнительное поле",
-      "button-add-new": "Добавить"
+      "button-add-new": "Добавить",
+      "image-label": "Изображение"
     },
     "PlanCard": {
       "card-title": "Тариф"

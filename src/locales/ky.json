@@ -89,7 +89,8 @@
       "card-extra-label": "Карточка {number} - Кошумча талаа",
       "card-description-placeholder": "Карточканын сүрөттөмөсүн киргизиңиз",
       "card-extra-placeholder": "Кошумча талаасын киргизиңиз",
-      "button-add-new": "Жаңы кошуу"
+      "button-add-new": "Жаңы кошуу",
+      "image-label": "Сүрөт"
     },
     "PlanCard": {
       "card-title": "Тариф"

@@ -36,6 +36,7 @@ export const sectionSchema = z.object({
   secondaryButton_ru: z.string().nullable(),
   secondaryButton_en: z.string().nullable(),
   secondaryButton_ky: z.string().nullable(),
+  image: z.string().nullable(),
   cards: z.array(cardSchema),
 })
 
@@ -44,11 +45,11 @@ export type zSection = z.infer<typeof sectionSchema>
 
 export type NormalizedCard = {
   uid: number
-  title: string
-  description: string
-  extra: string
+  title: string | null
+  description: string | null
+  extra: string | null
   bullets: string[]
-  image: string
+  image: string | null
 }
 
 export type NormalizedSection = {
@@ -59,6 +60,7 @@ export type NormalizedSection = {
   subheading: string | null
   primaryButton: string | null
   secondaryButton: string | null
+  image: string | null
   cards: NormalizedCard[]
 }
 
