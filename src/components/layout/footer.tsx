@@ -37,7 +37,7 @@ export default async function Footer() {
               <div className="relative size-6">
                 <Image
                   src={contact.icon}
-                  alt={contact.name_ru as string}
+                  alt={contact.name_ru || ""}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -55,7 +55,7 @@ export default async function Footer() {
                 <div className="relative size-12">
                   <Image
                     src={social.icon}
-                    alt={social.name as string}
+                    alt={social.name || ""}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"

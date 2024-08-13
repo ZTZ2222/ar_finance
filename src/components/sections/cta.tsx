@@ -66,7 +66,7 @@ export default async function CTA() {
                   {/* Icon */}
                   <div className="relative size-[75px]">
                     <Image
-                      src={card?.image as string}
+                      src={card?.image || ""}
                       alt={card?.title || ""}
                       fill
                       className="object-cover"
