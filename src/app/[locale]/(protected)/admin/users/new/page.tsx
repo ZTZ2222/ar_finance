@@ -8,11 +8,18 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import BackButton from "@/components/ui/back-button"
 import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Form, FormField } from "@/components/ui/form"
+import ImageUploadthing from "@/components/ui/upload"
 import { createUser } from "@/server/actions/user-action"
 import { userCreateSchema, zUserCreate } from "@/types/user.schema"
 import CardCredentials from "../_components/card-credentials"
-import CardImage from "../_components/card-image"
 import CardRole from "../_components/card-role"
 
 export default function CreateUser() {
@@ -72,7 +79,19 @@ export default function CreateUser() {
             <FormField
               control={form.control}
               name="image"
-              render={({ field }) => <CardImage field={field} />}
+              render={({ field }) => (
+                <Card className="overflow-hidden">
+                  <CardHeader>
+                    <CardTitle>User Image</CardTitle>
+                    <CardDescription>
+                      Upload a profile image for your user.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ImageUploadthing field={field} />
+                  </CardContent>
+                </Card>
+              )}
             />
           </div>
           <div className="grid auto-rows-max items-start gap-4 lg:gap-8">

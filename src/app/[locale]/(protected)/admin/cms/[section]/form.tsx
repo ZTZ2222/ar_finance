@@ -21,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
+import ImageUploadthing from "@/components/ui/upload"
 import { updateSection } from "@/server/actions/content-action"
 import {
   sectionSchema,
@@ -187,6 +188,21 @@ export default function SectionForm({ sectionData, className }: Props) {
                     </FormItem>
                   )}
                 />
+
+                {/* Бэкграунд */}
+                <div className="space-y-2">
+                  <FormLabel>{t("image-label")}</FormLabel>
+                  <FormField
+                    control={form.control}
+                    name="image"
+                    render={({ field }) => (
+                      <ImageUploadthing
+                        field={field}
+                        className="h-[200px] w-[300px]"
+                      />
+                    )}
+                  />
+                </div>
 
                 {/* Карточки */}
                 <div className="flex flex-wrap gap-10 xl:col-span-2">
