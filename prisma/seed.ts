@@ -33,6 +33,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [],
     },
     {
@@ -56,6 +57,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 2,
@@ -71,7 +73,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/about/image1.jpg",
+          image:
+            "https://utfs.io/f/b18baf4e-583c-4800-b624-830d5cc718c1-1lywq0.jpg",
         },
         {
           sectionId: 2,
@@ -87,7 +90,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/about/image2.jpg",
+          image:
+            "https://utfs.io/f/49417da6-c337-4031-9418-ea75ee8d5d0c-1lywq1.jpg",
         },
         {
           sectionId: 2,
@@ -103,7 +107,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/about/image3.jpg",
+          image:
+            "https://utfs.io/f/f8a7059a-9cca-4564-93b3-c8a78f70136e-1lywq2.jpg",
         },
         {
           sectionId: 2,
@@ -119,7 +124,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/about/image4.jpg",
+          image:
+            "https://utfs.io/f/f2eee931-b0c0-4067-a6e6-274294715db3-1lywq3.jpg",
         },
         {
           sectionId: 2,
@@ -135,7 +141,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/about/image5.jpg",
+          image:
+            "https://utfs.io/f/a9344499-8b37-4bf5-83f4-0a06010f564d-1lywq4.jpg",
         },
       ],
     },
@@ -157,6 +164,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 3,
@@ -257,6 +265,7 @@ async function seedSections() {
       secondaryButton_ru: "Подробнее",
       secondaryButton_en: "Learn more",
       secondaryButton_ky: "Көбүрөөк билүү",
+      image: null,
       cards: [
         {
           sectionId: 4,
@@ -275,7 +284,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/service-icons/startup.png",
+          image:
+            "https://utfs.io/f/51744327-1287-448a-a9b6-e78c3629df32-vbf9gy.png",
         },
       ],
     },
@@ -300,6 +310,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 5,
@@ -345,7 +356,8 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: "/assets/service-icons/file.png",
+          image:
+            "https://utfs.io/f/95fa0e46-254a-4461-8c7f-6cbb78218343-jcfmf7.png",
         },
         {
           sectionId: 5,
@@ -391,7 +403,8 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: "/assets/service-icons/scale.png",
+          image:
+            "https://utfs.io/f/a9614a44-92cc-4681-94be-b51f0f060091-v9ilef.png",
         },
         {
           sectionId: 5,
@@ -437,7 +450,8 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: "/assets/service-icons/accounting.png",
+          image:
+            "https://utfs.io/f/4fe1d3e3-a837-485a-abd6-df20f7d84ddd-o2tnmy.png",
         },
         {
           sectionId: 5,
@@ -483,7 +497,8 @@ async function seedSections() {
             "Кирешелердин жана чыгашалардын эсеби",
             "Финансылык отчеттуулукту түзүү",
           ],
-          image: "/assets/service-icons/taxes.png",
+          image:
+            "https://utfs.io/f/abeae765-d594-47e9-933e-75911c0485ba-v8zlvs.png",
         },
         {
           sectionId: 5,
@@ -502,7 +517,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/service-icons/graph.png",
+          image:
+            "https://utfs.io/f/19d938cc-5cdc-4726-b0d1-fe86e556cb63-vfujmb.png",
         },
         {
           sectionId: 5,
@@ -521,7 +537,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/service-icons/report.png",
+          image:
+            "https://utfs.io/f/a0e469e7-999a-46a6-93f3-e006f8398878-osvygl.png",
         },
       ],
     },
@@ -546,6 +563,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 6,
@@ -577,7 +595,8 @@ async function seedSections() {
             "Салыктын негизги маселелери боюнча консультациялар",
             "Электрондук почта аркылуу колдоо",
           ],
-          image: "/assets/plan-icons/zap.png",
+          image:
+            "https://utfs.io/f/ed5c0d8e-19b1-4659-948e-ccf29b477bdf-uwpyqb.png",
         },
         {
           sectionId: 6,
@@ -608,7 +627,8 @@ async function seedSections() {
             "Электрондук почта аркылуу колдоо",
             "Электрондук почта аркылуу колдоо",
           ],
-          image: "/assets/plan-icons/cluster.png",
+          image:
+            "https://utfs.io/f/510b07b2-d265-4d06-ab29-b5e46636da63-ef6in8.png",
         },
         {
           sectionId: 6,
@@ -642,7 +662,8 @@ async function seedSections() {
             "Отчетторду даярдоо жана берүү",
             "Отчетторду даярдоо жана берүү",
           ],
-          image: "/assets/plan-icons/star.png",
+          image:
+            "https://utfs.io/f/29630769-f477-4707-9003-49eb4f604338-yrs3vs.png",
         },
       ],
     },
@@ -667,6 +688,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [],
     },
     {
@@ -690,6 +712,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [],
     },
     {
@@ -713,6 +736,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 9,
@@ -728,7 +752,7 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/avatar/alex.jpg",
+          image: null,
         },
         {
           sectionId: 9,
@@ -744,7 +768,7 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/avatar/manager.jpg",
+          image: null,
         },
         {
           sectionId: 9,
@@ -760,55 +784,7 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/avatar/alex.jpg",
-        },
-        {
-          sectionId: 9,
-          title_ru: "Анна Королева",
-          title_en: "Anna Koroleva",
-          title_ky: "Анна Королева",
-          description_ru: "Генеральный директор",
-          description_en: "CEO",
-          description_ky: "Башкы директор",
-          extra_ru: null,
-          extra_en: null,
-          extra_ky: null,
-          bullets_ru: [],
-          bullets_en: [],
-          bullets_ky: [],
-          image: "/assets/avatar/manager.jpg",
-        },
-        {
-          sectionId: 9,
-          title_ru: "Дмитрий Сергеев",
-          title_en: "Dmitry Sergeev",
-          title_ky: "Дмитрий Сергеев",
-          description_ru: "Директор",
-          description_en: "Director",
-          description_ky: "Директор",
-          extra_ru: null,
-          extra_en: null,
-          extra_ky: null,
-          bullets_ru: [],
-          bullets_en: [],
-          bullets_ky: [],
-          image: "/assets/avatar/alex.jpg",
-        },
-        {
-          sectionId: 9,
-          title_ru: "Анна Королева",
-          title_en: "Anna Koroleva",
-          title_ky: "Анна Королева",
-          description_ru: "Генеральный директор",
-          description_en: "CEO",
-          description_ky: "Башкы директор",
-          extra_ru: null,
-          extra_en: null,
-          extra_ky: null,
-          bullets_ru: [],
-          bullets_en: [],
-          bullets_ky: [],
-          image: "/assets/avatar/manager.jpg",
+          image: null,
         },
       ],
     },
@@ -833,6 +809,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 10,
@@ -848,7 +825,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/partners/1.png",
+          image:
+            "https://utfs.io/f/23e2ac09-b493-4c0b-89fa-6411752db802-tp2m4m.png",
         },
         {
           sectionId: 10,
@@ -864,7 +842,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/partners/2.png",
+          image:
+            "https://utfs.io/f/60b60663-b0dc-4a26-a558-a785a22d0b68-tp2m4l.png",
         },
         {
           sectionId: 10,
@@ -880,7 +859,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/partners/3.png",
+          image:
+            "https://utfs.io/f/7f3d8ae9-88b0-42c2-b431-84a107ca8520-tp2m4k.png",
         },
         {
           sectionId: 10,
@@ -896,7 +876,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/partners/4.png",
+          image:
+            "https://utfs.io/f/6cdda794-a51c-498e-ba06-f57381e19c12-tp2m4j.png",
         },
         {
           sectionId: 10,
@@ -912,7 +893,8 @@ async function seedSections() {
           bullets_ru: [],
           bullets_en: [],
           bullets_ky: [],
-          image: "/assets/partners/5.png",
+          image:
+            "https://utfs.io/f/008c0556-37b9-4ed8-b9ba-b682834a67d4-tp2m4i.png",
         },
       ],
     },
@@ -938,6 +920,7 @@ async function seedSections() {
       secondaryButton_ru: null,
       secondaryButton_en: null,
       secondaryButton_ky: null,
+      image: null,
       cards: [
         {
           sectionId: 11,
@@ -1030,55 +1013,55 @@ async function seedSocialsAndContacts() {
       name_en: "+996 500 30 10 80",
       name_ky: "+996 500 30 10 80",
       link: "+996500301080",
-      icon: "/assets/contacts/phone.png",
+      icon: "https://utfs.io/f/a5f3239f-6d71-4c3c-ae65-d93198a68c8c-527hby.png",
     },
     {
       name_ru: "пн - пт с 9:00 до 18:00",
       name_en: "Mon - Fri from 9:00 to 18:00",
       name_ky: "Дүйшөмбү - Жума 9:00дөн 18:00гө чейин",
       link: "",
-      icon: "/assets/contacts/clock.png",
+      icon: "https://utfs.io/f/a1a67591-1054-470c-9503-d893e337d57e-59a9cu.png",
     },
     {
       name_ru: "г.Бишкек, ул. Абдрахманова 1",
       name_en: "Bishkek, st. Abdrakhmanova 1",
       name_ky: "Бишкек ш., Абдрахманов көч. 1",
       link: "https://2gis.kg/bishkek",
-      icon: "/assets/contacts/marker.png",
+      icon: "https://utfs.io/f/3c0e240a-aff6-4d67-9157-70c2f9c5ecd2-gd5dui.png",
     },
     {
       name_ru: "arfinance@gmail.com",
       name_en: "arfinance@gmail.com",
       name_ky: "arfinance@gmail.com",
       link: "arfinance@gmail.com",
-      icon: "/assets/contacts/mail.png",
+      icon: "https://utfs.io/f/ba118dcd-796d-49ff-b4be-a351d341bcad-p1fe3n.png",
     },
   ]
   const socials: zSocial[] = [
     {
       name: "whatsapp",
       link: "https://api.whatsapp.com/send?phone=996555000555",
-      icon: "/assets/socials/whatsapp-white.png",
+      icon: "https://utfs.io/f/2205a91a-8b76-4ae0-9d18-b28aecf696a3-88rxlz.png",
     },
     {
       name: "instagram",
       link: "https://www.instagram.com/",
-      icon: "/assets/socials/instagram-white.png",
+      icon: "https://utfs.io/f/3b1be131-bd11-4c66-b012-2af923e4ad5d-dg0vuz.png",
     },
     {
       name: "facebook",
       link: "https://www.facebook.com/",
-      icon: "/assets/socials/facebook-white.png",
+      icon: "https://utfs.io/f/ff7099e5-425c-4e41-bbf0-e08edbca06c0-qvoe8r.png",
     },
     {
       name: "telegram",
       link: "https://t.me/",
-      icon: "/assets/socials/telegram-white.png",
+      icon: "https://utfs.io/f/39e23303-fcf3-4583-af0d-9b74dda14c80-27pr6y.png",
     },
     {
       name: "tiktok",
       link: "https://www.tiktok.com/",
-      icon: "/assets/socials/tiktok-white.png",
+      icon: "https://utfs.io/f/e455af9b-6c8c-4a50-8bbf-5e5309a0b018-bid8v.png",
     },
   ]
 
