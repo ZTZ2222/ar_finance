@@ -26,7 +26,6 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
 import {
   Select,
@@ -36,6 +35,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import ImageUploadthing from "@/components/ui/upload"
 import Editor from "@/components/shared/editor"
 import { createArticle } from "@/server/actions/article-action"
 import { articleCreateSchema, type zArticleCreate } from "@/types/blog.schema"
@@ -247,9 +247,8 @@ export default function CreateArticleForm({ className }: Props) {
                       control={form.control}
                       name="image"
                       render={({ field }) => (
-                        <ImageUpload
+                        <ImageUploadthing
                           field={field}
-                          existingImage={field.value || undefined}
                           className="h-[200px] w-[300px]"
                         />
                       )}

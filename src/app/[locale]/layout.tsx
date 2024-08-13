@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 import { Inter as FontSans } from "next/font/google"
 import { notFound } from "next/navigation"
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin"
 import { NextIntlClientProvider } from "next-intl"
 import { getLocale, getMessages, getTranslations } from "next-intl/server"
 import { Toaster } from "sonner"
+import { extractRouterConfig } from "uploadthing/server"
 import { AllLocales } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
+import { ourFileRouter } from "@/app/api/uploadthing/core"
 import { AuthProvider } from "@/context/auth-provider"
 import { getMetadata } from "@/server/data-access-layer/content"
 // import { ThemeProvider } from "@/context/theme-provider"
@@ -60,6 +63,10 @@ export default async function LocaleLayout({
           fontSans.variable,
         )}
       >
+        {/* SSR Plugin for UploadThing */}
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+
+        {/* Auth and Internationalization Providers */}
         <AuthProvider>
           {/* <ThemeProvider
             attribute="class"

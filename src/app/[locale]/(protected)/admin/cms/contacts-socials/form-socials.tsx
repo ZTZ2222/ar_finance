@@ -16,8 +16,8 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
+import ImageUploadthing from "@/components/ui/upload"
 import { deleteSocial, upsertSocials } from "@/server/actions/content-action"
 import { type zSocial } from "@/types/content.schema"
 
@@ -129,11 +129,7 @@ export default function SocialsForm({ socialsData, className }: Props) {
                   control={form.control}
                   name={`socials.${index}.icon`}
                   render={({ field }) => (
-                    <ImageUpload
-                      field={field}
-                      existingImage={social.icon || undefined}
-                      className="mx-auto"
-                    />
+                    <ImageUploadthing field={field} className="mx-auto" />
                   )}
                 />
 

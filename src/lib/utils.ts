@@ -1,7 +1,12 @@
+import {
+  generateUploadButton,
+  generateUploadDropzone,
+} from "@uploadthing/react"
 import bcrypt from "bcryptjs"
 import { type ClassValue, clsx } from "clsx"
 import path from "path"
 import { twMerge } from "tailwind-merge"
+import type { OurFileRouter } from "@/app/api/uploadthing/core"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -63,3 +68,6 @@ export const generateFilename = (originalName: string): string => {
   const extension = path.extname(originalName)
   return `${timestamp}-${randomString}${extension}`
 }
+
+export const UploadButton = generateUploadButton<OurFileRouter>()
+export const UploadDropzone = generateUploadDropzone<OurFileRouter>()

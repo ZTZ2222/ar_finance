@@ -16,8 +16,8 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
+import ImageUploadthing from "@/components/ui/upload"
 import { deleteContact, upsertContacts } from "@/server/actions/content-action"
 import { type zContact } from "@/types/content.schema"
 
@@ -133,11 +133,7 @@ export default function ContactsForm({ contactsData, className }: Props) {
                   control={form.control}
                   name={`contacts.${index}.icon`}
                   render={({ field }) => (
-                    <ImageUpload
-                      field={field}
-                      existingImage={contact.icon || undefined}
-                      className="mx-auto"
-                    />
+                    <ImageUploadthing field={field} className="mx-auto" />
                   )}
                 />
 

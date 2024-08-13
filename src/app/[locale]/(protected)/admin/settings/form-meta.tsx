@@ -21,6 +21,7 @@ import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
+import ImageUploadthing from "@/components/ui/upload"
 import { upsertMetadata } from "@/server/actions/content-action"
 import {
   metaUpsertSchema,
@@ -136,9 +137,8 @@ export default function MetadataForm({ metaData, className }: Props) {
                     control={form.control}
                     name="ogImage"
                     render={({ field }) => (
-                      <ImageUpload
+                      <ImageUploadthing
                         field={field}
-                        existingImage={field.value || undefined}
                         className="h-[200px] w-[300px]"
                       />
                     )}
@@ -152,9 +152,8 @@ export default function MetadataForm({ metaData, className }: Props) {
                     control={form.control}
                     name="logo1"
                     render={({ field }) => (
-                      <ImageUpload
+                      <ImageUploadthing
                         field={field}
-                        existingImage={field.value || undefined}
                         className="h-[200px] w-[300px]"
                       />
                     )}
@@ -168,9 +167,8 @@ export default function MetadataForm({ metaData, className }: Props) {
                     control={form.control}
                     name="logo2"
                     render={({ field }) => (
-                      <ImageUpload
+                      <ImageUploadthing
                         field={field}
-                        existingImage={field.value || undefined}
                         className="h-[200px] w-[300px]"
                       />
                     )}

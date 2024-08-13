@@ -17,9 +17,9 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form"
-import ImageUpload from "@/components/ui/image-upload"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import ImageUploadthing from "@/components/ui/upload"
 import { deleteCard } from "@/server/actions/content-action"
 import type { zCard, zSection } from "@/types/content.schema"
 
@@ -72,11 +72,7 @@ export default function FormCard({
         control={control}
         name={`cards.${index}.image`}
         render={({ field }) => (
-          <ImageUpload
-            field={field}
-            existingImage={card.image || undefined}
-            className="mx-auto"
-          />
+          <ImageUploadthing field={field} className="mx-auto" />
         )}
       />
 
