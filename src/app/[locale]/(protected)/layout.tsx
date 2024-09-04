@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation"
+import { redirect } from "@/lib/i18n-navigation"
 import { getCurrentUser } from "@/lib/session"
 import HeaderAdmin from "@/components/layout/header-admin"
 import { SidebarAdmin } from "@/components/layout/sidebar-admin"
@@ -11,7 +11,7 @@ export default async function ProtectedLayout({
 }>) {
   const user = await getCurrentUser()
   if (!user) {
-    redirect("/login")
+    redirect("https://arfinance.kg/login")
   }
   const count = await getUnreadRequestsCount()
 

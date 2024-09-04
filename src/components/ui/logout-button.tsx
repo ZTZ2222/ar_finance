@@ -23,7 +23,7 @@ export default function LogoutButton({ className, ...props }: Props) {
       onClick={event => {
         event.preventDefault()
         signOut({
-          callbackUrl: "https://arfinance.kg/login",
+          callbackUrl: `${window.location.origin}/login`,
         })
       }}
       {...props}
